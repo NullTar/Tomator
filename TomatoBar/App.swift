@@ -15,7 +15,7 @@ private let digitFont = NSFont.monospacedDigitSystemFont(ofSize: 0, weight: .reg
 struct TBApp: App {
     // 将TBStatusItem作为应用程序的代理
     @NSApplicationDelegateAdaptor(TBStatusItem.self) var appDelegate
-    @AppStorage("launchAtLogin") private var launchAtLogin = false
+    @AppStorage("launchAtLogin") private var launchAtLogin = true  // 默认开启开机启动
 
     init() {
         // 初始化共享实例
@@ -24,10 +24,12 @@ struct TBApp: App {
         logger.append(event: TBLogEventAppStart())
         
         // 确保开机启动设置与当前状态一致
-        if launchAtLogin {
-            // 在应用启动时同步开机启动设置
-            DispatchQueue.main.async {
-                let timer = TBTimer()
+        // 无论是首次启动还是之后的启动，都应该确保开机启动状态正确设置
+        // 使用临时变量存储launchAtLogin的值，避免在闭包中捕获可变的self
+        let shouldLaunchAtLogin = launchAtLogin
+        DispatchQueue.main.async {
+            let timer = TBTimer()
+            if shouldLaunchAtLogin {
                 timer.setLaunchAtLogin(true)
             }
         }

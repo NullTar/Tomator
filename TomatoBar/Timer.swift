@@ -10,7 +10,7 @@ class TBTimer: ObservableObject {
     @AppStorage("longRestIntervalLength") var longRestIntervalLength = 15     // 长休息间隔长度（分钟）
     @AppStorage("workIntervalsInSet") var workIntervalsInSet = 4      // 每组中的工作间隔数量
     @AppStorage("forceRest") var forceRest = true                     // 强制休息
-    @AppStorage("launchAtLogin") var launchAtLogin = false            // 开机启动
+    @AppStorage("launchAtLogin") var launchAtLogin = true             // 开机启动，默认开启
     // 这个偏好设置是"隐藏的"
     @AppStorage("overrunTimeLimit") var overrunTimeLimit = -60.0      // 超时限制（秒）
 
