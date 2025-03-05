@@ -47,6 +47,7 @@ private struct IntervalsView: View {
             }
             .help(NSLocalizedString("IntervalsView.workIntervalsInSet.help",
                                     comment: "Work intervals in set hint"))
+            Spacer().frame(height: 28)  // 保持一个最小高度
             Spacer().frame(minHeight: 0)
         }
         .padding(4)
