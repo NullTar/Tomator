@@ -7,14 +7,15 @@
 <img src="https://img.shields.io/github/actions/workflow/status/ivoronin/TomatoBar/main.yml?branch=main"/> <img src="https://img.shields.io/github/downloads/ivoronin/TomatoBar/total"/> <img src="https://img.shields.io/github/v/release/ivoronin/TomatoBar?display_name=tag"/> <img src="https://img.shields.io/homebrew/cask/v/tomatobar"/>
 </p>
 
+
+
+## 概述
 <img
   src="https://github.com/wersling/TomatoBar/raw/main/screenshot.png?raw=true"
   alt="Screenshot"
   width="50%"
   align="right"
 />
-
-## 概述
 你听说过番茄工作法吗？这是一种很棒的技术，可以帮助你在学习或工作期间跟踪时间并保持专注。在<a href="https://en.wikipedia.org/wiki/Pomodoro_Technique">维基百科</a>上了解更多信息。
 
 TomatoBar 是 macOS 菜单栏上最简洁的番茄钟计时器。它包含所有基本功能 - 可配置的工作和休息间隔、可选的声音提示、不引人注目的可操作通知以及全局热键。
