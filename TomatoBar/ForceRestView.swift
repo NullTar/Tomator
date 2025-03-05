@@ -1,13 +1,16 @@
 import SwiftUI
 import Combine
+import Carbon.HIToolbox
 
 // 全屏强制休息窗口管理器
 class ForceRestWindowManager: ObservableObject {
     static let shared = ForceRestWindowManager()
     private var window: NSWindow?
+    private var extraWindows: [NSWindow] = []
     private var cancellables = Set<AnyCancellable>()
     @Published var timeRemaining: String = ""
     @Published var isLongBreak: Bool = false
+    private var keyboardMonitor: Any?
     
     private init() {}
     
@@ -53,6 +56,9 @@ class ForceRestWindowManager: ObservableObject {
         self.window = window
         window.makeKeyAndOrderFront(nil)
         
+        // 安装键盘监听器，拦截CMD+Q和其他组合键
+        installKeyboardMonitor()
+        
         // 确保窗口始终在最前面
         setupWindowMonitoring()
         
@@ -65,10 +71,70 @@ class ForceRestWindowManager: ObservableObject {
     
     // 关闭强制休息窗口
     func closeForceRestWindow() {
+        // 移除键盘监听器
+        uninstallKeyboardMonitor()
+        
+        // 关闭主窗口
         if let window = self.window {
             window.close()
             self.window = nil
-            cancellables.removeAll()
+        }
+        
+        // 关闭所有额外的窗口
+        for window in extraWindows {
+            window.close()
+        }
+        extraWindows.removeAll()
+        
+        cancellables.removeAll()
+    }
+    
+    // 安装键盘监听器
+    private func installKeyboardMonitor() {
+        // 监听全局键盘事件
+        keyboardMonitor = NSEvent.addLocalMonitorForEvents(matching: .keyDown) { [weak self] event in
+            // 检查是否是CMD+Q或其他需要拦截的组合键
+            if event.modifierFlags.contains(.command) {
+                let keyCode = event.keyCode
+                
+                // CMD+Q (Q的keyCode是12)
+                if keyCode == kVK_ANSI_Q {
+                    // 拦截CMD+Q，不让它传递到应用程序
+                    return nil
+                }
+                
+                // 拦截其他可能用于关闭或切换的组合键
+                // CMD+W (关闭窗口)
+                if keyCode == kVK_ANSI_W {
+                    return nil
+                }
+                
+                // CMD+H (隐藏应用)
+                if keyCode == kVK_ANSI_H {
+                    return nil
+                }
+                
+                // CMD+M (最小化窗口)
+                if keyCode == kVK_ANSI_M {
+                    return nil
+                }
+                
+                // CMD+Tab (切换应用)
+                if keyCode == kVK_Tab {
+                    return nil
+                }
+            }
+            
+            // 允许其他键盘事件正常传递
+            return event
+        }
+    }
+    
+    // 移除键盘监听器
+    private func uninstallKeyboardMonitor() {
+        if let monitor = keyboardMonitor {
+            NSEvent.removeMonitor(monitor)
+            keyboardMonitor = nil
         }
     }
     
@@ -91,6 +157,29 @@ class ForceRestWindowManager: ObservableObject {
                 
                 // 重新设置窗口级别，确保始终在最上层
                 self?.window?.level = .screenSaver
+                
+                // 确保所有额外的窗口也在最上层
+                for window in self?.extraWindows ?? [] {
+                    window.makeKeyAndOrderFront(nil)
+                    window.level = .screenSaver
+                }
+                
+                // 阻止应用程序被隐藏
+                NSApp.unhide(nil)
+            }
+            .store(in: &cancellables)
+            
+        // 监听应用程序将要终止的通知
+        NotificationCenter.default.publisher(for: NSApplication.willTerminateNotification)
+            .sink { [weak self] _ in
+                // 如果强制休息窗口正在显示，则阻止应用程序终止
+                if self?.window != nil {
+                    // 通过创建一个新的运行循环事件来中断终止过程
+                    // 这是一个激进的方法，但在强制休息的上下文中是合理的
+                    DispatchQueue.main.async {
+                        NSApp.activate(ignoringOtherApps: true)
+                    }
+                }
             }
             .store(in: &cancellables)
     }
@@ -131,6 +220,7 @@ class ForceRestWindowManager: ObservableObject {
                     extraWindow.setFrame(screen.frame, display: true)
                     
                     extraWindow.makeKeyAndOrderFront(nil)
+                    extraWindows.append(extraWindow)
                 }
             }
         }
