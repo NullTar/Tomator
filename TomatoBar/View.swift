@@ -66,6 +66,11 @@ private struct SettingsView: View {
                 .onChange(of: timer.showTimerInMenuBar) { _ in
                     timer.updateTimeLeft()
                 }
+            Toggle(isOn: $timer.forceRest) {
+                Text(NSLocalizedString("SettingsView.forceRest.label",
+                                      comment: "Force rest label"))
+                    .frame(maxWidth: .infinity, alignment: .leading)
+            }.toggleStyle(.switch)
             Spacer().frame(minHeight: 0)
         }
         .padding(4)

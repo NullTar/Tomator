@@ -7,6 +7,7 @@ class TBTimer: ObservableObject {
     @AppStorage("shortRestIntervalLength") var shortRestIntervalLength = 5
     @AppStorage("longRestIntervalLength") var longRestIntervalLength = 15
     @AppStorage("workIntervalsInSet") var workIntervalsInSet = 4
+    @AppStorage("forceRest") var forceRest = true
     // This preference is "hidden"
     @AppStorage("overrunTimeLimit") var overrunTimeLimit = -60.0
 
@@ -57,7 +58,7 @@ class TBTimer: ObservableObject {
                          "from": String(describing: fromState), 
                          "to": String(describing: toState), 
                          "timestamp": timestamp] as [String : Any]
-            logger.append(event: event)
+//            logger.append(event: event)
         })
 
         timerFormatter.unitsStyle = .positional
@@ -104,7 +105,9 @@ class TBTimer: ObservableObject {
     }
 
     func skipRest() {
-        _ = stateMachine.tryEvent(.skipRest)
+        if !forceRest {
+            _ = stateMachine.tryEvent(.skipRest)
+        }
     }
 
     func updateTimeLeft() {
@@ -158,7 +161,7 @@ class TBTimer: ObservableObject {
     }
 
     private func onNotificationAction(action: TBNotification.Action) {
-        if action == .skipRest, stateMachine.state == .rest {
+        if action == .skipRest && !forceRest && stateMachine.state == .rest {
             skipRest()
         }
     }
@@ -190,10 +193,18 @@ class TBTimer: ObservableObject {
             consecutiveWorkIntervals = 0
         }
         TBStatusItem.shared.setIcon(name: imgName)
-        notificationCenter.postNotification(
-            title: NSLocalizedString("TBTimer.onRestStart.title", comment: "Rest title"),
-            body: body,
-            skipButton: NSLocalizedString("TBTimer.onRestStart.skip.title", comment: "Skip button"))
+        
+        if forceRest {
+            notificationCenter.postNotification(
+                title: NSLocalizedString("TBTimer.onRestStart.title", comment: "Rest title"),
+                body: body)
+        } else {
+            notificationCenter.postNotification(
+                title: NSLocalizedString("TBTimer.onRestStart.title", comment: "Rest title"),
+                body: body,
+                skipButton: NSLocalizedString("TBTimer.onRestStart.skip.title", comment: "Skip button"))
+        }
+        
         startTimer(seconds: length * 60)
     }
 
