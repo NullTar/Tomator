@@ -8,7 +8,7 @@ class StatsWindowController: NSWindowController {
     private override init(window: NSWindow?) {
         // 创建窗口
         let window = NSWindow(
-            contentRect: NSRect(x: 0, y: 0, width: 380, height: 500),
+            contentRect: NSRect(x: 0, y: 0, width: 380, height: 600),
             styleMask: [.titled, .closable, .resizable, .miniaturizable],
             backing: .buffered,
             defer: false
