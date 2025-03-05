@@ -23,6 +23,10 @@
 "TBPopoverView.status.working" = "专注工作中";
 "TBPopoverView.status.shortRest" = "短休息中";
 "TBPopoverView.status.longRest" = "长休息中";
+"ForceRestView.shortBreak.title" = "短休息时间到";
+"ForceRestView.longBreak.title" = "长休息时间到";
+"ForceRestView.description" = "休息一下，让眼睛和大脑放松。\n请暂时远离屏幕，保护健康。";
+"ForceRestView.cannot_skip" = "强制休息模式 - 此次休息无法跳过";
 "TBTimer.onRestStart.title" = "时间到";
 "TBTimer.onRestStart.short.body" = "小憩时间到!";
 "TBTimer.onRestStart.long.body" = "长休息时间到!";

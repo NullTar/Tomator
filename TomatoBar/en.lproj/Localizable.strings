@@ -23,6 +23,10 @@
 "TBPopoverView.status.working" = "Working";
 "TBPopoverView.status.shortRest" = "Short Break";
 "TBPopoverView.status.longRest" = "Long Break";
+"ForceRestView.shortBreak.title" = "Time for a Short Break";
+"ForceRestView.longBreak.title" = "Time for a Long Break";
+"ForceRestView.description" = "Take a moment to rest your eyes and mind.\nStep away from the screen for better health.";
+"ForceRestView.cannot_skip" = "Forced Rest Mode - You cannot skip this break";
 "TBTimer.onRestStart.title" = "Time's up";
 "TBTimer.onRestStart.short.body" = "It's time for a short break!";
 "TBTimer.onRestStart.long.body" = "It's time for a long break!";

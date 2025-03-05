@@ -20,6 +20,7 @@ class TBTimer: ObservableObject {
     private var timerFormatter = DateComponentsFormatter()            // 时间格式化器
     @Published var timeLeftString: String = ""                        // 剩余时间字符串
     @Published var timer: DispatchSourceTimer?                        // 计时器
+    private var forceRestWindowManager = ForceRestWindowManager.shared // 强制休息窗口管理器
     
     // 公共方法：获取当前状态
     public var currentState: TBStateMachineStates {
@@ -120,6 +121,7 @@ class TBTimer: ObservableObject {
 
     // 跳过休息
     func skipRest() {
+        // 如果启用了强制休息，不允许跳过
         if !forceRest {
             _ = stateMachine.tryEvent(.skipRest)
         }
@@ -128,10 +130,17 @@ class TBTimer: ObservableObject {
     // 更新剩余时间显示
     func updateTimeLeft() {
         timeLeftString = timerFormatter.string(from: Date(), to: finishTime)!
+        
+        // 更新状态栏时间
         if timer != nil, showTimerInMenuBar {
             TBStatusItem.shared.setTitle(title: timeLeftString)
         } else {
             TBStatusItem.shared.setTitle(title: nil)
+        }
+        
+        // 更新强制休息窗口时间（如果正在显示）
+        if forceRest && stateMachine.state == .rest {
+            forceRestWindowManager.updateTimeRemaining(timeLeftString)
         }
     }
 
@@ -211,13 +220,17 @@ class TBTimer: ObservableObject {
         var body = NSLocalizedString("TBTimer.onRestStart.short.body", comment: "Short break body")
         var length = shortRestIntervalLength
         var imgName = NSImage.Name.shortRest
+        var isLongBreak = false
+        
         // 检查是否需要长休息
         if consecutiveWorkIntervals >= workIntervalsInSet {
             body = NSLocalizedString("TBTimer.onRestStart.long.body", comment: "Long break body")
             length = longRestIntervalLength
             imgName = .longRest
+            isLongBreak = true
             consecutiveWorkIntervals = 0
         }
+        
         TBStatusItem.shared.setIcon(name: imgName)
         
         // 根据是否强制休息显示不同的通知
@@ -225,6 +238,12 @@ class TBTimer: ObservableObject {
             notificationCenter.postNotification(
                 title: NSLocalizedString("TBTimer.onRestStart.title", comment: "Rest title"),
                 body: body)
+            
+            // 显示强制休息全屏窗口
+            DispatchQueue.main.async { [self] in
+                let initialTime = timerFormatter.string(from: TimeInterval(length * 60))!
+                forceRestWindowManager.showForceRestWindow(timeRemaining: initialTime, isLongBreak: isLongBreak)
+            }
         } else {
             notificationCenter.postNotification(
                 title: NSLocalizedString("TBTimer.onRestStart.title", comment: "Rest title"),
@@ -237,6 +256,13 @@ class TBTimer: ObservableObject {
 
     // 休息完成处理
     private func onRestFinish() {
+        // 关闭强制休息窗口
+        if forceRest {
+            DispatchQueue.main.async {
+                self.forceRestWindowManager.closeForceRestWindow()
+            }
+        }
+        
         notificationCenter.postNotification(
             title: NSLocalizedString("TBTimer.onRestFinish.title", comment: "Rest finished title"),
             body: NSLocalizedString("TBTimer.onRestFinish.body", comment: "Rest finished body"))
@@ -247,6 +273,14 @@ class TBTimer: ObservableObject {
         if timer != nil {
             stopTimer()
         }
+        
+        // 关闭强制休息窗口
+        if forceRest {
+            DispatchQueue.main.async {
+                self.forceRestWindowManager.closeForceRestWindow()
+            }
+        }
+        
         TBStatusItem.shared.setIcon(name: .idle)
     }
 }
