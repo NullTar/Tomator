@@ -93,7 +93,21 @@ APP_PATH="$EXPORT_DIR/$APP_NAME.app"
 
 # 创建DMG包
 echo -e "${BLUE}创建DMG包...${NC}"
-hdiutil create -volname "$APP_NAME" -srcfolder "$APP_PATH" -ov -format UDZO "$BUILD_DIR/$DMG_NAME" || { echo -e "${RED}创建DMG失败!${NC}"; exit 1; }
+# 创建临时DMG目录
+TMP_DMG_DIR="$BUILD_DIR/tmp_dmg"
+mkdir -p "$TMP_DMG_DIR"
+
+# 复制应用到临时目录
+cp -R "$APP_PATH" "$TMP_DMG_DIR/"
+
+# 创建Applications文件夹的符号链接
+ln -s /Applications "$TMP_DMG_DIR/Applications"
+
+# 创建带有拖放功能的DMG
+hdiutil create -volname "$APP_NAME" -srcfolder "$TMP_DMG_DIR" -ov -format UDZO "$BUILD_DIR/$DMG_NAME" || { echo -e "${RED}创建DMG失败!${NC}"; exit 1; }
+
+# 清理临时目录
+rm -rf "$TMP_DMG_DIR"
 
 # 创建ZIP包
 echo -e "${BLUE}创建ZIP包...${NC}"
