@@ -1,11 +1,13 @@
 import SwiftUI
 
+// 间隔设置视图，用于配置工作和休息的时间间隔
 private struct IntervalsView: View {
     @EnvironmentObject var timer: TBTimer
     private var minStr = NSLocalizedString("IntervalsView.min", comment: "min")
 
     var body: some View {
         VStack {
+            // 工作间隔时长设置
             Stepper(value: $timer.workIntervalLength, in: 1 ... 60) {
                 HStack {
                     Text(NSLocalizedString("IntervalsView.workIntervalLength.label",
@@ -14,6 +16,7 @@ private struct IntervalsView: View {
                     Text(String.localizedStringWithFormat(minStr, timer.workIntervalLength))
                 }
             }
+            // 短休息间隔时长设置
             Stepper(value: $timer.shortRestIntervalLength, in: 1 ... 60) {
                 HStack {
                     Text(NSLocalizedString("IntervalsView.shortRestIntervalLength.label",
@@ -22,6 +25,7 @@ private struct IntervalsView: View {
                     Text(String.localizedStringWithFormat(minStr, timer.shortRestIntervalLength))
                 }
             }
+            // 长休息间隔时长设置
             Stepper(value: $timer.longRestIntervalLength, in: 1 ... 60) {
                 HStack {
                     Text(NSLocalizedString("IntervalsView.longRestIntervalLength.label",
@@ -32,6 +36,7 @@ private struct IntervalsView: View {
             }
             .help(NSLocalizedString("IntervalsView.longRestIntervalLength.help",
                                     comment: "Long rest interval hint"))
+            // 每组中的工作间隔数量设置
             Stepper(value: $timer.workIntervalsInSet, in: 1 ... 10) {
                 HStack {
                     Text(NSLocalizedString("IntervalsView.workIntervalsInSet.label",
@@ -48,16 +53,19 @@ private struct IntervalsView: View {
     }
 }
 
+// 应用设置视图，用于配置应用的行为
 private struct SettingsView: View {
     @EnvironmentObject var timer: TBTimer
 
     var body: some View {
         VStack {
+            // 休息后停止选项
             Toggle(isOn: $timer.stopAfterBreak) {
                 Text(NSLocalizedString("SettingsView.stopAfterBreak.label",
                                        comment: "Stop after break label"))
                     .frame(maxWidth: .infinity, alignment: .leading)
             }.toggleStyle(.switch)
+            // 在菜单栏显示计时器选项
             Toggle(isOn: $timer.showTimerInMenuBar) {
                 Text(NSLocalizedString("SettingsView.showTimerInMenuBar.label",
                                        comment: "Show timer in menu bar label"))
@@ -66,6 +74,7 @@ private struct SettingsView: View {
                 .onChange(of: timer.showTimerInMenuBar) { _ in
                     timer.updateTimeLeft()
                 }
+            // 强制休息选项
             Toggle(isOn: $timer.forceRest) {
                 Text(NSLocalizedString("SettingsView.forceRest.label",
                                       comment: "Force rest label"))
@@ -77,6 +86,7 @@ private struct SettingsView: View {
     }
 }
 
+// 音量滑块组件，用于调整声音音量
 private struct VolumeSlider: View {
     @Binding var volume: Double
 
@@ -89,6 +99,7 @@ private struct VolumeSlider: View {
     }
 }
 
+// 声音设置视图，用于配置应用的声音效果
 private struct SoundsView: View {
     @EnvironmentObject var player: TBPlayer
 
@@ -99,12 +110,15 @@ private struct SoundsView: View {
 
     var body: some View {
         LazyVGrid(columns: columns, alignment: .leading, spacing: 4) {
+            // 上弦声音设置
             Text(NSLocalizedString("SoundsView.isWindupEnabled.label",
                                    comment: "Windup label"))
             VolumeSlider(volume: $player.windupVolume)
+            // 叮声音设置
             Text(NSLocalizedString("SoundsView.isDingEnabled.label",
                                    comment: "Ding label"))
             VolumeSlider(volume: $player.dingVolume)
+            // 滴答声音设置
             Text(NSLocalizedString("SoundsView.isTickingEnabled.label",
                                    comment: "Ticking label"))
             VolumeSlider(volume: $player.tickingVolume)
@@ -113,10 +127,12 @@ private struct SoundsView: View {
     }
 }
 
+// 子视图枚举，用于标识当前显示的设置页面
 private enum ChildView {
     case intervals, settings, sounds
 }
 
+// 主弹出视图，包含所有设置选项和控制按钮
 struct TBPopoverView: View {
     @ObservedObject var timer = TBTimer()
     @State private var buttonHovered = false
@@ -127,6 +143,7 @@ struct TBPopoverView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
+            // 开始/停止按钮
             Button {
                 timer.startStop()
                 TBStatusItem.shared.closePopover(nil)
@@ -135,9 +152,9 @@ struct TBPopoverView: View {
                      (buttonHovered ? stopLabel : timer.timeLeftString) :
                         startLabel)
                     /*
-                      When appearance is set to "Dark" and accent color is set to "Graphite"
-                      "defaultAction" button label's color is set to the same color as the
-                      button, making the button look blank. #24
+                      当外观设置为"暗色"且强调色设置为"石墨"时，
+                      "defaultAction"按钮标签的颜色与按钮颜色相同，
+                      使按钮看起来是空白的。#24
                      */
                     .foregroundColor(Color.white)
                     .font(.system(.body).monospacedDigit())
@@ -149,6 +166,7 @@ struct TBPopoverView: View {
             .controlSize(.large)
             .keyboardShortcut(.defaultAction)
 
+            // 设置页面选择器
             Picker("", selection: $activeChildView) {
                 Text(NSLocalizedString("TBPopoverView.intervals.label",
                                        comment: "Intervals label")).tag(ChildView.intervals)
@@ -161,6 +179,7 @@ struct TBPopoverView: View {
             .frame(maxWidth: .infinity)
             .pickerStyle(.segmented)
 
+            // 设置内容区域
             GroupBox {
                 switch activeChildView {
                 case .intervals:
@@ -172,7 +191,9 @@ struct TBPopoverView: View {
                 }
             }
 
+            // 底部按钮组
             Group {
+                // 关于按钮
                 Button {
                     NSApp.activate(ignoringOtherApps: true)
                     NSApp.orderFrontStandardAboutPanel()
@@ -184,6 +205,7 @@ struct TBPopoverView: View {
                 }
                 .buttonStyle(.plain)
                 .keyboardShortcut("a")
+                // 退出按钮
                 Button {
                     NSApplication.shared.terminate(self)
                 } label: {
@@ -198,11 +220,10 @@ struct TBPopoverView: View {
         }
         #if DEBUG
             /*
-             After several hours of Googling and trying various StackOverflow
-             recipes I still haven't figured a reliable way to auto resize
-             popover to fit all it's contents (pull requests are welcome!).
-             The following code block is used to determine the optimal
-             geometry of the popover.
+             经过几个小时的搜索和尝试各种StackOverflow上的方案，
+             我仍然没有找到一种可靠的方法来自动调整弹出窗口的大小以适应其所有内容
+             （欢迎提交拉取请求！）。
+             以下代码块用于确定弹出窗口的最佳几何形状。
              */
             .overlay(
                 GeometryReader { proxy in
@@ -210,13 +231,14 @@ struct TBPopoverView: View {
                 }
             )
         #endif
-            /* Use values from GeometryReader */
+            /* 使用GeometryReader中的值 */
 //            .frame(width: 240, height: 276)
             .padding(12)
     }
 }
 
 #if DEBUG
+    // 调试函数，用于打印最佳弹出窗口大小
     func debugSize(proxy: GeometryProxy) -> some View {
         print("Optimal popover size:", proxy.size)
         return Color.clear
