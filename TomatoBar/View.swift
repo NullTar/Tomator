@@ -74,6 +74,15 @@ private struct SettingsView: View {
                 .onChange(of: timer.showTimerInMenuBar) { _ in
                     timer.updateTimeLeft()
                 }
+            // 开机启动选项
+            Toggle(isOn: $timer.launchAtLogin) {
+                Text(NSLocalizedString("SettingsView.launchAtLogin.label",
+                                       comment: "Launch at login label"))
+                    .frame(maxWidth: .infinity, alignment: .leading)
+            }.toggleStyle(.switch)
+                .onChange(of: timer.launchAtLogin) { newValue in
+                    timer.setLaunchAtLogin(newValue)
+                }
             // 强制休息选项
             Toggle(isOn: $timer.forceRest) {
                 Text(NSLocalizedString("SettingsView.forceRest.label",

@@ -6,10 +6,11 @@
 "IntervalsView.workIntervalsInSet.label" = "一组中工作的次数:";
 "IntervalsView.workIntervalsInSet.help" = "每组在长时间休息后的工作次数";
 "SettingsView.shortcut.label" = "快捷键";
-"SettingsView.stopAfterBreak.label" = "在休息后停止";
-"SettingsView.showTimerInMenuBar.label" = "在菜单栏中显示计时器";
+"SettingsView.stopAfterBreak.label" = "休息后停止";
+"SettingsView.showTimerInMenuBar.label" = "在菜单栏显示计时器";
+"SettingsView.launchAtLogin.label" = "开机启动";
 "SettingsView.forceRest.label" = "强制休息";
-"SettingsView.forceRest.help" = "警告：强制休息将完全阻止操作电脑！";
+"SettingsView.forceRest.help" = "警告：强制休息将完全阻止电脑操作！";
 "SoundsView.isWindupEnabled.label" = "发条声";
 "SoundsView.isDingEnabled.label" = "叮";
 "SoundsView.isTickingEnabled.label" = "滴答声";

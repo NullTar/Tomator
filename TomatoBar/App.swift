@@ -15,12 +15,22 @@ private let digitFont = NSFont.monospacedDigitSystemFont(ofSize: 0, weight: .reg
 struct TBApp: App {
     // 将TBStatusItem作为应用程序的代理
     @NSApplicationDelegateAdaptor(TBStatusItem.self) var appDelegate
+    @AppStorage("launchAtLogin") private var launchAtLogin = false
 
     init() {
         // 初始化共享实例
         TBStatusItem.shared = appDelegate
         // 记录应用启动事件
         logger.append(event: TBLogEventAppStart())
+        
+        // 确保开机启动设置与当前状态一致
+        if launchAtLogin {
+            // 在应用启动时同步开机启动设置
+            DispatchQueue.main.async {
+                let timer = TBTimer()
+                timer.setLaunchAtLogin(true)
+            }
+        }
     }
 
     // 应用程序的主体场景

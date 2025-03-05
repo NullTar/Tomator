@@ -8,6 +8,7 @@
 "SettingsView.shortcut.label" = "Shortcut";
 "SettingsView.stopAfterBreak.label" = "Stop after break";
 "SettingsView.showTimerInMenuBar.label" = "Show timer in menu bar";
+"SettingsView.launchAtLogin.label" = "Launch at login";
 "SettingsView.forceRest.label" = "Force rest";
 "SettingsView.forceRest.help" = "Warning: Force rest will completely block computer operation!";
 "SoundsView.isWindupEnabled.label" = "Windup";

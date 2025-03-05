@@ -1,4 +1,5 @@
 import SwiftUI
+import ServiceManagement
 
 class TBTimer: ObservableObject {
     // 应用设置，使用 AppStorage 持久化
@@ -9,6 +10,7 @@ class TBTimer: ObservableObject {
     @AppStorage("longRestIntervalLength") var longRestIntervalLength = 15     // 长休息间隔长度（分钟）
     @AppStorage("workIntervalsInSet") var workIntervalsInSet = 4      // 每组中的工作间隔数量
     @AppStorage("forceRest") var forceRest = true                     // 强制休息
+    @AppStorage("launchAtLogin") var launchAtLogin = false            // 开机启动
     // 这个偏好设置是"隐藏的"
     @AppStorage("overrunTimeLimit") var overrunTimeLimit = -60.0      // 超时限制（秒）
 
@@ -283,5 +285,35 @@ class TBTimer: ObservableObject {
         }
         
         TBStatusItem.shared.setIcon(name: .idle)
+    }
+
+    // 设置开机启动状态
+    func setLaunchAtLogin(_ enable: Bool) {
+        let bundleIdentifier = Bundle.main.bundleIdentifier ?? ""
+        
+        // 对于 macOS 13 及以上版本，使用 SMAppService
+        if #available(macOS 13.0, *) {
+            let service = SMAppService.mainApp
+            do {
+                if enable {
+                    if service.status != .enabled {
+                        try service.register()
+                    }
+                } else {
+                    if service.status == .enabled {
+                        try service.unregister()
+                    }
+                }
+            } catch {
+                print("无法更改登录项状态: \(error.localizedDescription)")
+            }
+        } 
+        // 对于 macOS 12 及更早版本，使用旧的 SMLoginItemSetEnabled API
+        else {
+            let success = SMLoginItemSetEnabled(bundleIdentifier as CFString, enable)
+            if !success {
+                print("无法更改登录项状态：SMLoginItemSetEnabled 失败")
+            }
+        }
     }
 }
