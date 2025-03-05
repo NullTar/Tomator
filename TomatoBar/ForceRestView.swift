@@ -35,8 +35,15 @@ class ForceRestWindowManager: ObservableObject {
         window.backgroundColor = NSColor.clear
         window.isOpaque = false
         window.hasShadow = false
-        window.level = .floating // 窗口层级高于普通窗口
+        
+        // 设置最高窗口层级，确保覆盖所有内容
+        window.level = .screenSaver // 使用屏幕保护程序级别，这是非常高的窗口级别
+        
+        // 确保窗口在所有工作区都显示，并且在全屏模式下也能显示
         window.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary]
+        
+        // 阻止窗口被激活键盘焦点
+        window.ignoresMouseEvents = false // 必须接收鼠标事件才能阻止穿透
         
         // 设置SwiftUI内容视图
         let contentView = ForceRestView()
@@ -51,6 +58,9 @@ class ForceRestWindowManager: ObservableObject {
         
         // 全屏显示
         makeWindowFullScreen()
+        
+        // 获取所有显示器并在每个显示器上显示窗口
+        coverAllScreens()
     }
     
     // 关闭强制休息窗口
@@ -72,12 +82,15 @@ class ForceRestWindowManager: ObservableObject {
             }
             .store(in: &cancellables)
         
-        // 定期检查窗口是否最前
-        Timer.publish(every: 0.5, on: .main, in: .common)
+        // 定期检查窗口是否最前，防止被其他应用覆盖
+        Timer.publish(every: 0.3, on: .main, in: .common)
             .autoconnect()
             .sink { [weak self] _ in
                 self?.window?.makeKeyAndOrderFront(nil)
                 self?.makeWindowFullScreen()
+                
+                // 重新设置窗口级别，确保始终在最上层
+                self?.window?.level = .screenSaver
             }
             .store(in: &cancellables)
     }
@@ -89,6 +102,37 @@ class ForceRestWindowManager: ObservableObject {
         // 获取当前显示器的框架
         if let screen = NSScreen.main {
             window.setFrame(screen.frame, display: true)
+        }
+    }
+    
+    // 覆盖所有屏幕（多显示器支持）
+    private func coverAllScreens() {
+        // 主窗口已经创建，现在检查其他显示器
+        let screens = NSScreen.screens
+        if screens.count > 1 {
+            // 有多个显示器，为每个非主显示器创建额外窗口
+            for (index, screen) in screens.enumerated() {
+                if index > 0 || screen != NSScreen.main { // 跳过主显示器
+                    let extraWindow = NSWindow(
+                        contentRect: screen.frame,
+                        styleMask: [.borderless],
+                        backing: .buffered,
+                        defer: false
+                    )
+                    
+                    extraWindow.level = .screenSaver
+                    extraWindow.backgroundColor = NSColor.black.withAlphaComponent(0.7)
+                    extraWindow.isOpaque = false
+                    extraWindow.hasShadow = false
+                    extraWindow.ignoresMouseEvents = false
+                    extraWindow.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary]
+                    
+                    // 设置与主窗口相同的大小和位置
+                    extraWindow.setFrame(screen.frame, display: true)
+                    
+                    extraWindow.makeKeyAndOrderFront(nil)
+                }
+            }
         }
     }
     
@@ -104,9 +148,10 @@ struct ForceRestView: View {
     
     var body: some View {
         ZStack {
-            // 半透明背景
-            Color.black.opacity(0.7)
+            // 半透明背景 - 增加不透明度，避免看到下层内容
+            Color.black.opacity(0.85)
                 .edgesIgnoringSafeArea(.all)
+                .allowsHitTesting(true) // 允许接收点击事件但不传递
             
             VStack(spacing: 30) {
                 // 休息图标
@@ -142,7 +187,9 @@ struct ForceRestView: View {
             }
             .padding(50)
         }
-        // 禁用所有交互
+        // 禁用所有交互 - 但捕获点击事件
+        .contentShape(Rectangle())
         .allowsHitTesting(true)
+        .onTapGesture {} // 空手势处理器捕获但不做任何操作
     }
 } 
