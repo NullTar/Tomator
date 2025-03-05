@@ -57,7 +57,7 @@
 		8A21B77F27EE31A20009E5DB = {
 			isa = PBXGroup;
 			children = (
-				8A21B78A27EE31A20009E5DB /* TomatoBar */,
+				8A21B78A27EE31A20009E5DB /* Sources */,
 				8A21B78927EE31A20009E5DB /* Products */,
 				8A9F700D27EE3AED0012A1EC /* Frameworks */,
 			);
@@ -71,7 +71,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8A21B78A27EE31A20009E5DB /* TomatoBar */ = {
+		8A21B78A27EE31A20009E5DB /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				9CCCDD6A2D786A8000A76DD7 /* Stats */,
@@ -88,7 +88,7 @@
 				8A21B79427EE31A30009E5DB /* TomatoBar.entitlements */,
 				8AA54347293094AB002A47FC /* Localizable.strings */,
 			);
-			path = TomatoBar;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		8A9F700D27EE3AED0012A1EC /* Frameworks */ = {
@@ -335,16 +335,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = TomatoBar/TomatoBar.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Sources/TomatoBar.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 7L52W29X27;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TomatoBar/Info.plist;
+				INFOPLIST_FILE = Sources/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 SeanZou. All rights reserved. https://github.com/wersling/TomatoBar";
@@ -370,16 +370,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = TomatoBar/TomatoBar.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Sources/TomatoBar.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 7L52W29X27;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TomatoBar/Info.plist;
+				INFOPLIST_FILE = Sources/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 SeanZou. All rights reserved. https://github.com/wersling/TomatoBar";
