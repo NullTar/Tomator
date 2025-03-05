@@ -164,7 +164,10 @@ struct TBPopoverView: View {
         } else {
             switch timer.currentState {
             case .work:
-                status = NSLocalizedString("TBPopoverView.status.working", comment: "Working status")
+                // 添加当前工作次数/总工作次数的信息 (n/total)
+                let currentCount = timer.consecutiveWorkIntervals + 1 // +1 因为是当前正在进行的
+                let totalCount = timer.workIntervalsInSet
+                status = "\(NSLocalizedString("TBPopoverView.status.working", comment: "Working status")) (\(currentCount)/\(totalCount))"
                 color = .green
             case .rest:
                 if timer.isLongRest {
