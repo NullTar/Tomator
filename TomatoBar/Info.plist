@@ -10,7 +10,7 @@
 			<key>CFBundleURLIconFile</key>
 			<string></string>
 			<key>CFBundleURLName</key>
-			<string>com.github.ivoronin.TomatoBar</string>
+			<string>com.github.wersling.TomatoBar</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>tomatobar</string>
