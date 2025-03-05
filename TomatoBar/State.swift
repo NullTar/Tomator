@@ -18,7 +18,12 @@ class TBStateMachine {
     private var anyToRestHandlers: [() -> Void] = []     // 任意状态到休息的处理器
     private var restToWorkHandlers: [() -> Void] = []    // 休息到工作的处理器
     private var anyToIdleHandlers: [() -> Void] = []     // 任意状态到空闲的处理器
-    private var anyToAnyHandlers: [() -> Void] = []      // 任意状态转换的处理器
+    private var anyToAnyHandlers: [() -> Void] = []      // 任意状态到任意状态的处理器
+    
+    // 公共访问当前状态的属性
+    public var state: TBStateMachineStates {
+        return currentState
+    }
     
     // 初始化状态机
     init(state: TBStateMachineStates) {
@@ -145,10 +150,5 @@ class TBStateMachine {
         }
         
         return transitioned
-    }
-    
-    // 获取当前状态
-    var state: TBStateMachineStates {
-        return currentState
     }
 }

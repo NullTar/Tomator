@@ -14,12 +14,22 @@ class TBTimer: ObservableObject {
 
     private var stateMachine = TBStateMachine(state: .idle)           // 状态机，初始状态为空闲
     public let player = TBPlayer()                                    // 音效播放器
-    private var consecutiveWorkIntervals: Int = 0                     // 连续工作间隔计数
+    @Published public private(set) var consecutiveWorkIntervals: Int = 0  // 连续工作间隔计数
     private var notificationCenter = TBNotificationCenter()           // 通知中心
     private var finishTime: Date!                                     // 计时结束时间
     private var timerFormatter = DateComponentsFormatter()            // 时间格式化器
     @Published var timeLeftString: String = ""                        // 剩余时间字符串
     @Published var timer: DispatchSourceTimer?                        // 计时器
+    
+    // 公共方法：获取当前状态
+    public var currentState: TBStateMachineStates {
+        return stateMachine.state
+    }
+    
+    // 公共方法：判断是否是长休息
+    public var isLongRest: Bool {
+        return currentState == .rest && consecutiveWorkIntervals >= workIntervalsInSet
+    }
 
     init() {
         /*

@@ -19,6 +19,10 @@
 "TBPopoverView.sounds.label" = "声音";
 "TBPopoverView.about.label" = "关于";
 "TBPopoverView.quit.label" = "退出";
+"TBPopoverView.status.ready" = "准备就绪";
+"TBPopoverView.status.working" = "专注工作中";
+"TBPopoverView.status.shortRest" = "短休息中";
+"TBPopoverView.status.longRest" = "长休息中";
 "TBTimer.onRestStart.title" = "时间到";
 "TBTimer.onRestStart.short.body" = "小憩时间到!";
 "TBTimer.onRestStart.long.body" = "长休息时间到!";

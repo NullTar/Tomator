@@ -19,6 +19,10 @@
 "TBPopoverView.sounds.label" = "Sounds";
 "TBPopoverView.about.label" = "About";
 "TBPopoverView.quit.label" = "Quit";
+"TBPopoverView.status.ready" = "Ready";
+"TBPopoverView.status.working" = "Working";
+"TBPopoverView.status.shortRest" = "Short Break";
+"TBPopoverView.status.longRest" = "Long Break";
 "TBTimer.onRestStart.title" = "Time's up";
 "TBTimer.onRestStart.short.body" = "It's time for a short break!";
 "TBTimer.onRestStart.long.body" = "It's time for a long break!";

@@ -140,9 +140,48 @@ struct TBPopoverView: View {
 
     private var startLabel = NSLocalizedString("TBPopoverView.start.label", comment: "Start label")
     private var stopLabel = NSLocalizedString("TBPopoverView.stop.label", comment: "Stop label")
+    
+    // 定义状态显示文本
+    private var statusText: some View {
+        let status: String
+        let color: Color
+        
+        if timer.timer == nil {
+            status = NSLocalizedString("TBPopoverView.status.ready", comment: "Ready status")
+            color = .secondary
+        } else {
+            switch timer.currentState {
+            case .work:
+                status = NSLocalizedString("TBPopoverView.status.working", comment: "Working status")
+                color = .green
+            case .rest:
+                if timer.isLongRest {
+                    status = NSLocalizedString("TBPopoverView.status.longRest", comment: "Long rest status")
+                } else {
+                    status = NSLocalizedString("TBPopoverView.status.shortRest", comment: "Short rest status")
+                }
+                color = .blue
+            default:
+                status = NSLocalizedString("TBPopoverView.status.ready", comment: "Ready status")
+                color = .secondary
+            }
+        }
+        
+        return Text(status)
+            .foregroundColor(color)
+            .font(.system(size: 14, weight: .medium))
+    }
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
+            // 状态指示器
+            HStack {
+                Spacer()
+                statusText
+                    .padding(.vertical, 4)
+                Spacer()
+            }
+            
             // 开始/停止按钮
             Button {
                 timer.startStop()
