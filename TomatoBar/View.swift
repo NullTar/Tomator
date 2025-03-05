@@ -1,5 +1,4 @@
 import KeyboardShortcuts
-import LaunchAtLogin
 import SwiftUI
 
 extension KeyboardShortcuts.Name {
@@ -56,7 +55,6 @@ private struct IntervalsView: View {
 
 private struct SettingsView: View {
     @EnvironmentObject var timer: TBTimer
-    @ObservedObject private var launchAtLogin = LaunchAtLogin.observable
 
     var body: some View {
         VStack {
@@ -78,11 +76,6 @@ private struct SettingsView: View {
                 .onChange(of: timer.showTimerInMenuBar) { _ in
                     timer.updateTimeLeft()
                 }
-            Toggle(isOn: $launchAtLogin.isEnabled) {
-                Text(NSLocalizedString("SettingsView.launchAtLogin.label",
-                                       comment: "Launch at login label"))
-                    .frame(maxWidth: .infinity, alignment: .leading)
-            }.toggleStyle(.switch)
             Spacer().frame(minHeight: 0)
         }
         .padding(4)
