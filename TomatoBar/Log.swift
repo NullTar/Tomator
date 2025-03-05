@@ -34,8 +34,6 @@ class TBLogEventTransition: TBLogEvent {
     }
 }
 
-// TBLogEventTransition移到Timer.swift文件中了
-
 private let logFileName = "TomatoBar.log"
 private let lineEnd = "\n".data(using: .utf8)!
 
