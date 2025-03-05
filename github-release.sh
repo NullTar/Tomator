@@ -12,6 +12,21 @@ YELLOW='\033[0;33m'
 BLUE='\033[0;34m'
 NC='\033[0m' # 无颜色
 
+# 项目配置
+PROJECT_NAME="TomatoBar.xcodeproj"
+
+# 从project.pbxproj获取版本号
+get_marketing_version() {
+    PBXPROJ_PATH="$PROJECT_NAME/project.pbxproj"
+    if [ -f "$PBXPROJ_PATH" ]; then
+        VERSION=$(grep -m 1 "MARKETING_VERSION =" "$PBXPROJ_PATH" | sed 's/.*MARKETING_VERSION = \(.*\);/\1/')
+        echo "$VERSION"
+    else
+        echo "无法找到项目文件: $PBXPROJ_PATH"
+        exit 1
+    fi
+}
+
 # 检查是否安装了gh CLI
 if ! command -v gh &> /dev/null; then
     echo -e "${RED}错误: 未安装GitHub CLI (gh)${NC}"
@@ -21,10 +36,12 @@ fi
 
 # 检查是否有版本号参数
 if [ $# -eq 0 ]; then
-    echo -e "${YELLOW}警告: 未提供版本号，将使用当前Info.plist中的版本${NC}"
-    VERSION=$(defaults read "$(pwd)/TomatoBar/Info" CFBundleShortVersionString)
+    echo -e "${YELLOW}警告: 未提供版本号，将使用Xcode项目中的MARKETING_VERSION${NC}"
+    VERSION=$(get_marketing_version)
+    echo -e "${BLUE}从项目文件获取的版本号: $VERSION${NC}"
 else
     VERSION=$1
+    echo -e "${BLUE}使用提供的版本号: $VERSION${NC}"
 fi
 
 # 确认版本号前缀

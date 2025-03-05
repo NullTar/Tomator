@@ -52,7 +52,7 @@ Touch bar integration and older macOS versions (earlier than Big Sur) are suppor
 
 1. `release.sh` - 构建、签名和打包应用
    ```bash
-   # 使用当前Info.plist中的版本号
+   # 使用Xcode项目中的MARKETING_VERSION
    ./release.sh
    
    # 指定版本号
@@ -62,10 +62,12 @@ Touch bar integration and older macOS versions (earlier than Big Sur) are suppor
    - TomatoBar.app - 应用程序
    - TomatoBar.dmg - 磁盘镜像
    - TomatoBar.zip - 压缩包
+   
+   版本号从Xcode项目文件中的`MARKETING_VERSION`属性获取，而不是从Info.plist中获取。
 
 2. `github-release.sh` - 创建GitHub发布并上传构建文件
    ```bash
-   # 使用当前Info.plist中的版本号
+   # 使用Xcode项目中的MARKETING_VERSION
    ./github-release.sh
    
    # 指定版本号

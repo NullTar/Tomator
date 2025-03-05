@@ -22,16 +22,29 @@ EXPORT_DIR="$BUILD_DIR/Export"
 DMG_NAME="$APP_NAME.dmg"
 ZIP_NAME="$APP_NAME.zip"
 
+# 从project.pbxproj获取版本号
+get_marketing_version() {
+    PBXPROJ_PATH="$PROJECT_NAME/project.pbxproj"
+    if [ -f "$PBXPROJ_PATH" ]; then
+        VERSION=$(grep -m 1 "MARKETING_VERSION =" "$PBXPROJ_PATH" | sed 's/.*MARKETING_VERSION = \(.*\);/\1/')
+        echo "$VERSION"
+    else
+        echo "无法找到项目文件: $PBXPROJ_PATH"
+        exit 1
+    fi
+}
+
 # 检查是否有版本号参数
 if [ $# -eq 0 ]; then
-    echo -e "${YELLOW}警告: 未提供版本号，将使用当前Info.plist中的版本${NC}"
-    VERSION=$(defaults read "$(pwd)/$APP_NAME/Info.plist" CFBundleShortVersionString)
+    echo -e "${YELLOW}警告: 未提供版本号，将使用Xcode项目中的MARKETING_VERSION${NC}"
+    VERSION=$(get_marketing_version)
+    echo -e "${BLUE}从项目文件获取的版本号: $VERSION${NC}"
 else
     VERSION=$1
     echo -e "${BLUE}使用提供的版本号: $VERSION${NC}"
-    # 更新Info.plist中的版本号
-    defaults write "$(pwd)/$APP_NAME/Info.plist" CFBundleShortVersionString "$VERSION"
-    echo -e "${GREEN}已更新Info.plist中的版本号为 $VERSION${NC}"
+    # 如果手动指定了版本号，暂时不更新项目文件中的版本号
+    # 需要在Xcode中手动更新MARKETING_VERSION
+    echo -e "${YELLOW}注意: 请在Xcode中更新项目的MARKETING_VERSION以保持一致性${NC}"
 fi
 
 # 创建构建目录
