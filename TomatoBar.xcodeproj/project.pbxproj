@@ -10,13 +10,10 @@
 		8A21B78C27EE31A20009E5DB /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A21B78B27EE31A20009E5DB /* App.swift */; };
 		8A21B78E27EE31A20009E5DB /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A21B78D27EE31A20009E5DB /* View.swift */; };
 		8A21B79027EE31A30009E5DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A21B78F27EE31A30009E5DB /* Assets.xcassets */; };
-		8A7403A027FA19BB00E7F90B /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 8A74039F27FA19BB00E7F90B /* LaunchAtLogin */; };
-		8A8CFE402821D8C300F9F303 /* SwiftState in Frameworks */ = {isa = PBXBuildFile; productRef = 8A8CFE3F2821D8C300F9F303 /* SwiftState */; };
 		8A9F700927EE396E0012A1EC /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9F700827EE396E0012A1EC /* State.swift */; };
 		8A9F701927EE3DAF0012A1EC /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9F701827EE3DAF0012A1EC /* Timer.swift */; };
 		8A9F701F27EE536D0012A1EC /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9F701E27EE536D0012A1EC /* Player.swift */; };
 		8AA5434A2930F008002A47FC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8AA54347293094AB002A47FC /* Localizable.strings */; };
-		8AA5B3EB281295DB00BE1A6C /* KeyboardShortcuts in Frameworks */ = {isa = PBXBuildFile; productRef = 8AA5B3EA281295DB00BE1A6C /* KeyboardShortcuts */; };
 		8AA5B3F22812A74600BE1A6C /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA5B3F12812A74600BE1A6C /* Notifications.swift */; };
 		8AEE49AF2AA75A5E00243D2F /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEE49AE2AA75A5E00243D2F /* Log.swift */; };
 /* End PBXBuildFile section */
@@ -41,9 +38,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A7403A027FA19BB00E7F90B /* LaunchAtLogin in Frameworks */,
-				8AA5B3EB281295DB00BE1A6C /* KeyboardShortcuts in Frameworks */,
-				8A8CFE402821D8C300F9F303 /* SwiftState in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,9 +103,6 @@
 			);
 			name = TomatoBar;
 			packageProductDependencies = (
-				8A74039F27FA19BB00E7F90B /* LaunchAtLogin */,
-				8AA5B3EA281295DB00BE1A6C /* KeyboardShortcuts */,
-				8A8CFE3F2821D8C300F9F303 /* SwiftState */,
 			);
 			productName = TomatoBar;
 			productReference = 8A21B78827EE31A20009E5DB /* TomatoBar.app */;
@@ -143,9 +134,6 @@
 			);
 			mainGroup = 8A21B77F27EE31A20009E5DB;
 			packageReferences = (
-				8A74039E27FA19BB00E7F90B /* XCRemoteSwiftPackageReference "LaunchAtLogin" */,
-				8AA5B3E9281295DB00BE1A6C /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */,
-				8A8CFE3E2821D8C300F9F303 /* XCRemoteSwiftPackageReference "SwiftState" */,
 			);
 			productRefGroup = 8A21B78927EE31A20009E5DB /* Products */;
 			projectDirPath = "";
@@ -429,51 +417,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		8A74039E27FA19BB00E7F90B /* XCRemoteSwiftPackageReference "LaunchAtLogin" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/sindresorhus/LaunchAtLogin";
-			requirement = {
-				kind = exactVersion;
-				version = 5.0.0;
-			};
-		};
-		8A8CFE3E2821D8C300F9F303 /* XCRemoteSwiftPackageReference "SwiftState" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ReactKit/SwiftState";
-			requirement = {
-				branch = swift/5.0;
-				kind = branch;
-			};
-		};
-		8AA5B3E9281295DB00BE1A6C /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/sindresorhus/KeyboardShortcuts";
-			requirement = {
-				kind = exactVersion;
-				version = 1.14.1;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		8A74039F27FA19BB00E7F90B /* LaunchAtLogin */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 8A74039E27FA19BB00E7F90B /* XCRemoteSwiftPackageReference "LaunchAtLogin" */;
-			productName = LaunchAtLogin;
-		};
-		8A8CFE3F2821D8C300F9F303 /* SwiftState */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 8A8CFE3E2821D8C300F9F303 /* XCRemoteSwiftPackageReference "SwiftState" */;
-			productName = SwiftState;
-		};
-		8AA5B3EA281295DB00BE1A6C /* KeyboardShortcuts */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 8AA5B3E9281295DB00BE1A6C /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */;
-			productName = KeyboardShortcuts;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8A21B78027EE31A20009E5DB /* Project object */;
 }
