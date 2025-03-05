@@ -213,17 +213,20 @@ struct TBPopoverView: View {
                 timer.startStop()
                 TBStatusItem.shared.closePopover(nil)
             } label: {
-                Text(timer.timer != nil ?
-                     (buttonHovered ? stopLabel : timer.timeLeftString) :
-                        startLabel)
-                    /*
-                      当外观设置为"暗色"且强调色设置为"石墨"时，
-                      "defaultAction"按钮标签的颜色与按钮颜色相同，
-                      使按钮看起来是空白的。#24
-                     */
-                    .foregroundColor(Color.white)
-                    .font(.system(.body).monospacedDigit())
-                    .frame(maxWidth: .infinity)
+                HStack {
+                    Image(systemName: timer.timer != nil ? "pause.fill" : "play.fill")
+                    Text(timer.timer != nil ?
+                         (buttonHovered ? stopLabel : timer.timeLeftString) :
+                            startLabel)
+                        /*
+                          当外观设置为"暗色"且强调色设置为"石墨"时，
+                          "defaultAction"按钮标签的颜色与按钮颜色相同，
+                          使按钮看起来是空白的。#24
+                         */
+                        .foregroundColor(Color.white)
+                        .font(.system(.body).monospacedDigit())
+                }
+                .frame(maxWidth: .infinity)
             }
             .onHover { over in
                 buttonHovered = over
