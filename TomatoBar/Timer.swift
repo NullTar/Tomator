@@ -50,15 +50,12 @@ class TBTimer: ObservableObject {
         stateMachine.add_anyToRest(handler: onRestStart)
         stateMachine.add_restToWork(handler: onRestFinish)
         stateMachine.add_anyToIdle(handler: onIdleStart)
+        
         stateMachine.add_anyToAny(handler: {
             let fromState = self.stateMachine.state
             let toState = self.stateMachine.state
-            let timestamp = Date()
-            let event = ["type": "transition", 
-                         "from": String(describing: fromState), 
-                         "to": String(describing: toState), 
-                         "timestamp": timestamp] as [String : Any]
-//            logger.append(event: event)
+            let event = TBLogEventTransition(from: String(describing: fromState), to: String(describing: toState))
+            logger.append(event: event)
         })
 
         timerFormatter.unitsStyle = .positional

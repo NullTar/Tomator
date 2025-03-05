@@ -18,6 +18,22 @@ class TBLogEventAppStart: TBLogEvent {
     internal let timestamp: Date = Date()
 }
 
+class TBLogEventTransition: TBLogEvent {
+    internal let type = "transition"
+    internal let timestamp: Date = Date()
+    let from: String
+    let to: String
+    
+    init(from: String, to: String) {
+        self.from = from
+        self.to = to
+    }
+    
+    var verboseMessage: String {
+        return "Transition from \(from) to \(to) at \(timestamp)"
+    }
+}
+
 // TBLogEventTransition移到Timer.swift文件中了
 
 private let logFileName = "TomatoBar.log"
