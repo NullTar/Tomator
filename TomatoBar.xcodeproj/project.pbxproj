@@ -17,6 +17,7 @@
 		8AA5B3F22812A74600BE1A6C /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA5B3F12812A74600BE1A6C /* Notifications.swift */; };
 		8AEE49AF2AA75A5E00243D2F /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEE49AE2AA75A5E00243D2F /* Log.swift */; };
 		9CCCDD542D782B5000A76DD7 /* ForceRestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCCDD532D782B5000A76DD7 /* ForceRestView.swift */; };
+		9CCCDD5A2D783F2700A76DD7 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9CCCDD592D783F2700A76DD7 /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		8AA5B3F12812A74600BE1A6C /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		8AEE49AE2AA75A5E00243D2F /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		9CCCDD532D782B5000A76DD7 /* ForceRestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForceRestView.swift; sourceTree = "<group>"; };
+		9CCCDD592D783F2700A76DD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4C8DE0E2930DBB4003B1110 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -66,6 +68,7 @@
 		8A21B78A27EE31A20009E5DB /* TomatoBar */ = {
 			isa = PBXGroup;
 			children = (
+				9CCCDD592D783F2700A76DD7 /* Info.plist */,
 				9CCCDD532D782B5000A76DD7 /* ForceRestView.swift */,
 				8A21B78B27EE31A20009E5DB /* App.swift */,
 				8AEE49AE2AA75A5E00243D2F /* Log.swift */,
@@ -153,6 +156,7 @@
 			files = (
 				8A21B79027EE31A30009E5DB /* Assets.xcassets in Resources */,
 				8AA5434A2930F008002A47FC /* Localizable.strings in Resources */,
+				9CCCDD5A2D783F2700A76DD7 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,7 +319,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 7L52W29X27;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -329,7 +333,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 3.0;
+				MARKETING_VERSION = 3.2;
 				PRODUCT_BUNDLE_IDENTIFIER = cn.wersling.TomatoBar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -350,7 +354,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 7L52W29X27;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -364,7 +368,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 3.0;
+				MARKETING_VERSION = 3.2;
 				PRODUCT_BUNDLE_IDENTIFIER = cn.wersling.TomatoBar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
