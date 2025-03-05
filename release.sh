@@ -34,6 +34,27 @@ get_marketing_version() {
     fi
 }
 
+# 递增CURRENT_PROJECT_VERSION
+increment_build_number() {
+    PBXPROJ_PATH="$PROJECT_NAME/project.pbxproj"
+    if [ -f "$PBXPROJ_PATH" ]; then
+        # 获取当前的构建版本号
+        CURRENT_VERSION=$(grep -m 1 "CURRENT_PROJECT_VERSION =" "$PBXPROJ_PATH" | sed 's/.*CURRENT_PROJECT_VERSION = \(.*\);/\1/')
+        # 递增版本号
+        NEW_VERSION=$((CURRENT_VERSION + 1))
+        
+        echo -e "${BLUE}递增构建版本号: $CURRENT_VERSION -> $NEW_VERSION${NC}"
+        
+        # 更新project.pbxproj文件中的所有CURRENT_PROJECT_VERSION值
+        sed -i '' "s/CURRENT_PROJECT_VERSION = $CURRENT_VERSION;/CURRENT_PROJECT_VERSION = $NEW_VERSION;/g" "$PBXPROJ_PATH"
+        
+        return 0
+    else
+        echo -e "${RED}无法找到项目文件: $PBXPROJ_PATH${NC}"
+        return 1
+    fi
+}
+
 # 检查是否有版本号参数
 if [ $# -eq 0 ]; then
     echo -e "${YELLOW}警告: 未提供版本号，将使用Xcode项目中的MARKETING_VERSION${NC}"
@@ -46,6 +67,9 @@ else
     # 需要在Xcode中手动更新MARKETING_VERSION
     echo -e "${YELLOW}注意: 请在Xcode中更新项目的MARKETING_VERSION以保持一致性${NC}"
 fi
+
+# 递增构建版本号
+increment_build_number || { echo -e "${RED}无法更新构建版本号!${NC}"; exit 1; }
 
 # 创建构建目录
 mkdir -p "$BUILD_DIR"

@@ -2,6 +2,7 @@
 
 # TomatoBar GitHub发布辅助脚本
 # 用法: ./github-release.sh [版本号]
+# 注意: 构建版本号(CURRENT_PROJECT_VERSION)已在 release.sh 中自动递增，此脚本不会再次递增
 
 set -e
 

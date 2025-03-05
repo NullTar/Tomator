@@ -63,7 +63,9 @@ Touch bar integration and older macOS versions (earlier than Big Sur) are suppor
    - TomatoBar.dmg - 磁盘镜像
    - TomatoBar.zip - 压缩包
    
-   版本号从Xcode项目文件中的`MARKETING_VERSION`属性获取，而不是从Info.plist中获取。
+   版本号从Xcode项目文件中的`MARKETING_VERSION`属性获取，而不是从Info.plist中获取。如果未指定版本号，脚本会自动从project.pbxproj文件中获取当前版本。
+   
+   脚本会自动将project.pbxproj文件中的`CURRENT_PROJECT_VERSION`递增1，用于标识构建版本。
 
 2. `github-release.sh` - 创建GitHub发布并上传构建文件
    ```bash
@@ -73,4 +75,4 @@ Touch bar integration and older macOS versions (earlier than Big Sur) are suppor
    # 指定版本号
    ./github-release.sh 1.0.1
    ```
-   运行此脚本前，请确保已经执行了`release.sh`，且安装了GitHub CLI。
+   运行此脚本前，请确保已经执行了`release.sh`，且安装了GitHub CLI。此脚本同样会从project.pbxproj文件中获取版本号，如果没有指定版本参数。
