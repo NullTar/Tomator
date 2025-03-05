@@ -33,24 +33,6 @@ TomatoBar 是 macOS 菜单栏上最简洁的番茄钟计时器。
 - macOS 13.0 或更高版本 (统计功能需要macOS 13.0+)
 - 较旧的版本支持macOS 12.0，但不包含统计功能
 
-## 开发者信息
-TomatoBar 现在支持 Swift Package Manager (SPM)。开发者可以通过以下方式构建项目：
-
-```bash
-# 克隆仓库
-git clone https://github.com/ivoronin/TomatoBar.git
-cd TomatoBar
-
-# 使用Swift Package Manager构建
-swift build
-```
-
-## 与其他工具集成
-### 事件日志
-TomatoBar 以 JSON 格式将状态转换记录到 `~/Library/Containers/com.github.ivoronin.TomatoBar/Data/Library/Caches/TomatoBar.log`。使用这些数据分析你的生产力并丰富其他数据源。
-### 启动和停止计时器
-TomatoBar 可以通过 `tomatobar://` URL 控制。要从命令行启动或停止计时器，使用 `open tomatobar://startStop`。
-
 ## 许可证
  - 计时器音效授权自 buddhabeats
 
@@ -86,3 +68,9 @@ TomatoBar 可以通过 `tomatobar://` URL 控制。要从命令行启动或停�
    ./github-release.sh 1.0.1
    ```
    运行此脚本前，请确保已经执行了`release.sh`，且安装了GitHub CLI。此脚本同样会从project.pbxproj文件中获取版本号，如果没有指定版本参数。
+
+## 与其他工具集成
+### 事件日志
+TomatoBar 以 JSON 格式将状态转换记录到 `~/Library/Containers/cn.wersling.TomatoBar/Data/Library/Caches/TomatoBar.log`。使用这些数据分析你的生产力并丰富其他数据源。
+### 启动和停止计时器
+TomatoBar 可以通过 `tomatobar://` URL 控制。要从命令行启动或停止计时器，使用 `open tomatobar://startStop`。
