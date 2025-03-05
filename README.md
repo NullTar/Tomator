@@ -1,10 +1,10 @@
 <p align="center">
-<img src="https://raw.githubusercontent.com/wersling/TomatoBar/main/TomatoBar/Assets.xcassets/AppIcon.appiconset/icon_128x128%402x.png" width="128" height="128"/>
+<img src="https://raw.githubusercontent.com/wersling/TomatoBar/main/Sources/Assets.xcassets/AppIcon.appiconset/icon_128x128%402x.png" width="128" height="128"/>
 <p>
  
 <h1 align="center">TomatoBar</h1>
 <p align="center">
-<img src="https://img.shields.io/github/actions/workflow/status/wersling/TomatoBar/main.yml?branch=main"/> <img src="https://img.shields.io/github/downloads/wersling/TomatoBar/total"/> <img src="https://img.shields.io/github/v/release/wersling/TomatoBar?display_name=tag"/> <img src="https://img.shields.io/homebrew/cask/v/tomatobar"/>
+<img src="https://img.shields.io/github/actions/workflow/status/ivoronin/TomatoBar/main.yml?branch=main"/> <img src="https://img.shields.io/github/downloads/ivoronin/TomatoBar/total"/> <img src="https://img.shields.io/github/v/release/ivoronin/TomatoBar?display_name=tag"/> <img src="https://img.shields.io/homebrew/cask/v/tomatobar"/>
 </p>
 
 <img
