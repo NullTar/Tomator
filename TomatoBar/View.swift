@@ -1,9 +1,4 @@
-import KeyboardShortcuts
 import SwiftUI
-
-extension KeyboardShortcuts.Name {
-    static let startStopTimer = Self("startStopTimer")
-}
 
 private struct IntervalsView: View {
     @EnvironmentObject var timer: TBTimer
@@ -58,11 +53,6 @@ private struct SettingsView: View {
 
     var body: some View {
         VStack {
-            KeyboardShortcuts.Recorder(for: .startStopTimer) {
-                Text(NSLocalizedString("SettingsView.shortcut.label",
-                                       comment: "Shortcut label"))
-                    .frame(maxWidth: .infinity, alignment: .leading)
-            }
             Toggle(isOn: $timer.stopAfterBreak) {
                 Text(NSLocalizedString("SettingsView.stopAfterBreak.label",
                                        comment: "Stop after break label"))

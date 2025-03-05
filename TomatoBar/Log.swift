@@ -4,6 +4,13 @@ import SwiftUI
 protocol TBLogEvent: Encodable {
     var type: String { get }
     var timestamp: Date { get }
+    var verboseMessage: String { get }
+}
+
+extension TBLogEvent {
+    var verboseMessage: String {
+        return "\(type) at \(timestamp)"
+    }
 }
 
 class TBLogEventAppStart: TBLogEvent {
@@ -11,20 +18,7 @@ class TBLogEventAppStart: TBLogEvent {
     internal let timestamp: Date = Date()
 }
 
-class TBLogEventTransition: TBLogEvent {
-    internal let type = "transition"
-    internal let timestamp: Date = Date()
-
-    private let event: String
-    private let fromState: String
-    private let toState: String
-
-    init(fromContext ctx: TBStateMachine.Context) {
-        event = "\(ctx.event!)"
-        fromState = "\(ctx.fromState)"
-        toState = "\(ctx.toState)"
-    }
-}
+// TBLogEventTransition移到Timer.swift文件中了
 
 private let logFileName = "TomatoBar.log"
 private let lineEnd = "\n".data(using: .utf8)!

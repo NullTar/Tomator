@@ -82,4 +82,9 @@ class TBNotificationCenter: NSObject, UNUserNotificationCenterDelegate {
             }
         }
     }
+    
+    func postNotification(title: String, body: String, skipButton: String? = nil) {
+        let category: TBNotification.Category = skipButton != nil ? .restStarted : .restFinished
+        send(title: title, body: body, category: category)
+    }
 }
