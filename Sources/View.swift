@@ -264,7 +264,15 @@ struct TBPopoverView: View {
                 // 统计按钮
                 Button {
                     // 显示统计窗口
-                    StatsWindowController.shared.showStatsWindow()
+                    if #available(macOS 13.0, *) {
+                        StatsWindowController.shared.showStatsWindow()
+                    } else {
+                        // 对于旧版本macOS显示一个警告
+                        let alert = NSAlert()
+                        alert.messageText = NSLocalizedString("StatsView.requiresNewerOS", comment: "Requires newer macOS")
+                        alert.informativeText = NSLocalizedString("StatsView.requiresNewerOSDetail", comment: "Statistics require macOS 13 or later")
+                        alert.runModal()
+                    }
                     // 关闭弹出窗口
                     TBStatusItem.shared.closePopover(nil)
                 } label: {

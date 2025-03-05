@@ -21,6 +21,22 @@ TomatoBar 是 macOS 菜单栏上最简洁的番茄钟计时器。它包含所有
 
 TomatoBar 完全沙盒化，无需任何授权。
 
+## 系统要求
+- macOS 13.0 或更高版本 (统计功能需要macOS 13.0+)
+- 较旧的版本支持macOS 12.0，但不包含统计功能
+
+## 开发者信息
+TomatoBar 现在支持 Swift Package Manager (SPM)。开发者可以通过以下方式构建项目：
+
+```bash
+# 克隆仓库
+git clone https://github.com/ivoronin/TomatoBar.git
+cd TomatoBar
+
+# 使用Swift Package Manager构建
+swift build
+```
+
 ## 与其他工具集成
 ### 事件日志
 TomatoBar 以 JSON 格式将状态转换记录到 `~/Library/Containers/com.github.ivoronin.TomatoBar/Data/Library/Caches/TomatoBar.log`。使用这些数据分析你的生产力并丰富其他数据源。

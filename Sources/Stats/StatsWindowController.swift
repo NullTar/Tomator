@@ -2,6 +2,7 @@ import Cocoa
 import SwiftUI
 
 // 统计窗口控制器 - 负责显示统计窗口作为单独窗口
+@available(macOS 13.0, *)
 class StatsWindowController: NSWindowController {
     static let shared = StatsWindowController()
     

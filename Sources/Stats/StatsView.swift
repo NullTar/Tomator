@@ -2,6 +2,7 @@ import SwiftUI
 import Charts
 
 // 统计视图 - 显示番茄钟使用统计信息
+@available(macOS 13.0, *)
 struct StatsView: View {
     @ObservedObject private var statsManager = StatsManager.shared
     

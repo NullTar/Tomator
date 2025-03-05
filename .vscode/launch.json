@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:TomatoBar}",
+            "name": "Debug TomatoBar",
+            "program": "${workspaceFolder:TomatoBar}/.build/debug/TomatoBar",
+            "preLaunchTask": "swift: Build Debug TomatoBar"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:TomatoBar}",
+            "name": "Release TomatoBar",
+            "program": "${workspaceFolder:TomatoBar}/.build/release/TomatoBar",
+            "preLaunchTask": "swift: Build Release TomatoBar"
+        }
+    ]
+}
