@@ -80,6 +80,18 @@ private struct SettingsView: View {
                                       comment: "Force rest label"))
                     .frame(maxWidth: .infinity, alignment: .leading)
             }.toggleStyle(.switch)
+            
+            // 强制休息警告文字
+            if timer.forceRest {
+                Text(NSLocalizedString("SettingsView.forceRest.help",
+                                      comment: "Force rest warning"))
+                    .font(.caption)
+                    .foregroundColor(.red)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.top, 2)
+                    .padding(.bottom, 4)
+            }
+            
             Spacer().frame(minHeight: 0)
         }
         .padding(4)

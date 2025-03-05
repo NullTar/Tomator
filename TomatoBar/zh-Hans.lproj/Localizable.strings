@@ -9,6 +9,7 @@
 "SettingsView.stopAfterBreak.label" = "在休息后停止";
 "SettingsView.showTimerInMenuBar.label" = "在菜单栏中显示计时器";
 "SettingsView.forceRest.label" = "强制休息";
+"SettingsView.forceRest.help" = "警告：强制休息将完全阻止操作电脑！";
 "SoundsView.isWindupEnabled.label" = "发条声";
 "SoundsView.isDingEnabled.label" = "叮";
 "SoundsView.isTickingEnabled.label" = "滴答声";

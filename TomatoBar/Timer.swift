@@ -21,6 +21,7 @@ class TBTimer: ObservableObject {
     @Published var timeLeftString: String = ""                        // 剩余时间字符串
     @Published var timer: DispatchSourceTimer?                        // 计时器
     private var forceRestWindowManager = ForceRestWindowManager.shared // 强制休息窗口管理器
+    private var currentBreakIsLong = false
     
     // 公共方法：获取当前状态
     public var currentState: TBStateMachineStates {
@@ -29,7 +30,7 @@ class TBTimer: ObservableObject {
     
     // 公共方法：判断是否是长休息
     public var isLongRest: Bool {
-        return currentState == .rest && consecutiveWorkIntervals >= workIntervalsInSet
+        return currentState == .rest && currentBreakIsLong
     }
 
     init() {
@@ -220,14 +221,14 @@ class TBTimer: ObservableObject {
         var body = NSLocalizedString("TBTimer.onRestStart.short.body", comment: "Short break body")
         var length = shortRestIntervalLength
         var imgName = NSImage.Name.shortRest
-        var isLongBreak = false
+        currentBreakIsLong = false
         
         // 检查是否需要长休息
         if consecutiveWorkIntervals >= workIntervalsInSet {
             body = NSLocalizedString("TBTimer.onRestStart.long.body", comment: "Long break body")
             length = longRestIntervalLength
             imgName = .longRest
-            isLongBreak = true
+            currentBreakIsLong = true
             consecutiveWorkIntervals = 0
         }
         
@@ -242,7 +243,7 @@ class TBTimer: ObservableObject {
             // 显示强制休息全屏窗口
             DispatchQueue.main.async { [self] in
                 let initialTime = timerFormatter.string(from: TimeInterval(length * 60))!
-                forceRestWindowManager.showForceRestWindow(timeRemaining: initialTime, isLongBreak: isLongBreak)
+                forceRestWindowManager.showForceRestWindow(timeRemaining: initialTime, isLongBreak: currentBreakIsLong)
             }
         } else {
             notificationCenter.postNotification(
