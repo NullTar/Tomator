@@ -98,11 +98,12 @@ private struct SettingsView: View {
                     .font(.caption)
                     .foregroundColor(.red)
                     .frame(maxWidth: .infinity, alignment: .leading)
+                    .fixedSize(horizontal: false, vertical: true)
                     .padding(.top, 2)
                     .padding(.bottom, 4)
             }
             
-            Spacer().frame(minHeight: 0)
+            Spacer()
         }
         .padding(4)
     }
@@ -145,7 +146,7 @@ private struct SoundsView: View {
                                    comment: "Ticking label"))
             VolumeSlider(volume: $player.tickingVolume)
         }.padding(4)
-        Spacer().frame(minHeight: 0)
+        Spacer()
     }
 }
 
@@ -257,6 +258,21 @@ struct TBPopoverView: View {
 
             // 底部按钮组
             Group {
+                // 统计按钮
+                Button {
+                    // 显示统计窗口
+                    StatsWindowController.shared.showStatsWindow()
+                    // 关闭弹出窗口
+                    TBStatusItem.shared.closePopover(nil)
+                } label: {
+                    Text(NSLocalizedString("TBPopoverView.stats.label",
+                                          comment: "Statistics label"))
+                    Spacer()
+                    Text("⌘ S").foregroundColor(Color.gray)
+                }
+                .buttonStyle(.plain)
+                .keyboardShortcut("s")
+                
                 // 关于按钮
                 Button {
                     NSApp.activate(ignoringOtherApps: true)

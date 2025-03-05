@@ -19,6 +19,7 @@
 "TBPopoverView.intervals.label" = "时长";
 "TBPopoverView.settings.label" = "设置";
 "TBPopoverView.sounds.label" = "声音";
+"TBPopoverView.stats.label" = "统计";
 "TBPopoverView.about.label" = "关于";
 "TBPopoverView.quit.label" = "退出";
 "TBPopoverView.status.ready" = "准备就绪";
@@ -35,3 +36,22 @@
 "TBTimer.onRestStart.skip.title" = "跳过";
 "TBTimer.onRestFinish.title" = "休息结束";
 "TBTimer.onRestFinish.body" = "继续努力!";
+
+/* StatsView */
+"StatsWindow.title" = "番茄钟统计";
+"StatsView.totalPomodoros" = "总番茄钟数";
+"StatsView.totalFocusTime" = "总专注时间";
+"StatsView.currentStreak" = "当前连续天数";
+"StatsView.today" = "今日";
+"StatsView.completed" = "已完成";
+"StatsView.pomodoros" = "个番茄钟";
+"StatsView.focusTime" = "专注时间";
+"StatsView.last7Days" = "过去7天";
+"StatsView.breaks" = "休息";
+"StatsView.shortBreaks" = "短休息";
+"StatsView.longBreaks" = "长休息";
+"StatsView.reset" = "重置统计";
+"StatsView.resetConfirmTitle" = "重置统计";
+"StatsView.resetConfirmMessage" = "确定要重置所有统计数据吗？此操作无法撤销。";
+"StatsView.resetConfirm" = "重置";
+"StatsView.resetCancel" = "取消";

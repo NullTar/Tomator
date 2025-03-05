@@ -25,6 +25,12 @@ class TBTimer: ObservableObject {
     private var forceRestWindowManager = ForceRestWindowManager.shared // 强制休息窗口管理器
     private var currentBreakIsLong = false
     
+    // 统计管理器实例
+    private var statsManager = StatsManager.shared
+    
+    // 工作开始时间
+    private var workStartTime: Date?
+    
     // 公共方法：获取当前状态
     public var currentState: TBStateMachineStates {
         return stateMachine.state
@@ -205,17 +211,29 @@ class TBTimer: ObservableObject {
         player.playWindup()
         player.startTicking()
         startTimer(seconds: workIntervalLength * 60)
+        
+        // 记录工作开始时间，用于统计
+        workStartTime = Date()
     }
 
     // 工作完成处理
     private func onWorkFinish() {
         consecutiveWorkIntervals += 1
         player.playDing()
+        
+        // 计算并记录已完成的工作时间
+        if let startTime = workStartTime {
+            let workDuration = Date().timeIntervalSince(startTime)
+            let workMinutes = Int(workDuration / 60)
+            statsManager.recordCompletedPomodoro(workMinutes: workMinutes)
+            workStartTime = nil
+        }
     }
 
     // 工作结束处理
     private func onWorkEnd() {
         player.stopTicking()
+        workStartTime = nil
     }
 
     // 休息开始处理
@@ -232,6 +250,12 @@ class TBTimer: ObservableObject {
             imgName = .longRest
             currentBreakIsLong = true
             consecutiveWorkIntervals = 0
+            
+            // 记录一次长休息
+            statsManager.recordLongBreak()
+        } else {
+            // 记录一次短休息
+            statsManager.recordShortBreak()
         }
         
         TBStatusItem.shared.setIcon(name: imgName)
