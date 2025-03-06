@@ -13,7 +13,7 @@
 <img
   src="https://github.com/wersling/TomatoBar/raw/main/screenshot.png?raw=true"
   alt="Screenshot"
-  width="50%"
+  width="35%"
   align="right"
 />
 你听说过番茄工作法吗？这是一种很棒的技术，可以帮助你在学习或工作期间跟踪时间并保持专注。在<a href="https://en.wikipedia.org/wiki/Pomodoro_Technique">维基百科</a>上了解更多信息。
