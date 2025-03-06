@@ -11,7 +11,7 @@
 
 ## 概述
 <img
-  src="https://github.com/wersling/TomatoBar/raw/main/screenshot.png?raw=true"
+  src="https://github.com/wersling/TomatoBar/raw/main/Assets/screenshot.png?raw=true"
   alt="Screenshot"
   width="35%"
   align="right"
@@ -27,6 +27,11 @@ TomatoBar 是 macOS 菜单栏上最简洁的番茄钟计时器。
 - 完全沙盒化，无需任何特殊权限
 - 支持深色模式和浅色模式
 - 低资源占用，对系统性能影响极小
+
+<img
+  src="https://github.com/wersling/TomatoBar/raw/main/Assets/screenshot2.png?raw=true"
+  alt="Screenshot2"
+/>
 
 ## 下载安装
 1. 访问 [GitHub Releases 页面](https://github.com/wersling/TomatoBar/releases)

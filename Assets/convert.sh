@@ -1,5 +1,5 @@
 #!/bin/bash -e
-ASSETS_PATH=../TomatoBar/Assets.xcassets
+ASSETS_PATH=../Sources/Assets.xcassets
 APPICON_SRC=TomatoBar.png
 APPICON_ICONSET=${ASSETS_PATH}/AppIcon.appiconset
 BARICON_SRC=tomato-filled.png
