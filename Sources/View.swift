@@ -95,7 +95,7 @@ private struct SettingsView: View {
                 Text(NSLocalizedString("SettingsView.forceRest.help",
                                       comment: "Force rest warning"))
                     .font(.caption)
-                    .foregroundColor(.red)
+                    .foregroundColor(Color(red: 0.7882, green: 0.0353, blue: 0))
                     .frame(maxWidth: .infinity, alignment: .leading)
             }
             Spacer()
@@ -174,14 +174,14 @@ struct TBPopoverView: View {
                 let currentCount = timer.consecutiveWorkIntervals + 1 // +1 因为是当前正在进行的
                 let totalCount = timer.workIntervalsInSet
                 status = "\(NSLocalizedString("TBPopoverView.status.working", comment: "Working status")) (\(currentCount)/\(totalCount))"
-                color = .green
+                color = .blue
             case .rest:
                 if timer.isLongRest {
                     status = NSLocalizedString("TBPopoverView.status.longRest", comment: "Long rest status")
                 } else {
                     status = NSLocalizedString("TBPopoverView.status.shortRest", comment: "Short rest status")
                 }
-                color = .blue
+                color = Color(red: 0.0353, green: 0.7176, blue: 0)
             default:
                 status = NSLocalizedString("TBPopoverView.status.ready", comment: "Ready status")
                 color = .secondary

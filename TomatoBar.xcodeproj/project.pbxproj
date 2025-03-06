@@ -17,7 +17,6 @@
 		8AA5B3F22812A74600BE1A6C /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA5B3F12812A74600BE1A6C /* Notifications.swift */; };
 		8AEE49AF2AA75A5E00243D2F /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEE49AE2AA75A5E00243D2F /* Log.swift */; };
 		9CCCDD542D782B5000A76DD7 /* ForceRestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCCDD532D782B5000A76DD7 /* ForceRestView.swift */; };
-		9CCCDD5A2D783F2700A76DD7 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9CCCDD592D783F2700A76DD7 /* Info.plist */; };
 		9CCCDD6B2D786A8000A76DD7 /* StatsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCCDD692D786A8000A76DD7 /* StatsWindowController.swift */; };
 		9CCCDD6C2D786A8000A76DD7 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCCDD682D786A8000A76DD7 /* StatsView.swift */; };
 		9CCCDD6D2D786A8000A76DD7 /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCCDD672D786A8000A76DD7 /* Stats.swift */; };
@@ -173,7 +172,6 @@
 			files = (
 				8A21B79027EE31A30009E5DB /* Assets.xcassets in Resources */,
 				8AA5434A2930F008002A47FC /* Localizable.strings in Resources */,
-				9CCCDD5A2D783F2700A76DD7 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,7 +337,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 7L52W29X27;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -353,7 +351,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.5;
-				MARKETING_VERSION = 3.2;
+				MARKETING_VERSION = 3.4;
 				PRODUCT_BUNDLE_IDENTIFIER = cn.wersling.TomatoBar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -374,7 +372,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 7L52W29X27;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -388,7 +386,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.5;
-				MARKETING_VERSION = 3.2;
+				MARKETING_VERSION = 3.4;
 				PRODUCT_BUNDLE_IDENTIFIER = cn.wersling.TomatoBar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

@@ -86,6 +86,7 @@ echo -e "${GREEN}创建了发布说明模板: $RELEASE_NOTES_FILE${NC}"
 echo -e "${YELLOW}请编辑发布说明，完成后按任意键继续...${NC}"
 read -n 1 -s
 
+echo "继续..."
 # 检查Git标签
 git fetch --tags
 if git rev-parse "$VERSION" >/dev/null 2>&1; then
@@ -99,13 +100,14 @@ fi
 
 # 创建GitHub发布
 echo -e "${BLUE}创建GitHub发布...${NC}"
+gh repo set-default wersling/TomatoBar
 gh release create "$VERSION" \
     --title "TomatoBar $VERSION" \
     --notes-file "$RELEASE_NOTES_FILE" \
     "$DMG_FILE" "$ZIP_FILE"
 
 echo -e "${GREEN}=== GitHub发布已完成! ===${NC}"
-echo -e "${GREEN}发布地址: https://github.com/wingstone/TomatoBar/releases/tag/$VERSION${NC}"
+echo -e "${GREEN}发布地址: https://github.com/wersling/TomatoBar/releases/tag/$VERSION${NC}"
 
 # 清理临时文件
 rm "$RELEASE_NOTES_FILE" 
