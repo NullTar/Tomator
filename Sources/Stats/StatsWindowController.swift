@@ -19,7 +19,7 @@ class StatsWindowController: NSWindowController {
         window.title = NSLocalizedString("StatsWindow.title", comment: "Statistics")
         window.center()
         window.isReleasedWhenClosed = false
-        window.minSize = NSSize(width: 320, height: 400)
+        window.minSize = NSSize(width: 320, height: 600)
         
         // 创建 SwiftUI 主机视图
         let statsView = StatsView()
