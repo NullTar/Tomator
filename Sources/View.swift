@@ -47,8 +47,7 @@ private struct IntervalsView: View {
             }
             .help(NSLocalizedString("IntervalsView.workIntervalsInSet.help",
                                     comment: "Work intervals in set hint"))
-            Spacer().frame(height: 28)  // 保持一个最小高度
-            Spacer().frame(minHeight: 0)
+            Spacer().frame(height: 35)  // 保持一个最小高度
         }
         .padding(4)
     }
@@ -98,11 +97,7 @@ private struct SettingsView: View {
                     .font(.caption)
                     .foregroundColor(.red)
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .fixedSize(horizontal: false, vertical: true)
-                    .padding(.top, 2)
-                    .padding(.bottom, 4)
             }
-            
             Spacer()
         }
         .padding(4)
@@ -264,15 +259,7 @@ struct TBPopoverView: View {
                 // 统计按钮
                 Button {
                     // 显示统计窗口
-                    if #available(macOS 13.0, *) {
-                        StatsWindowController.shared.showStatsWindow()
-                    } else {
-                        // 对于旧版本macOS显示一个警告
-                        let alert = NSAlert()
-                        alert.messageText = NSLocalizedString("StatsView.requiresNewerOS", comment: "Requires newer macOS")
-                        alert.informativeText = NSLocalizedString("StatsView.requiresNewerOSDetail", comment: "Statistics require macOS 13 or later")
-                        alert.runModal()
-                    }
+                    StatsWindowController.shared.showStatsWindow()
                     // 关闭弹出窗口
                     TBStatusItem.shared.closePopover(nil)
                 } label: {
