@@ -28,6 +28,7 @@ TomatoBar 是 macOS 菜单栏上最简洁的番茄钟计时器。
 - 支持深色模式和浅色模式
 - 低资源占用，对系统性能影响极小
 
+## 截图
 <img
   src="https://github.com/wersling/TomatoBar/raw/main/Assets/screenshot2.png?raw=true"
   alt="Screenshot2"
