@@ -94,7 +94,7 @@ private struct SettingsView: View {
             if timer.forceRest {
                 Text(NSLocalizedString("SettingsView.forceRest.help",
                                       comment: "Force rest warning"))
-                    .font(.caption)
+                    .font(.system(size: 12))  // 调大字体，从caption改为明确的尺寸
                     .foregroundColor(Color(red: 0.7882, green: 0.0353, blue: 0))
                     .frame(maxWidth: .infinity, alignment: .leading)
             }
@@ -123,11 +123,11 @@ private struct SoundsView: View {
 
     private var columns = [
         GridItem(.flexible()),
-        GridItem(.fixed(110))
+        GridItem(.fixed(140))
     ]
 
     var body: some View {
-        LazyVGrid(columns: columns, alignment: .leading, spacing: 4) {
+        LazyVGrid(columns: columns, alignment: .leading, spacing: 12) {
             // 上弦声音设置
             Text(NSLocalizedString("SoundsView.isWindupEnabled.label",
                                    comment: "Windup label"))

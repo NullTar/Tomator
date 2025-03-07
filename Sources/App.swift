@@ -59,7 +59,7 @@ class TBStatusItem: NSObject, NSApplicationDelegate {
         popover.contentViewController?.view = NSHostingView(rootView: view)
         if let contentViewController = popover.contentViewController {
             popover.contentSize.height = contentViewController.view.intrinsicContentSize.height
-            popover.contentSize.width = 240
+            popover.contentSize.width = 260
         }
 
         // 创建并配置状态栏项
