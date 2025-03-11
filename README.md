@@ -47,6 +47,12 @@ TomatoBar 是 macOS 菜单栏上最简洁的番茄钟计时器。
 ## 许可证
  - 计时器音效授权自 buddhabeats
 
+## 隐私
+应用不会收集用户的个人信息，也不会将个人信息用于第三方。
+
+## Privacy
+The application does not collect users' personal information, nor does it share personal information with third parties.
+
 ## 开发
 
 ### 发布流程
@@ -82,6 +88,6 @@ TomatoBar 是 macOS 菜单栏上最简洁的番茄钟计时器。
 
 ## 与其他工具集成
 ### 事件日志
-TomatoBar 以 JSON 格式将状态转换记录到 `~/Library/Containers/cn.wersling.TomatoBar/Data/Library/Caches/TomatoBar.log`。使用这些数据分析你的生产力并丰富其他数据源。
+TomatoBar 以 JSON 格式将状态转换记录到 `~/Library/Containers/cn.wersling.tomatobar/Data/Library/Caches/TomatoBar.log`。使用这些数据分析你的生产力并丰富其他数据源。
 ### 启动和停止计时器
 TomatoBar 可以通过 `tomatobar://` URL 控制。要从命令行启动或停止计时器，使用 `open tomatobar://startStop`。
