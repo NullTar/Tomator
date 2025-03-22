@@ -2,3 +2,6 @@ xcuserdata
 .DS_Store
 build
 .build
+.git
+.swift-version
+.swiftlint.yml
