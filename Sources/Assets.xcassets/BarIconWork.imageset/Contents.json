@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "icon_16x16.png",
+      "filename" : "BarIconWork_16.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "icon_16x16@2x.png",
+      "filename" : "BarIconWork_32.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "icon_16x16@3x.png",
+      "filename" : "BarIconWork.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
@@ -19,8 +19,5 @@
   "info" : {
     "author" : "xcode",
     "version" : 1
-  },
-  "properties" : {
-    "template-rendering-intent" : "template"
   }
 }

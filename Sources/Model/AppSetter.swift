@@ -1,0 +1,169 @@
+//
+//  AppSetter.swift
+//
+//  Created by NullSilck on 2025/3/13.
+//
+
+import Combine
+import Foundation
+import ServiceManagement
+import SwiftUI
+
+class AppSetter: ObservableObject {
+
+    static let shared = AppSetter()
+
+    ////////// App功能
+    // 通知中心
+    private let notificationCenter = AppNotificationCenter()
+    // 音效播放器
+    private let soundPlayer = SoundPlayer.shared
+    // 强制休息窗口管理器
+    @Published var forceRestWindowController = ForceRestWindowController.shared
+    // 统计管理器实例
+    @Published var statsManager = AppStatsDataViewModel.shared
+
+    //////////  检测
+    @AppStorage("scheduleExpanded") var scheduleExpanded: Bool = false
+    @Published var scheduleAlert: String = ""
+
+    ////////// 菜单栏设置
+    // 显示小憩时间
+    @AppStorage("shortRestMenu") var shortRestMenu = false
+    // 显示时间表
+    @AppStorage("scheduleMenu") var scheduleMenu = false
+    // 显示休息后停止
+    @AppStorage("stopAfterBrekeMenu") var stopAfterBrekeMenu = false
+    // 显示强制休息
+    @AppStorage("forceRestMenu") var forceRestMenu = true
+
+    ////////// 功能设置
+    // 开机启动
+    @AppStorage("launchAtLogin") var launchAtLogin = true
+    // 应用颜色
+    @AppStorage("colorSet") var colorSet = "Aqua"
+    // 通知设置
+    @AppStorage("notification") var notification = true
+    // 声音设置
+    @AppStorage("appSound") var appSound = false
+    // 在菜单栏显示计时器
+    @AppStorage("showTimerInMenuBar") var showTimerInMenuBar = true
+    // 在菜单栏常显计时器
+    @AppStorage("showTimerInMenuBarAways") var showTimerInMenuBarAways = false
+    // 休息后停止
+    @AppStorage("stopAfterBreak") var stopAfterBreak = false
+    // 强制休息
+    @AppStorage("forceRest") var forceRest = true
+    // 背景模糊
+    @AppStorage("forstWindowBlur") var forstWindowBlur = 0.8
+
+    private init() {
+        // 注册 URL 处理
+        let aem: NSAppleEventManager = NSAppleEventManager.shared()
+        aem.setEventHandler(
+            self,
+            andSelector: #selector(handleGetURLEvent(_:withReplyEvent:)),
+            forEventClass: AEEventClass(kInternetEventClass),
+            andEventID: AEEventID(kAEGetURL))
+    }
+
+    public var player: SoundPlayer {
+        return soundPlayer
+    }
+
+    public var noti: AppNotificationCenter {
+        return notificationCenter
+    }
+
+    // 设置开机启动状态
+    func setLaunchAtLogin(_ enable: Bool) {
+        let bundleIdentifier = Bundle.main.bundleIdentifier ?? ""
+
+        // 对于 macOS 13 及以上版本，使用 SMAppService
+        if #available(macOS 13.0, *) {
+            let service = SMAppService.mainApp
+            do {
+                if enable {
+                    if service.status != .enabled {
+                        try service.register()
+                    }
+                } else {
+                    if service.status == .enabled {
+                        try service.unregister()
+                    }
+                }
+                logger.append(event: SetLaunch(value: enable))
+            } catch {
+                print("无法更改登录项状态: \(error.localizedDescription)")
+            }
+        }
+        // 对于 macOS 12 及更早版本，使用旧的 SMLoginItemSetEnabled API
+        else {
+            let success = SMLoginItemSetEnabled(
+                bundleIdentifier as CFString, enable)
+            if !success {
+                print("无法更改登录项状态：SMLoginItemSetEnabled 失败")
+            }
+        }
+    }
+
+    func checkSoundSetting() {
+        if appSound {
+            soundPlayer.muteSound()
+        }
+    }
+
+    func checkDiplayMenu() {
+        if !showTimerInMenuBar {
+            showTimerInMenuBarAways = false
+        }
+    }
+
+    func checkCountdownDiaplay() {
+        checkDiplayMenu()
+        if !showTimerInMenuBarAways {
+            MenuBarController.shared.setTitle(title: nil)
+        }
+        if showTimerInMenuBar, showTimerInMenuBarAways {
+            if AppTimer.shared.finishTime == nil {
+                AppTimer.shared.timeLeftString = "00:00"
+            }
+            MenuBarController.shared.setTitle(
+                title: AppTimer.shared.timeLeftString)
+        }
+    }
+
+    // 处理 URL 事件
+    @objc func handleGetURLEvent(
+        _ event: NSAppleEventDescriptor,
+        withReplyEvent: NSAppleEventDescriptor
+    ) {
+        guard
+            let urlString = event.forKeyword(AEKeyword(keyDirectObject))?
+                .stringValue
+        else {
+            print("url handling error: cannot get url")
+            return
+        }
+        let url = URL(string: urlString)
+        guard url != nil,
+            let scheme = url!.scheme,
+            let host = url!.host
+        else {
+            print("url handling error: cannot parse url")
+            return
+        }
+        guard scheme.caseInsensitiveCompare("Tomator") == .orderedSame else {
+            print("url handling error: unknown scheme \(scheme)")
+            return
+        }
+        switch host.lowercased() {
+        case "startstop":
+            AppTimer.shared.startStop()
+        default:
+            print("url handling error: unknown command \(host)")
+            return
+        }
+    }
+
+}

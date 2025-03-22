@@ -1,0 +1,692 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5A5A1B6A2D8250090048116A /* ScheduleDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5A1B692D824FFE0048116A /* ScheduleDate.swift */; };
+		5A5A1B6E2D8258A10048116A /* AppSetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5A1B6D2D8258A10048116A /* AppSetter.swift */; };
+		5A691BBE2D846E7700FD8D95 /* PreferenceSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A691BBD2D846E6E00FD8D95 /* PreferenceSettingView.swift */; };
+		5A691BC02D846E9A00FD8D95 /* AboutSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A691BBF2D846E9900FD8D95 /* AboutSetting.swift */; };
+		5A691BC42D846FC100FD8D95 /* ScheduleSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A691BC32D846FBA00FD8D95 /* ScheduleSetting.swift */; };
+		5A691BC92D84777000FD8D95 /* InfoConponet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A691BC82D84776F00FD8D95 /* InfoConponet.swift */; };
+		5A8586D52D848FC600ED5E9D /* MenuSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8586D42D848FBA00ED5E9D /* MenuSettingView.swift */; };
+		5A8586DA2D849B0800ED5E9D /* FeatureSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8586D92D849B0200ED5E9D /* FeatureSettingView.swift */; };
+		5A8586DE2D84B2AA00ED5E9D /* WindowProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8586DD2D84B29D00ED5E9D /* WindowProperties.swift */; };
+		5A8586E22D84B8D900ED5E9D /* SettingsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8586E12D84B8D900ED5E9D /* SettingsWindowController.swift */; };
+		5A8586E82D84D2E200ED5E9D /* ScheduleComponet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8586E72D84D2D900ED5E9D /* ScheduleComponet.swift */; };
+		5A8586EB2D84D3D700ED5E9D /* PopoverButtom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8586EA2D84D3D400ED5E9D /* PopoverButtom.swift */; };
+		5A8586EE2D84DCFE00ED5E9D /* TimeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8586ED2D84DCFC00ED5E9D /* TimeComponent.swift */; };
+		5A8586F32D84EB5900ED5E9D /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8586F22D84EB5700ED5E9D /* Log.swift */; };
+		5A8586F92D84F90B00ED5E9D /* HelpSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8586F82D84F90B00ED5E9D /* HelpSetting.swift */; };
+		5A8586FC2D85108900ED5E9D /* ScheduleSetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8586FB2D85107D00ED5E9D /* ScheduleSetter.swift */; };
+		5A8586FF2D8516E100ED5E9D /* AppearanceSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8586FE2D8516E000ED5E9D /* AppearanceSetting.swift */; };
+		5A8587012D85429200ED5E9D /* ForceWindowSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8587002D85428500ED5E9D /* ForceWindowSetting.swift */; };
+		5A8587032D8544A400ED5E9D /* ColorSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8587022D85449D00ED5E9D /* ColorSetting.swift */; };
+		5A8587262D858E9000ED5E9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A21B78F27EE31A30009E5DB /* Assets.xcassets */; };
+		5A8587272D858E9000ED5E9D /* Toma.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 8A21B79427EE31A30009E5DB /* Toma.entitlements */; };
+		5A8587282D858E9000ED5E9D /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 5A691BC52D84708F00FD8D95 /* Localizable.xcstrings */; };
+		5A85872A2D85A83E00ED5E9D /* PopoverTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8587292D85A83600ED5E9D /* PopoverTop.swift */; };
+		5ABC84952D81DAC6009A1FFE /* AppStatsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABC84942D81DAC1009A1FFE /* AppStatsData.swift */; };
+		5ABC84972D81DBA5009A1FFE /* AppStatsDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABC84962D81DB99009A1FFE /* AppStatsDataViewModel.swift */; };
+		5ABC849C2D820A86009A1FFE /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABC849B2D820A85009A1FFE /* AppSettings.swift */; };
+		5ABC849E2D820B27009A1FFE /* SoundSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABC849D2D820B26009A1FFE /* SoundSetting.swift */; };
+		5ABC84A02D820B94009A1FFE /* PopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABC849F2D820B93009A1FFE /* PopoverView.swift */; };
+		5ABC84A92D822D61009A1FFE /* Structure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABC84A82D822D5E009A1FFE /* Structure.swift */; };
+		5ABC84AB2D822FD6009A1FFE /* QuickSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABC84AA2D822FD2009A1FFE /* QuickSettingView.swift */; };
+		5ABC84CB2D823AB7009A1FFE /* MenuBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABC84CA2D823AB6009A1FFE /* MenuBarController.swift */; };
+		5ABC84CE2D823F2C009A1FFE /* ForceRest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABC84CD2D823F2B009A1FFE /* ForceRest.swift */; };
+		8A21B78C27EE31A20009E5DB /* Tomator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A21B78B27EE31A20009E5DB /* Tomator.swift */; };
+		8A21B78E27EE31A20009E5DB /* TimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A21B78D27EE31A20009E5DB /* TimeView.swift */; };
+		8A9F700927EE396E0012A1EC /* StateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9F700827EE396E0012A1EC /* StateMachine.swift */; };
+		8A9F701927EE3DAF0012A1EC /* AppTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9F701827EE3DAF0012A1EC /* AppTimer.swift */; };
+		8A9F701F27EE536D0012A1EC /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9F701E27EE536D0012A1EC /* SoundPlayer.swift */; };
+		8AA5B3F22812A74600BE1A6C /* AppNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA5B3F12812A74600BE1A6C /* AppNotificationCenter.swift */; };
+		8AEE49AF2AA75A5E00243D2F /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEE49AE2AA75A5E00243D2F /* Logger.swift */; };
+		9CCCDD542D782B5000A76DD7 /* ForceRestWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCCDD532D782B5000A76DD7 /* ForceRestWindowController.swift */; };
+		9CCCDD6B2D786A8000A76DD7 /* StatsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCCDD692D786A8000A76DD7 /* StatsWindowController.swift */; };
+		9CCCDD6C2D786A8000A76DD7 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCCDD682D786A8000A76DD7 /* StatsView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		5A0942F12D8E94340071E46A /* Tomator copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Tomator copy-Info.plist"; path = "/Users/null/Library/Mobile Documents/com~apple~CloudDocs/Documents/Programing/Xcode/TomatoBar/Tomator copy-Info.plist"; sourceTree = "<absolute>"; };
+		5A0942F32D8E998E0071E46A /* export_options.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = export_options.plist; sourceTree = "<group>"; };
+		5A0942F42D8E998E0071E46A /* github-release.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "github-release.sh"; sourceTree = "<group>"; };
+		5A0942F52D8E998E0071E46A /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		5A0942F62D8E998E0071E46A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		5A0942F72D8E998E0071E46A /* release.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = release.sh; sourceTree = "<group>"; };
+		5A0942F82D8E998E0071E46A /* update_info.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = update_info.md; sourceTree = "<group>"; };
+		5A5A1B692D824FFE0048116A /* ScheduleDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleDate.swift; sourceTree = "<group>"; };
+		5A5A1B6D2D8258A10048116A /* AppSetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSetter.swift; sourceTree = "<group>"; };
+		5A691BBD2D846E6E00FD8D95 /* PreferenceSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceSettingView.swift; sourceTree = "<group>"; };
+		5A691BBF2D846E9900FD8D95 /* AboutSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutSetting.swift; sourceTree = "<group>"; };
+		5A691BC32D846FBA00FD8D95 /* ScheduleSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleSetting.swift; sourceTree = "<group>"; };
+		5A691BC52D84708F00FD8D95 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		5A691BC82D84776F00FD8D95 /* InfoConponet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoConponet.swift; sourceTree = "<group>"; };
+		5A8586D42D848FBA00ED5E9D /* MenuSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSettingView.swift; sourceTree = "<group>"; };
+		5A8586D92D849B0200ED5E9D /* FeatureSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureSettingView.swift; sourceTree = "<group>"; };
+		5A8586DD2D84B29D00ED5E9D /* WindowProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowProperties.swift; sourceTree = "<group>"; };
+		5A8586E12D84B8D900ED5E9D /* SettingsWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWindowController.swift; sourceTree = "<group>"; };
+		5A8586E72D84D2D900ED5E9D /* ScheduleComponet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleComponet.swift; sourceTree = "<group>"; };
+		5A8586EA2D84D3D400ED5E9D /* PopoverButtom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverButtom.swift; sourceTree = "<group>"; };
+		5A8586ED2D84DCFC00ED5E9D /* TimeComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeComponent.swift; sourceTree = "<group>"; };
+		5A8586F22D84EB5700ED5E9D /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		5A8586F82D84F90B00ED5E9D /* HelpSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpSetting.swift; sourceTree = "<group>"; };
+		5A8586FB2D85107D00ED5E9D /* ScheduleSetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleSetter.swift; sourceTree = "<group>"; };
+		5A8586FE2D8516E000ED5E9D /* AppearanceSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceSetting.swift; sourceTree = "<group>"; };
+		5A8587002D85428500ED5E9D /* ForceWindowSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForceWindowSetting.swift; sourceTree = "<group>"; };
+		5A8587022D85449D00ED5E9D /* ColorSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSetting.swift; sourceTree = "<group>"; };
+		5A8587292D85A83600ED5E9D /* PopoverTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverTop.swift; sourceTree = "<group>"; };
+		5ABC84942D81DAC1009A1FFE /* AppStatsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStatsData.swift; sourceTree = "<group>"; };
+		5ABC84962D81DB99009A1FFE /* AppStatsDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStatsDataViewModel.swift; sourceTree = "<group>"; };
+		5ABC84992D81E7AD009A1FFE /* TomatoBar.sketch */ = {isa = PBXFileReference; lastKnownFileType = file; path = TomatoBar.sketch; sourceTree = "<group>"; };
+		5ABC849B2D820A85009A1FFE /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
+		5ABC849D2D820B26009A1FFE /* SoundSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundSetting.swift; sourceTree = "<group>"; };
+		5ABC849F2D820B93009A1FFE /* PopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverView.swift; sourceTree = "<group>"; };
+		5ABC84A82D822D5E009A1FFE /* Structure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structure.swift; sourceTree = "<group>"; };
+		5ABC84AA2D822FD2009A1FFE /* QuickSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSettingView.swift; sourceTree = "<group>"; };
+		5ABC84CA2D823AB6009A1FFE /* MenuBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarController.swift; sourceTree = "<group>"; };
+		5ABC84CD2D823F2B009A1FFE /* ForceRest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForceRest.swift; sourceTree = "<group>"; };
+		8A21B78827EE31A20009E5DB /* Tomator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tomator.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A21B78B27EE31A20009E5DB /* Tomator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tomator.swift; sourceTree = "<group>"; };
+		8A21B78D27EE31A20009E5DB /* TimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeView.swift; sourceTree = "<group>"; };
+		8A21B78F27EE31A30009E5DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8A21B79427EE31A30009E5DB /* Toma.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Toma.entitlements; sourceTree = "<group>"; };
+		8A9F700827EE396E0012A1EC /* StateMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateMachine.swift; sourceTree = "<group>"; };
+		8A9F701827EE3DAF0012A1EC /* AppTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTimer.swift; sourceTree = "<group>"; };
+		8A9F701E27EE536D0012A1EC /* SoundPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
+		8AA5B3F12812A74600BE1A6C /* AppNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNotificationCenter.swift; sourceTree = "<group>"; };
+		8AEE49AE2AA75A5E00243D2F /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		9CCCDD532D782B5000A76DD7 /* ForceRestWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForceRestWindowController.swift; sourceTree = "<group>"; };
+		9CCCDD592D783F2700A76DD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9CCCDD682D786A8000A76DD7 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
+		9CCCDD692D786A8000A76DD7 /* StatsWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsWindowController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8A21B78527EE31A20009E5DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5A691BBC2D846E3C00FD8D95 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				5A8586FD2D8516B000ED5E9D /* Appearance */,
+				5A8586FA2D84F93F00ED5E9D /* About */,
+				5A8586F72D84F90600ED5E9D /* Help */,
+				5A8586EF2D84E1B900ED5E9D /* Sound */,
+				5A8586E62D84D2C900ED5E9D /* Schedule */,
+				5A8586D82D849AD100ED5E9D /* Preference */,
+				5ABC849B2D820A85009A1FFE /* AppSettings.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		5A691BC72D84776700FD8D95 /* Componets */ = {
+			isa = PBXGroup;
+			children = (
+				5A691BC82D84776F00FD8D95 /* InfoConponet.swift */,
+			);
+			path = Componets;
+			sourceTree = "<group>";
+		};
+		5A8586D82D849AD100ED5E9D /* Preference */ = {
+			isa = PBXGroup;
+			children = (
+				5A8586EC2D84DCDE00ED5E9D /* Time */,
+				5ABC84AA2D822FD2009A1FFE /* QuickSettingView.swift */,
+				5A8586D92D849B0200ED5E9D /* FeatureSettingView.swift */,
+				5A691BBD2D846E6E00FD8D95 /* PreferenceSettingView.swift */,
+				5A8586D42D848FBA00ED5E9D /* MenuSettingView.swift */,
+			);
+			path = Preference;
+			sourceTree = "<group>";
+		};
+		5A8586E62D84D2C900ED5E9D /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				5A8586E72D84D2D900ED5E9D /* ScheduleComponet.swift */,
+				5A691BC32D846FBA00FD8D95 /* ScheduleSetting.swift */,
+				5A5A1B692D824FFE0048116A /* ScheduleDate.swift */,
+			);
+			path = Schedule;
+			sourceTree = "<group>";
+		};
+		5A8586E92D84D3BE00ED5E9D /* Popover */ = {
+			isa = PBXGroup;
+			children = (
+				5A8587292D85A83600ED5E9D /* PopoverTop.swift */,
+				5A8586EA2D84D3D400ED5E9D /* PopoverButtom.swift */,
+				5ABC849F2D820B93009A1FFE /* PopoverView.swift */,
+			);
+			path = Popover;
+			sourceTree = "<group>";
+		};
+		5A8586EC2D84DCDE00ED5E9D /* Time */ = {
+			isa = PBXGroup;
+			children = (
+				5A8586ED2D84DCFC00ED5E9D /* TimeComponent.swift */,
+				8A21B78D27EE31A20009E5DB /* TimeView.swift */,
+			);
+			path = Time;
+			sourceTree = "<group>";
+		};
+		5A8586EF2D84E1B900ED5E9D /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				5ABC849D2D820B26009A1FFE /* SoundSetting.swift */,
+			);
+			path = Sound;
+			sourceTree = "<group>";
+		};
+		5A8586F02D84EB3F00ED5E9D /* Log */ = {
+			isa = PBXGroup;
+			children = (
+				5A8586F22D84EB5700ED5E9D /* Log.swift */,
+				8AEE49AE2AA75A5E00243D2F /* Logger.swift */,
+			);
+			path = Log;
+			sourceTree = "<group>";
+		};
+		5A8586F42D84F6F400ED5E9D /* Window */ = {
+			isa = PBXGroup;
+			children = (
+				5ABC84CA2D823AB6009A1FFE /* MenuBarController.swift */,
+				9CCCDD532D782B5000A76DD7 /* ForceRestWindowController.swift */,
+				9CCCDD692D786A8000A76DD7 /* StatsWindowController.swift */,
+				5A8586E12D84B8D900ED5E9D /* SettingsWindowController.swift */,
+			);
+			path = Window;
+			sourceTree = "<group>";
+		};
+		5A8586F72D84F90600ED5E9D /* Help */ = {
+			isa = PBXGroup;
+			children = (
+				5A8586F82D84F90B00ED5E9D /* HelpSetting.swift */,
+			);
+			path = Help;
+			sourceTree = "<group>";
+		};
+		5A8586FA2D84F93F00ED5E9D /* About */ = {
+			isa = PBXGroup;
+			children = (
+				5A691BBF2D846E9900FD8D95 /* AboutSetting.swift */,
+			);
+			path = About;
+			sourceTree = "<group>";
+		};
+		5A8586FD2D8516B000ED5E9D /* Appearance */ = {
+			isa = PBXGroup;
+			children = (
+				5A8587022D85449D00ED5E9D /* ColorSetting.swift */,
+				5A8587002D85428500ED5E9D /* ForceWindowSetting.swift */,
+				5A8586FE2D8516E000ED5E9D /* AppearanceSetting.swift */,
+			);
+			path = Appearance;
+			sourceTree = "<group>";
+		};
+		5ABC84912D81D930009A1FFE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8A9F700827EE396E0012A1EC /* StateMachine.swift */,
+				5A8586DD2D84B29D00ED5E9D /* WindowProperties.swift */,
+				5A5A1B6D2D8258A10048116A /* AppSetter.swift */,
+				5ABC84942D81DAC1009A1FFE /* AppStatsData.swift */,
+				5ABC84A82D822D5E009A1FFE /* Structure.swift */,
+				8A9F701827EE3DAF0012A1EC /* AppTimer.swift */,
+				5A8586FB2D85107D00ED5E9D /* ScheduleSetter.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5ABC84922D81D951009A1FFE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5A8586E92D84D3BE00ED5E9D /* Popover */,
+				5A691BC72D84776700FD8D95 /* Componets */,
+				5A691BBC2D846E3C00FD8D95 /* Settings */,
+				5ABC84CD2D823F2B009A1FFE /* ForceRest.swift */,
+				9CCCDD682D786A8000A76DD7 /* StatsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5ABC84932D81D9ED009A1FFE /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				5ABC84962D81DB99009A1FFE /* AppStatsDataViewModel.swift */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
+		5ABC84982D81DCA9009A1FFE /* Utills */ = {
+			isa = PBXGroup;
+			children = (
+				5A8586F42D84F6F400ED5E9D /* Window */,
+				5A8586F02D84EB3F00ED5E9D /* Log */,
+				5ABC84CC2D823DEA009A1FFE /* App */,
+			);
+			path = Utills;
+			sourceTree = "<group>";
+		};
+		5ABC84CC2D823DEA009A1FFE /* App */ = {
+			isa = PBXGroup;
+			children = (
+				8A9F701E27EE536D0012A1EC /* SoundPlayer.swift */,
+				8AA5B3F12812A74600BE1A6C /* AppNotificationCenter.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		8A21B77F27EE31A20009E5DB = {
+			isa = PBXGroup;
+			children = (
+				5A0942F32D8E998E0071E46A /* export_options.plist */,
+				5A0942F42D8E998E0071E46A /* github-release.sh */,
+				5A0942F52D8E998E0071E46A /* LICENSE */,
+				5A0942F62D8E998E0071E46A /* README.md */,
+				5A0942F72D8E998E0071E46A /* release.sh */,
+				5A0942F82D8E998E0071E46A /* update_info.md */,
+				8A21B78A27EE31A20009E5DB /* Sources */,
+				8A21B78927EE31A20009E5DB /* Products */,
+				8A9F700D27EE3AED0012A1EC /* Frameworks */,
+				5A0942F12D8E94340071E46A /* Tomator copy-Info.plist */,
+			);
+			sourceTree = "<group>";
+		};
+		8A21B78927EE31A20009E5DB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8A21B78827EE31A20009E5DB /* Tomator.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8A21B78A27EE31A20009E5DB /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				5ABC84982D81DCA9009A1FFE /* Utills */,
+				5ABC84932D81D9ED009A1FFE /* View Model */,
+				5ABC84912D81D930009A1FFE /* Model */,
+				5ABC84922D81D951009A1FFE /* View */,
+				9CCCDD6A2D786A8000A76DD7 /* Docs */,
+				9CCCDD592D783F2700A76DD7 /* Info.plist */,
+				8A21B78B27EE31A20009E5DB /* Tomator.swift */,
+				8A21B78F27EE31A30009E5DB /* Assets.xcassets */,
+				8A21B79427EE31A30009E5DB /* Toma.entitlements */,
+				5A691BC52D84708F00FD8D95 /* Localizable.xcstrings */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		8A9F700D27EE3AED0012A1EC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9CCCDD6A2D786A8000A76DD7 /* Docs */ = {
+			isa = PBXGroup;
+			children = (
+				5ABC84992D81E7AD009A1FFE /* TomatoBar.sketch */,
+			);
+			path = Docs;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8A21B78727EE31A20009E5DB /* Tomator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8A21B79727EE31A30009E5DB /* Build configuration list for PBXNativeTarget "Tomator" */;
+			buildPhases = (
+				8A21B78427EE31A20009E5DB /* Sources */,
+				8A21B78527EE31A20009E5DB /* Frameworks */,
+				8A21B78627EE31A20009E5DB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Tomator;
+			packageProductDependencies = (
+			);
+			productName = TomatoBar;
+			productReference = 8A21B78827EE31A20009E5DB /* Tomator.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8A21B78027EE31A20009E5DB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastSwiftUpdateCheck = 1330;
+				LastUpgradeCheck = 1620;
+				TargetAttributes = {
+					8A21B78727EE31A20009E5DB = {
+						CreatedOnToolsVersion = 13.3;
+					};
+				};
+			};
+			buildConfigurationList = 8A21B78327EE31A20009E5DB /* Build configuration list for PBXProject "Tomator" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				"zh-Hans",
+			);
+			mainGroup = 8A21B77F27EE31A20009E5DB;
+			packageReferences = (
+			);
+			productRefGroup = 8A21B78927EE31A20009E5DB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8A21B78727EE31A20009E5DB /* Tomator */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8A21B78627EE31A20009E5DB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A8587262D858E9000ED5E9D /* Assets.xcassets in Resources */,
+				5A8587272D858E9000ED5E9D /* Toma.entitlements in Resources */,
+				5A8587282D858E9000ED5E9D /* Localizable.xcstrings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8A21B78427EE31A20009E5DB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A8586DA2D849B0800ED5E9D /* FeatureSettingView.swift in Sources */,
+				8A9F701F27EE536D0012A1EC /* SoundPlayer.swift in Sources */,
+				5ABC84952D81DAC6009A1FFE /* AppStatsData.swift in Sources */,
+				8AEE49AF2AA75A5E00243D2F /* Logger.swift in Sources */,
+				8A21B78E27EE31A20009E5DB /* TimeView.swift in Sources */,
+				5A8586FC2D85108900ED5E9D /* ScheduleSetter.swift in Sources */,
+				5ABC84972D81DBA5009A1FFE /* AppStatsDataViewModel.swift in Sources */,
+				8A9F701927EE3DAF0012A1EC /* AppTimer.swift in Sources */,
+				5A8586EE2D84DCFE00ED5E9D /* TimeComponent.swift in Sources */,
+				5A8587032D8544A400ED5E9D /* ColorSetting.swift in Sources */,
+				5A691BBE2D846E7700FD8D95 /* PreferenceSettingView.swift in Sources */,
+				5A8586E82D84D2E200ED5E9D /* ScheduleComponet.swift in Sources */,
+				5ABC84AB2D822FD6009A1FFE /* QuickSettingView.swift in Sources */,
+				8A21B78C27EE31A20009E5DB /* Tomator.swift in Sources */,
+				8AA5B3F22812A74600BE1A6C /* AppNotificationCenter.swift in Sources */,
+				5A8586FF2D8516E100ED5E9D /* AppearanceSetting.swift in Sources */,
+				5A5A1B6A2D8250090048116A /* ScheduleDate.swift in Sources */,
+				5ABC84A02D820B94009A1FFE /* PopoverView.swift in Sources */,
+				5A691BC02D846E9A00FD8D95 /* AboutSetting.swift in Sources */,
+				5ABC849E2D820B27009A1FFE /* SoundSetting.swift in Sources */,
+				5A691BC42D846FC100FD8D95 /* ScheduleSetting.swift in Sources */,
+				9CCCDD542D782B5000A76DD7 /* ForceRestWindowController.swift in Sources */,
+				9CCCDD6B2D786A8000A76DD7 /* StatsWindowController.swift in Sources */,
+				5A8586F32D84EB5900ED5E9D /* Log.swift in Sources */,
+				5A85872A2D85A83E00ED5E9D /* PopoverTop.swift in Sources */,
+				5A8586E22D84B8D900ED5E9D /* SettingsWindowController.swift in Sources */,
+				5ABC84A92D822D61009A1FFE /* Structure.swift in Sources */,
+				5ABC84CE2D823F2C009A1FFE /* ForceRest.swift in Sources */,
+				5A691BC92D84777000FD8D95 /* InfoConponet.swift in Sources */,
+				5A8586D52D848FC600ED5E9D /* MenuSettingView.swift in Sources */,
+				9CCCDD6C2D786A8000A76DD7 /* StatsView.swift in Sources */,
+				8A9F700927EE396E0012A1EC /* StateMachine.swift in Sources */,
+				5A8586EB2D84D3D700ED5E9D /* PopoverButtom.swift in Sources */,
+				5ABC84CB2D823AB7009A1FFE /* MenuBarController.swift in Sources */,
+				5ABC849C2D820A86009A1FFE /* AppSettings.swift in Sources */,
+				5A5A1B6E2D8258A10048116A /* AppSetter.swift in Sources */,
+				5A8586DE2D84B2AA00ED5E9D /* WindowProperties.swift in Sources */,
+				5A8586F92D84F90B00ED5E9D /* HelpSetting.swift in Sources */,
+				5A8587012D85429200ED5E9D /* ForceWindowSetting.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		8A21B79527EE31A30009E5DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8A21B79627EE31A30009E5DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		8A21B79827EE31A30009E5DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_ENTITLEMENTS = Sources/Toma.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = "1 beta";
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = 5F44TASM2Z;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Sources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Toma;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				INFOPLIST_KEY_LSUIElement = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 NullTar. All rights reserved. \nRepository：https://github.com/NullTar/TomatoBar";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.5;
+				MARKETING_VERSION = 3.17;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.null.tomator;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks",
+				);
+			};
+			name = Debug;
+		};
+		8A21B79927EE31A30009E5DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_ENTITLEMENTS = Sources/Toma.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = "1 beta";
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = 5F44TASM2Z;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Sources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Toma;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				INFOPLIST_KEY_LSUIElement = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 NullTar. All rights reserved. \nRepository：https://github.com/NullTar/TomatoBar";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.5;
+				MARKETING_VERSION = 3.17;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.null.tomator;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks",
+				);
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8A21B78327EE31A20009E5DB /* Build configuration list for PBXProject "Tomator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8A21B79527EE31A30009E5DB /* Debug */,
+				8A21B79627EE31A30009E5DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8A21B79727EE31A30009E5DB /* Build configuration list for PBXNativeTarget "Tomator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8A21B79827EE31A30009E5DB /* Debug */,
+				8A21B79927EE31A30009E5DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8A21B78027EE31A20009E5DB /* Project object */;
+}
