@@ -52,7 +52,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5A0942F12D8E94340071E46A /* Tomator copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Tomator copy-Info.plist"; path = "/Users/null/Library/Mobile Documents/com~apple~CloudDocs/Documents/Programing/Xcode/TomatoBar/Tomator copy-Info.plist"; sourceTree = "<absolute>"; };
 		5A0942F32D8E998E0071E46A /* export_options.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = export_options.plist; sourceTree = "<group>"; };
 		5A0942F42D8E998E0071E46A /* github-release.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "github-release.sh"; sourceTree = "<group>"; };
 		5A0942F52D8E998E0071E46A /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
@@ -299,7 +298,6 @@
 				8A21B78A27EE31A20009E5DB /* Sources */,
 				8A21B78927EE31A20009E5DB /* Products */,
 				8A9F700D27EE3AED0012A1EC /* Frameworks */,
-				5A0942F12D8E94340071E46A /* Tomator copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
