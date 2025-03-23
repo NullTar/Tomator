@@ -8,18 +8,15 @@
 
 
 ## 概述
-<p align="right">
+<p align="right" width="35%">
 <img src="https://github.com/NullTar/Tomator/blob/da5f0f00c80f1715f8e84e4dad9750cff9743d73/Assets/popover_default.png"
   alt="popover_default"
-  width="35%"
 />
 <br>
 <img src="https://github.com/NullTar/Tomator/blob/da5f0f00c80f1715f8e84e4dad9750cff9743d73/Assets/popover_all.png"
   alt="popover_all"
-  width="35%"
 />
 </p>
-
 
 你听说过番茄工作法吗？这是一种很棒的技术，可以帮助你在学习或工作期间跟踪时间并保持专注。在<a href="https://en.wikipedia.org/wiki/Pomodoro_Technique">维基百科</a>上了解更多信息。
 
