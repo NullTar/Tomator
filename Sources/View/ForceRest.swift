@@ -68,6 +68,7 @@ struct ForceRest: View {
                                 )
                                 : NSLocalizedString(
                                     "ForceRest.emergency", comment: "点击跳过"))
+                        .foregroundColor(Color(appSetter.colorSet).opacity(0.8))
                     }
                 ).buttonStyle(BorderlessButtonStyle())
                     .padding(.bottom, 40)

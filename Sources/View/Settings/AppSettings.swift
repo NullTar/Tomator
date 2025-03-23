@@ -16,7 +16,7 @@ struct AppSettings: View {
     @State private var selectedTab: Int = 0
     var body: some View {
         TabView(selection: $selectedTab) {
-            // 首选项 width: 600, height: 440
+            // 首选项 width: 600, height: 460
             PreferenceSettingView()
                 .environmentObject(appTimer)
                 .environmentObject(appSetter)
@@ -77,7 +77,7 @@ struct AppSettings: View {
                     width: 240, height: 160)
             default:
                 SettingsWindowController.shared.updateFrame(
-                    width: 600, height: 440)
+                    width: 600, height: 460)
             }
         }
     }

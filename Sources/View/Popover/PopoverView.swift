@@ -57,7 +57,9 @@ struct PopoverView: View {
             Alert(
                 title: Text(NSLocalizedString("Start.Error", comment: "无法开始")),
                 message: Text(appSetter.scheduleAlert),
-                dismissButton: .default(Text(NSLocalizedString("Ok", comment: "确定"))){
+                dismissButton: .default(
+                    Text(NSLocalizedString("Ok", comment: "确定"))
+                ) {
                     appSetter.scheduleAlert = ""
                 }
             )
@@ -69,6 +71,11 @@ struct PopoverView: View {
         }
         .onChange(of: appSetter.scheduleMenu) { newValue in
             freshView(newValue: newValue, quantity: 30)
+            if !appSetter.scheduleMenu, appSetter.scheduleExpanded{
+                freshView(newValue: false, quantity: 120)
+            }else if appSetter.scheduleMenu, appSetter.scheduleExpanded{
+                freshView(newValue: true, quantity: 120)
+            }
         }
         .onChange(of: appSetter.shortRestMenu) { newValue in
             freshView(newValue: newValue, quantity: 30)

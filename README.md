@@ -1,12 +1,9 @@
 <p align="center">
-<img src="https://raw.githubusercontent.com/wersling/TomatoBar/main/Sources/Assets.xcassets/AppIcon.appiconset/icon_128x128%402x.png" width="128" height="128"/>
+<img src="https://github.com/NullTar/Tomator/blob/main/Sources/Assets.xcassets/AppIcon.appiconset/icon_512x512%402x.png" width="128" height="128"/>
 <p>
- 
-<h1 align="center">TomatoBar</h1>
-<p align="center">
-<img src="https://img.shields.io/github/actions/workflow/status/ivoronin/TomatoBar/main.yml?branch=main"/> <img src="https://img.shields.io/github/downloads/ivoronin/TomatoBar/total"/> <img src="https://img.shields.io/github/v/release/wersling/TomatoBar?display_name=tag"/>
-</p>
 
+<h1 align="center">Tomator</h1>
+<p align="center">
 
 
 ## 概述
@@ -18,14 +15,22 @@
 />
 你听说过番茄工作法吗？这是一种很棒的技术，可以帮助你在学习或工作期间跟踪时间并保持专注。在<a href="https://en.wikipedia.org/wiki/Pomodoro_Technique">维基百科</a>上了解更多信息。
 
-TomatoBar 是 macOS 菜单栏上最简洁的番茄钟计时器。
+Tomator 是 macOS 菜单栏上的番茄钟计时器。
+
+#### Language
+English: [ReadMe](https://github.com/NullTar/Tomator/releases)
+
+
 #### 包含所有基本功能
 - 简洁的菜单栏界面，不占用桌面空间
-- 可配置的工作和休息间隔，支持强制休息
+- 可配置的工作和休息间隔
+- 支持强制休息、小憩休息
 - 可选的声音提示和通知
 - 统计功能，追踪您的工作习惯（需要macOS 13.0+）
 - 完全沙盒化，无需任何特殊权限
 - 支持深色模式和浅色模式
+- 自定义颜色、背景
+- 设置特定的时间表时间启用
 - 低资源占用，对系统性能影响极小
 
 ## 截图
@@ -35,8 +40,8 @@ TomatoBar 是 macOS 菜单栏上最简洁的番茄钟计时器。
 />
 
 ## 下载安装
-1. 访问 [GitHub Releases 页面](https://github.com/wersling/TomatoBar/releases)
-2. 下载最新版本的 `TomatoBar.dmg` 文件
+1. 访问 [GitHub Releases 页面](https://github.com/NullTar/Tomator/releases)
+2. 下载最新版本的 `Tomator.dmg` 文件
 3. 解压后将 TomatoBar.app 拖到应用程序文件夹中
 
 

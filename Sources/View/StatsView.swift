@@ -165,3 +165,9 @@ struct StatsView: View {
         }
     }
 } 
+
+
+
+#Preview {
+    StatsView()
+}
