@@ -7,7 +7,7 @@
 
 
 ## 概述
-<div style=" align: right;">
+<div style="width: 30%; float: right;">
 <img src="https://github.com/NullTar/Tomator/blob/da5f0f00c80f1715f8e84e4dad9750cff9743d73/Assets/popover_default.png"
   alt="popover_default"
 	width="30%"
