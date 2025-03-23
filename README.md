@@ -4,11 +4,11 @@
 
 
 <h1 align="center">Tomator</h1>
-<p align="center">
+
 
 
 ## 概述
-<p align="right" width="35%">
+<div align="right" width="35%">
 <img src="https://github.com/NullTar/Tomator/blob/da5f0f00c80f1715f8e84e4dad9750cff9743d73/Assets/popover_default.png"
   alt="popover_default"
 />
@@ -16,7 +16,7 @@
 <img src="https://github.com/NullTar/Tomator/blob/da5f0f00c80f1715f8e84e4dad9750cff9743d73/Assets/popover_all.png"
   alt="popover_all"
 />
-</p>
+</div>
 
 你听说过番茄工作法吗？这是一种很棒的技术，可以帮助你在学习或工作期间跟踪时间并保持专注。在<a href="https://en.wikipedia.org/wiki/Pomodoro_Technique">维基百科</a>上了解更多信息。
 
@@ -83,12 +83,12 @@ Thanks to developers for their contributions
 
 ## 许可证
  - 计时器音效授权自 buddhabeats
- 
+
 ## 授权
 请不要将此存储库源代码用于任何商业目的，此应用程序从不收费，始终更新！详情请参阅 [许可证](https://creativecommons.org/licenses/by-nc/4.0/)
 
 Please do not use this repository source code for any commercial purposes, this app is never charged, always updated! For details please see [LICENSE](https://creativecommons.org/licenses/by-nc/4.0/)
- 
+
 ## 开发
 
 ### 发布流程
