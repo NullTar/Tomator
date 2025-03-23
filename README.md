@@ -13,6 +13,7 @@
   alt="popover_default"
   width="35%"
 />
+<br>
 <img src="https://github.com/NullTar/Tomator/blob/da5f0f00c80f1715f8e84e4dad9750cff9743d73/Assets/popover_all.png"
   alt="popover_all"
   width="35%"
@@ -75,6 +76,7 @@ alt="setting"
 
 ## 隐私 Privacy
 应用不会收集任何用户的个人信息，也不会将个人信息用于第三方，应用不联网。
+
 The App does not collect any user's personal information, nor does it use personal information for third-party services, and the App is not connected to the Internet.
 
 ## 感谢
@@ -87,6 +89,7 @@ Thanks to developers for their contributions
  
 ## 授权
 请不要将此存储库源代码用于任何商业目的，此应用程序从不收费，始终更新！详情请参阅 [许可证](https://creativecommons.org/licenses/by-nc/4.0/)
+
 Please do not use this repository source code for any commercial purposes, this app is never charged, always updated! For details please see [LICENSE](https://creativecommons.org/licenses/by-nc/4.0/)
  
 ## 开发
