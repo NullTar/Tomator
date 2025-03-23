@@ -7,9 +7,11 @@
 
 
 ## 概述
+<div  align="left" width="70%">
 你听说过番茄工作法吗？这是一种很棒的技术，可以帮助你在学习或工作期间跟踪时间并保持专注。在<a href="https://en.wikipedia.org/wiki/Pomodoro_Technique">维基百科</a>上了解更多信息。
 
 Tomator 是 macOS 菜单栏上的番茄钟计时器。
+</div>
 <div align="right" >
 <img src="https://github.com/NullTar/Tomator/blob/da5f0f00c80f1715f8e84e4dad9750cff9743d73/Assets/popover_default.png"
   alt="popover_default"
