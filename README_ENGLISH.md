@@ -6,39 +6,39 @@
 <h1 align="center">Tomator</h1>
 
 
-## 概述
+## Overview
 <img src="https://github.com/NullTar/Tomator/blob/da5f0f00c80f1715f8e84e4dad9750cff9743d73/Assets/popover_default.png"
   alt="popover_default"
 	width="30%"
 	align=right
 />
 
-你听说过番茄工作法吗？这是一种很棒的技术，可以帮助你在学习或工作期间跟踪时间并保持专注。在<a href="https://en.wikipedia.org/wiki/Pomodoro_Technique">维基百科</a>上了解更多信息。
+Have you ever heard of the Pomodoro technique? This is a great to help you keep track of time and stay focused while studying or working. Learn more on <a href="https://en.wikipedia.org/wiki/Pomodoro_Technique">Wikipedia</a>.
 
-Tomator 是 macOS 菜单栏上的番茄钟计时器。
+Tomator is the Pomodoro timer on the MacOS menu bar.
 
-### Language
-English: [ReadMe](https://github.com/NullTar/Tomator/releases)
+### 语言
+中文: [ReadMe](https://github.com/NullTar/Tomator)
 
-#### 包含所有基本功能
+#### Feature
 <img src="https://github.com/NullTar/Tomator/blob/da5f0f00c80f1715f8e84e4dad9750cff9743d73/Assets/popover_all.png"
   alt="popover_all"
   width="30%"
   align=right
 />
 
-- 简洁的菜单栏界面，不占用桌面空间
-- 可配置的工作和休息间隔
-- 支持强制休息、小憩休息
-- 可选的声音提示和通知
-- 统计功能，追踪您的工作习惯（需要macOS 13.0+）
-- 完全沙盒化，无需任何特殊权限
-- 支持深色模式和浅色模式
-- 自定义颜色、背景
-- 设置特定的时间表时间启用
-- 低资源占用，对系统性能影响极小
+- menu bar popover, does not take up desktop space
+- configurable work and rest intervals
+- support mandatory rest and short breaks
+- customize sound prompts and notifications
+- statistics to track your work habits (MacOS 13.0+ required)
+- sandboxed without any permissions
+- dark and light modes
+- custom color, background
+- set specific schedule times to enable
+- low resource usage, minimal impact on system performance
 
-## 截图
+## Screenshots
 <p align="center">
     <img 					src="https://github.com/NullTar/Tomator/blob/da5f0f00c80f1715f8e84e4dad9750cff9743d73/Assets/stats.png"
   alt="stats"
@@ -57,73 +57,65 @@ alt="setting"
 />
 </p>
 
+## Download and install
+1. Link to [GitHub Releases Page](https://github.com/NullTar/Tomator/releases)
+2. Download the latest version of the `Tomator.dmg` file
+3. After loading file, drag `tomatator.app` to the applications folder
 
+## Requirement
+- MacOS 13.0 or later (statistics feature requires MacOS 13.0+)
+- Older versions support MacOS 12.0, but do not include statistics
 
-
-
-## 下载安装
-1. 访问 [GitHub Releases 页面](https://github.com/NullTar/Tomator/releases)
-2. 下载最新版本的 `Tomator.dmg` 文件
-3. 解压后将 Tomator.app 拖到应用程序文件夹中
-
-## 系统要求
-- macOS 13.0 或更高版本 (统计功能需要macOS 13.0+)
-- 较旧的版本支持macOS 12.0，但不包含统计功能
-
-## 隐私 Privacy
-应用不会收集任何用户的个人信息，也不会将个人信息用于第三方，应用不联网。
-
+## Privacy
 The App does not collect any user's personal information, nor does it use personal information for third-party services, and the App is not connected to the Internet.
 
-## 感谢
+## Acknowledgments
 Thanks to developers for their contributions
 -  [wersling](https://github.com/wersling)
 -  [ivoronin](https://github.com/ivoronin)
 
-## 许可证
- - 计时器音效授权自 buddhabeats
+## Licence
+ - Timer sound from buddhabeats
  - menu bar icon: [美味的食物](https://www.iconfont.cn/collections/detail?spm=a313x.user_detail.i1.dc64b3430.38913a81T5pE7r&cid=2134)[Banada](https://www.iconfont.cn/user/detail?spm=a313x.user_detail.i1.dcc7d6115.2d753a81ofaC89&userViewType=collections&uid=32838&nid=Gk16MkNV0bM0)
 
-## 授权
-请不要将此存储库源代码用于任何商业目的，此应用程序从不收费，始终更新！详情请参阅 [许可证](https://creativecommons.org/licenses/by-nc/4.0/)
-
+## Authorization
 Please do not use this repository source code for any commercial purposes, this app is never charged, always updated! For details please see [LICENSE](https://creativecommons.org/licenses/by-nc/4.0/)
 
-## 开发
+## Development
 
-### 发布流程
+### Release
 
-项目包含两个发布脚本，简化了应用的构建和发布过程：
+The project includes two release scripts that simplify the process of building and publishing the application：
 
-1. `release.sh` - 构建、签名和打包应用
+1. `release.sh` - build, sign, and package applications
    ```bash
-   # 使用Xcode项目中的MARKETING_VERSION
+   # use MARKETING_VERSION from Xcode project
    ./release.sh
    
-   # 指定版本号
+   # appoint version
    ./release.sh 1.0.1
    ```
-   脚本将在`./build`目录中生成以下文件：
-   - Tomator.app - 应用程序
-   - Tomator.dmg - 磁盘镜像
-   - Tomator.zip - 压缩包
+   The script will generate the following files in the `./build` directory：
+   - Tomator.app - application
+   - Tomator.dmg - dmg
+   - Tomator.zip - zip
    
-   版本号从Xcode项目文件中的`MARKETING_VERSION`属性获取，而不是从Info.plist中获取。如果未指定版本号，脚本会自动从project.pbxproj文件中获取当前版本。
+   The version number is obtained from the `MARKETING_VERSION` attribute in the Xcode project file, rather than Info.plist. If no version number is specified, the script automatically retrieves the current version from the project.pbxproj file.
    
-   脚本会自动将project.pbxproj文件中的`CURRENT_PROJECT_VERSION`递增1，用于标识构建版本。
+   The script automatically increments `CURRENT_PROJECT_VERSION` 'in the project.pbxproj file by 1 to identify the build versions
 
-2. `github-release.sh` - 创建GitHub发布并上传构建文件
+2. `github-release.sh` - create, build and upload to GitHub release
    ```bash
-   # 使用Xcode项目中的MARKETING_VERSION
+   # use MARKETING_VERSION from Xcode project
    ./github-release.sh
    
-   # 指定版本号
+   # appoint version
    ./github-release.sh 1.0.1
    ```
-   运行此脚本前，请确保已经执行了`release.sh`，且安装了GitHub CLI。此脚本同样会从project.pbxproj文件中获取版本号，如果没有指定版本参数。
+   Before running this script, make sure that `release.sh` has been executed and that the GitHub CLI is installed. This script also gets the version number from the project.pbxproj file if no version parameter is specified.
 
-## 与其他工具集成
-### 事件日志
-Tomator 以 JSON 格式将状态转换记录到 `~/Library/Containers/cn.null.tomator/Data/Library/Caches/Tomator.log`。使用这些数据分析你的生产力并丰富其他数据源。
-### 启动和停止计时器
-Tomator 可以通过 `tomator://` URL 控制。要从命令行启动或停止计时器，使用 `open tomator://startStop`。
+## Integration
+### Event log
+Tomator records state log in JSON format to `~/Library/Containers/cn.null.tomator/Data/Library/Caches/Tomator.log`. Use this data to analyze your productivity and enrich other data sources.
+### Start and stop the timer
+Tomator can be controlled using the  `tomator://` URL. o start or stop the timer from the command line, use `open tomator://startStop`.
