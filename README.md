@@ -8,15 +8,9 @@
 
 
 ## 概述
-<img src="https://github.com/NullTar/Tomator/blob/da5f0f00c80f1715f8e84e4dad9750cff9743d73/Assets/popover_default.png"
-  alt="popover_default"
-  width="20%"
-  align="right"
-/>
-
 <img src="https://github.com/NullTar/Tomator/blob/da5f0f00c80f1715f8e84e4dad9750cff9743d73/Assets/popover_all.png"
   alt="popover_all"
-  width="20%"
+  width="35%"
   align="right"
 />
 
@@ -28,6 +22,12 @@ Tomator 是 macOS 菜单栏上的番茄钟计时器。
 English: [ReadMe](https://github.com/NullTar/Tomator/releases)
 
 #### 包含所有基本功能
+<img src="https://github.com/NullTar/Tomator/blob/da5f0f00c80f1715f8e84e4dad9750cff9743d73/Assets/popover_default.png"
+  alt="popover_default"
+  width="35%"
+  align="right"
+/>
+
 - 简洁的菜单栏界面，不占用桌面空间
 - 可配置的工作和休息间隔
 - 支持强制休息、小憩休息
@@ -42,13 +42,16 @@ English: [ReadMe](https://github.com/NullTar/Tomator/releases)
 ## 截图
 <img src="https://github.com/NullTar/Tomator/blob/da5f0f00c80f1715f8e84e4dad9750cff9743d73/Assets/stats.png"
   alt="stats"
+  width="30%"
 />
 
-<img src=""
+<img src="https://github.com/NullTar/Tomator/blob/7ec029811739781ecce856033beb59ac2293151f/Assets/forceWindow.png"
+width="30%"
   alt="forceWindow"
 />
 
 <img src="https://github.com/NullTar/Tomator/blob/da5f0f00c80f1715f8e84e4dad9750cff9743d73/Assets/setting.png"
+width="30%"
   alt="setting"
 />
 
@@ -57,20 +60,26 @@ English: [ReadMe](https://github.com/NullTar/Tomator/releases)
 2. 下载最新版本的 `Tomator.dmg` 文件
 3. 解压后将 Tomator.app 拖到应用程序文件夹中
 
-
 ## 系统要求
 - macOS 13.0 或更高版本 (统计功能需要macOS 13.0+)
 - 较旧的版本支持macOS 12.0，但不包含统计功能
 
+## 隐私 Privacy
+应用不会收集任何用户的个人信息，也不会将个人信息用于第三方，应用不联网。
+The App does not collect any user's personal information, nor does it use personal information for third-party services, and the App is not connected to the Internet.
+
+## 感谢
+Thanks to developers for their contributions
+-  [wersling](https://github.com/wersling)
+-  [ivoronin](https://github.com/ivoronin)
+
 ## 许可证
  - 计时器音效授权自 buddhabeats
-
-## 隐私
-应用不会收集用户的个人信息，也不会将个人信息用于第三方。
-
-## Privacy
-The application does not collect users' personal information, nor does it share personal information with third parties.
-
+ 
+## 授权
+请不要将此存储库源代码用于任何商业目的，此应用程序从不收费，始终更新！详情请参阅 [许可证](https://creativecommons.org/licenses/by-nc/4.0/)
+Please do not use this repository source code for any commercial purposes, this app is never charged, always updated! For details please see [LICENSE](https://creativecommons.org/licenses/by-nc/4.0/)
+ 
 ## 开发
 
 ### 发布流程
