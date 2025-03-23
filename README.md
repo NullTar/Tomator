@@ -7,28 +7,27 @@
 
 
 ## 概述
-<div style="width: 30%; float: right;">
 <img src="https://github.com/NullTar/Tomator/blob/da5f0f00c80f1715f8e84e4dad9750cff9743d73/Assets/popover_default.png"
   alt="popover_default"
 	width="30%"
 	align=right
 />
 <br>
-<img src="https://github.com/NullTar/Tomator/blob/da5f0f00c80f1715f8e84e4dad9750cff9743d73/Assets/popover_all.png"
-  alt="popover_all"
-  width="30%"
-  align=right
-/>
-</div>
 
 你听说过番茄工作法吗？这是一种很棒的技术，可以帮助你在学习或工作期间跟踪时间并保持专注。在<a href="https://en.wikipedia.org/wiki/Pomodoro_Technique">维基百科</a>上了解更多信息。
 
 Tomator 是 macOS 菜单栏上的番茄钟计时器。
 
-## Language
+### Language
 English: [ReadMe](https://github.com/NullTar/Tomator/releases)
 
 #### 包含所有基本功能
+<img src="https://github.com/NullTar/Tomator/blob/da5f0f00c80f1715f8e84e4dad9750cff9743d73/Assets/popover_all.png"
+  alt="popover_all"
+  width="30%"
+  align=right
+/>
+
 - 简洁的菜单栏界面，不占用桌面空间
 - 可配置的工作和休息间隔
 - 支持强制休息、小憩休息
