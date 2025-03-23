@@ -8,8 +8,8 @@
 
 
 ## 概述
-<img src="https://github.com/NullTar/Tomator/blob/da5f0f00c80f1715f8e84e4dad9750cff9743d73/Assets/popover_all.png"
-  alt="popover_all"
+<img src="https://github.com/NullTar/Tomator/blob/da5f0f00c80f1715f8e84e4dad9750cff9743d73/Assets/popover_default.png"
+  alt="popover_default"
   width="35%"
   align="right"
 />
@@ -22,12 +22,6 @@ Tomator 是 macOS 菜单栏上的番茄钟计时器。
 English: [ReadMe](https://github.com/NullTar/Tomator/releases)
 
 #### 包含所有基本功能
-<img src="https://github.com/NullTar/Tomator/blob/da5f0f00c80f1715f8e84e4dad9750cff9743d73/Assets/popover_default.png"
-  alt="popover_default"
-  width="35%"
-  align="right"
-/>
-
 - 简洁的菜单栏界面，不占用桌面空间
 - 可配置的工作和休息间隔
 - 支持强制休息、小憩休息
@@ -39,21 +33,33 @@ English: [ReadMe](https://github.com/NullTar/Tomator/releases)
 - 设置特定的时间表时间启用
 - 低资源占用，对系统性能影响极小
 
+<img src="https://github.com/NullTar/Tomator/blob/da5f0f00c80f1715f8e84e4dad9750cff9743d73/Assets/popover_all.png"
+  alt="popover_all"
+  width="35%"
+  align="right"
+/>
+
 ## 截图
-<img src="https://github.com/NullTar/Tomator/blob/da5f0f00c80f1715f8e84e4dad9750cff9743d73/Assets/stats.png"
+<p align="center">
+    <img 					src="https://github.com/NullTar/Tomator/blob/da5f0f00c80f1715f8e84e4dad9750cff9743d73/Assets/stats.png"
   alt="stats"
-  width="30%"
+  width="45%"
 />
+    <img src="https://github.com/NullTar/Tomator/blob/7ec029811739781ecce856033beb59ac2293151f/Assets/forceWindow.png"
+width="45%"
+alt="forceWindow"
+/>
+</p>
+<p align="center">
+    <img src="https://github.com/NullTar/Tomator/blob/da5f0f00c80f1715f8e84e4dad9750cff9743d73/Assets/setting.png"
+width="45%"
+alt="setting"
+/>
+</p>
 
-<img src="https://github.com/NullTar/Tomator/blob/7ec029811739781ecce856033beb59ac2293151f/Assets/forceWindow.png"
-width="30%"
-  alt="forceWindow"
-/>
 
-<img src="https://github.com/NullTar/Tomator/blob/da5f0f00c80f1715f8e84e4dad9750cff9743d73/Assets/setting.png"
-width="30%"
-  alt="setting"
-/>
+
+
 
 ## 下载安装
 1. 访问 [GitHub Releases 页面](https://github.com/NullTar/Tomator/releases)
