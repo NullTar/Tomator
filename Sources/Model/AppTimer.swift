@@ -5,15 +5,11 @@ class AppTimer: ObservableObject {
 
     // 单例实例
     static let shared = AppTimer()
-    
+
     // TODO 监听键盘 如果长时间不操作就 pause
-    
+
     // TODO 播放视频、打电话和视频电话的时候 pause
-    
-    // TODO 完全隐藏跳过
-    
-    // TODO 暂时添加 2...20
-    
+
     @ObservedObject private var appSetter = AppSetter.shared
 
     ///////////////////////////////// Config /////////////////////////////////
@@ -23,16 +19,21 @@ class AppTimer: ObservableObject {
     @AppStorage("shortRestIntervalLength") var shortRestIntervalLength = 0
     // 长休息间隔长度（分钟）
     @AppStorage("longRestIntervalLength") var longRestIntervalLength = 10
+    // 添加的时间（分钟）
+    @AppStorage("addTimeIntervalLength") var addTimeIntervalLength = 0 {
+        didSet { addTime() }
+    }
     // 连续工作计数
-    @Published public private(set) var consecutiveWorkIntervals: Int = 0
+    @Published public private(set) var consecutiveWorkIntervals = 0
     // 超时限制（秒）
     @AppStorage("overrunTimeLimit") var overrunTimeLimit = -60.0
-    // 工作开始时间
+
+    // 工作开始时间 用于记录统计
     private var workStartTime: Date?
     // 计时结束时间
     @Published private(set) var finishTime: Date!
-    // 剩余时间字符串
-    @Published var timeLeftString: String = "00:00"
+    // 剩余时间字符串 用于显示在菜单栏的
+    @Published var timeLeftString: String?
 
     ///////////////////////////////// Manager /////////////////////////////////
     // 状态机，初始状态为空闲
@@ -42,6 +43,7 @@ class AppTimer: ObservableObject {
     // 时间格式化器
     private var timerFormatter = DateComponentsFormatter()
     private let dateFormatter = DateFormatter()
+
     // 公共方法：获取当前状态
     public var currentState: StateMachineStates {
         return stateMachine.state
@@ -78,24 +80,21 @@ class AppTimer: ObservableObject {
         timerFormatter.zeroFormattingBehavior = .pad
 
         // 设置通知动作处理器
-        appSetter.noti.setActionHandler(handler: onNotificationAction)
+        appSetter.notifier.setActionHandler(handler: onNotificationAction)
     }
 
     // 开始/停止计时器
     func startStop() {
-        if checkDate() {
-            DispatchQueue.main.asyncAfter(
-                deadline: .now() + 0.4
-            ) {
+        if checkScheduleSetting() {
+            _ = stateMachine.tryEvent(.startStop)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
                 MenuBarController.shared.closePopover(nil)
             }
-            appSetter.checkDiplayMenu()
-            _ = stateMachine.tryEvent(.startStop)
         }
     }
 
     // 跳过休息
-    func skipRest() {
+    private func skipRest() {
         // 如果启用了强制休息，不允许跳过
         if !appSetter.forceRest {
             _ = stateMachine.tryEvent(.skipRest)
@@ -104,25 +103,21 @@ class AppTimer: ObservableObject {
 
     // 更新剩余时间显示
     func updateTimeLeft() {
-        appSetter.checkDiplayMenu()
-        if finishTime != nil {
-            timeLeftString = timerFormatter.string(
-                from: Date(), to: finishTime)!
-        } else {
-            timeLeftString = "00:00"
+        if finishTime == nil {
+            // 强制初始化
+            finishTime = Date().addingTimeInterval(TimeInterval(workIntervalLength * 60))
         }
-
+        timeLeftString = timerFormatter.string(from: Date(), to: finishTime)!
         // 更新状态栏时间
         if timer != nil, appSetter.showTimerInMenuBar {
             MenuBarController.shared.setTitle(title: timeLeftString)
         } else {
-            MenuBarController.shared.setTitle(title: nil)
+            appSetter.checkCountdownDiplayMenu()
         }
-
         // 更新强制休息窗口时间（如果正在显示）
         if appSetter.forceRest && stateMachine.state == .rest {
             appSetter.forceRestWindowController.updateTimeRemaining(
-                timeLeftString)
+                timeLeftString ?? "")
         }
     }
 
@@ -130,7 +125,9 @@ class AppTimer: ObservableObject {
     private func startTimer(seconds: Int) {
         // 初始化
         let queue = DispatchQueue(label: "Timer")
-        timer = DispatchSource.makeTimerSource(flags: .strict, queue: queue)
+        if timer == nil {
+            timer = DispatchSource.makeTimerSource(flags: .strict, queue: queue)
+        }
         // 更新数据
         finishTime = Date().addingTimeInterval(TimeInterval(seconds))
         // 配置
@@ -141,10 +138,9 @@ class AppTimer: ObservableObject {
         timer!.resume()
     }
 
-    // 停止计时器
-    private func stopTimer() {
-        timer!.cancel()
-        timer = nil
+    // 暂停
+    func pauseTimer() {
+        timer?.suspend()
     }
 
     // 计时器滴答事件处理
@@ -166,6 +162,20 @@ class AppTimer: ObservableObject {
                     }
                 }
             }
+        }
+    }
+
+    // 添加时间
+    private func addTime() {
+        DispatchQueue.main.async { [self] in
+            print("addTimeStart \(addTimeIntervalLength)")
+            print("finishTime \(String(describing: finishTime))")
+            if addTimeIntervalLength != 0 {
+                finishTime += TimeInterval(addTimeIntervalLength * 60)
+                addTimeIntervalLength = 0
+            }
+            print("finishTime \(String(describing: finishTime))")
+            print("addTimeEnd \(addTimeIntervalLength)")
         }
     }
 
@@ -191,7 +201,6 @@ class AppTimer: ObservableObject {
         appSetter.player.playWindup()
         appSetter.player.startTicking()
         startTimer(seconds: workIntervalLength * 60)
-
         // 记录工作开始时间，用于统计
         workStartTime = Date()
     }
@@ -241,7 +250,7 @@ class AppTimer: ObservableObject {
 
         // 根据是否强制休息显示不同的通知
         if appSetter.forceRest {
-            appSetter.noti.postNotification(
+            appSetter.notifier.postNotification(
                 title: NSLocalizedString(
                     "Timer.onRestStart.title", comment: "时间到 Time's up"),
                 body: body)
@@ -254,7 +263,7 @@ class AppTimer: ObservableObject {
                     timeRemaining: initialTime, isLongBreak: isLongRest)
             }
         } else {
-            appSetter.noti.postNotification(
+            appSetter.notifier.postNotification(
                 title: NSLocalizedString(
                     "Timer.onRestStart.title", comment: "时间到 Time's up"),
                 body: body,
@@ -273,7 +282,7 @@ class AppTimer: ObservableObject {
             }
         }
 
-        appSetter.noti.postNotification(
+        appSetter.notifier.postNotification(
             title: NSLocalizedString(
                 "TBTimer.onRestFinish.title", comment: "Rest finished title"),
             body: NSLocalizedString(
@@ -283,20 +292,20 @@ class AppTimer: ObservableObject {
     // 空闲状态开始处理
     private func onIdleStart() {
         if timer != nil {
-            stopTimer()
+            timer!.cancel()
+            timer = nil
         }
-
         // 关闭强制休息窗口
         if appSetter.forceRest {
             DispatchQueue.main.async {
                 self.appSetter.forceRestWindowController.closeForceRestWindow()
             }
         }
-
         MenuBarController.shared.setIcon(name: .idle)
     }
 
-    private func checkDate() -> Bool {
+    // 检查日期
+    private func checkScheduleSetting() -> Bool {
         if ScheduleSetter.shared.workSchedule {
             // 获取今天的星期
             let calendar = Calendar.current

@@ -50,8 +50,8 @@ struct PopoverView: View {
             PopoverButtom().padding(5)
         }
         .padding(16)
-        .accentColor(Color(appSetter.colorSet))
-        .tint(Color(appSetter.colorSet))
+        .accentColor(Color(appSetter.appearance.color))
+        .tint(Color(appSetter.appearance.color))
         .frame(height: windowProperties.height)
         .alert(isPresented: $showAlert) {
             Alert(
@@ -71,14 +71,11 @@ struct PopoverView: View {
         }
         .onChange(of: appSetter.scheduleMenu) { newValue in
             freshView(newValue: newValue, quantity: 30)
-            if !appSetter.scheduleMenu, appSetter.scheduleExpanded{
+            if !appSetter.scheduleMenu, appSetter.scheduleExpanded {
                 freshView(newValue: false, quantity: 120)
-            }else if appSetter.scheduleMenu, appSetter.scheduleExpanded{
+            } else if appSetter.scheduleMenu, appSetter.scheduleExpanded {
                 freshView(newValue: true, quantity: 120)
             }
-        }
-        .onChange(of: appSetter.shortRestMenu) { newValue in
-            freshView(newValue: newValue, quantity: 30)
         }
         .onChange(of: appSetter.stopAfterBrekeMenu) { newValue in
             freshView(newValue: newValue, quantity: 30)

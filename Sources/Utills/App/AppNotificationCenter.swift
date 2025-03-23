@@ -3,15 +3,13 @@ import UserNotifications
 typealias TBNotificationHandler = (AppNotification.Action) -> Void
 
 class AppNotificationCenter: NSObject, UNUserNotificationCenterDelegate {
+
     private var center = UNUserNotificationCenter.current()
     private var handler: TBNotificationHandler?
 
     override init() {
         super.init()
-
-        center.requestAuthorization(
-            options: [.alert]
-        ) { _, error in
+        center.requestAuthorization( options: [.alert] ) { _, error in
             if error != nil {
                 print("Error requesting notification authorization: \(error!)")
             }

@@ -13,8 +13,6 @@ struct PopoverButtom: View {
             Button {
                 // 显示统计窗口
                 StatsWindowController.shared.showStatsWindow()
-                // 关闭弹出窗口
-                MenuBarController.shared.closePopover(nil)
             } label: {
                 iniComponet(
                     localized: NSLocalizedString(
@@ -26,9 +24,8 @@ struct PopoverButtom: View {
 
             // 设置按钮
             Button {
+                // 显示设置窗口
                 SettingsWindowController.shared.showSettingWindow()
-                // 关闭弹出窗口
-                MenuBarController.shared.closePopover(nil)
             } label: {
                 iniComponet(localized: NSLocalizedString(
                     "Popover.setting.label",

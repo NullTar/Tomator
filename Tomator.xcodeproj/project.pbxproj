@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A0943712D907A810071E46A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A21B78F27EE31A30009E5DB /* Assets.xcassets */; };
+		5A0943722D907A810071E46A /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 5A691BC52D84708F00FD8D95 /* Localizable.xcstrings */; };
 		5A5A1B6A2D8250090048116A /* ScheduleDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5A1B692D824FFE0048116A /* ScheduleDate.swift */; };
 		5A5A1B6E2D8258A10048116A /* AppSetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5A1B6D2D8258A10048116A /* AppSetter.swift */; };
 		5A691BBE2D846E7700FD8D95 /* PreferenceSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A691BBD2D846E6E00FD8D95 /* PreferenceSettingView.swift */; };
@@ -26,9 +28,6 @@
 		5A8586FF2D8516E100ED5E9D /* AppearanceSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8586FE2D8516E000ED5E9D /* AppearanceSetting.swift */; };
 		5A8587012D85429200ED5E9D /* ForceWindowSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8587002D85428500ED5E9D /* ForceWindowSetting.swift */; };
 		5A8587032D8544A400ED5E9D /* ColorSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8587022D85449D00ED5E9D /* ColorSetting.swift */; };
-		5A8587262D858E9000ED5E9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A21B78F27EE31A30009E5DB /* Assets.xcassets */; };
-		5A8587272D858E9000ED5E9D /* Toma.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 8A21B79427EE31A30009E5DB /* Toma.entitlements */; };
-		5A8587282D858E9000ED5E9D /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 5A691BC52D84708F00FD8D95 /* Localizable.xcstrings */; };
 		5A85872A2D85A83E00ED5E9D /* PopoverTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8587292D85A83600ED5E9D /* PopoverTop.swift */; };
 		5ABC84952D81DAC6009A1FFE /* AppStatsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABC84942D81DAC1009A1FFE /* AppStatsData.swift */; };
 		5ABC84972D81DBA5009A1FFE /* AppStatsDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABC84962D81DB99009A1FFE /* AppStatsDataViewModel.swift */; };
@@ -57,7 +56,6 @@
 		5A0942F52D8E998E0071E46A /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		5A0942F62D8E998E0071E46A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5A0942F72D8E998E0071E46A /* release.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = release.sh; sourceTree = "<group>"; };
-		5A0942FB2D8FDEEA0071E46A /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		5A0942FC2D8FDEEA0071E46A /* forceWindow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = forceWindow.png; sourceTree = "<group>"; };
 		5A0942FD2D8FDEEA0071E46A /* popover_all.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popover_all.png; sourceTree = "<group>"; };
 		5A0942FE2D8FDEEA0071E46A /* popover_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popover_default.png; sourceTree = "<group>"; };
@@ -67,7 +65,7 @@
 		5A0943022D8FDEEA0071E46A /* TomatoBarAlt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TomatoBarAlt.png; sourceTree = "<group>"; };
 		5A0943032D8FDEEA0071E46A /* TomatoBarOld.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TomatoBarOld.png; sourceTree = "<group>"; };
 		5A0943052D8FDEEA0071E46A /* README_ENGLISH.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README_ENGLISH.md; sourceTree = "<group>"; };
-		5A0943482D8FDEEA0071E46A /* Tomator copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tomator copy-Info.plist"; sourceTree = "<group>"; };
+		5A09434B2D90015B0071E46A /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		5A5A1B692D824FFE0048116A /* ScheduleDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleDate.swift; sourceTree = "<group>"; };
 		5A5A1B6D2D8258A10048116A /* AppSetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSetter.swift; sourceTree = "<group>"; };
 		5A691BBD2D846E6E00FD8D95 /* PreferenceSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceSettingView.swift; sourceTree = "<group>"; };
@@ -99,11 +97,11 @@
 		5ABC84AA2D822FD2009A1FFE /* QuickSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSettingView.swift; sourceTree = "<group>"; };
 		5ABC84CA2D823AB6009A1FFE /* MenuBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarController.swift; sourceTree = "<group>"; };
 		5ABC84CD2D823F2B009A1FFE /* ForceRest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForceRest.swift; sourceTree = "<group>"; };
+		5AD25E3D2D907D6B0079F69B /* Tomator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Tomator.entitlements; sourceTree = "<group>"; };
 		8A21B78827EE31A20009E5DB /* Tomator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tomator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A21B78B27EE31A20009E5DB /* Tomator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tomator.swift; sourceTree = "<group>"; };
 		8A21B78D27EE31A20009E5DB /* TimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeView.swift; sourceTree = "<group>"; };
 		8A21B78F27EE31A30009E5DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		8A21B79427EE31A30009E5DB /* Toma.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Toma.entitlements; sourceTree = "<group>"; };
 		8A9F700827EE396E0012A1EC /* StateMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateMachine.swift; sourceTree = "<group>"; };
 		8A9F701827EE3DAF0012A1EC /* AppTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTimer.swift; sourceTree = "<group>"; };
 		8A9F701E27EE536D0012A1EC /* SoundPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
@@ -129,7 +127,6 @@
 		5A0943042D8FDEEA0071E46A /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				5A0942FB2D8FDEEA0071E46A /* .gitignore */,
 				5A0942FC2D8FDEEA0071E46A /* forceWindow.png */,
 				5A0942FD2D8FDEEA0071E46A /* popover_all.png */,
 				5A0942FE2D8FDEEA0071E46A /* popover_default.png */,
@@ -145,6 +142,7 @@
 		5A691BBC2D846E3C00FD8D95 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				5A8586EC2D84DCDE00ED5E9D /* Time */,
 				5A8586FD2D8516B000ED5E9D /* Appearance */,
 				5A8586FA2D84F93F00ED5E9D /* About */,
 				5A8586F72D84F90600ED5E9D /* Help */,
@@ -167,7 +165,6 @@
 		5A8586D82D849AD100ED5E9D /* Preference */ = {
 			isa = PBXGroup;
 			children = (
-				5A8586EC2D84DCDE00ED5E9D /* Time */,
 				5ABC84AA2D822FD2009A1FFE /* QuickSettingView.swift */,
 				5A8586D92D849B0200ED5E9D /* FeatureSettingView.swift */,
 				5A691BBD2D846E6E00FD8D95 /* PreferenceSettingView.swift */,
@@ -315,15 +312,15 @@
 		8A21B77F27EE31A20009E5DB = {
 			isa = PBXGroup;
 			children = (
+				8A21B78A27EE31A20009E5DB /* Sources */,
 				5A0943042D8FDEEA0071E46A /* Assets */,
 				5A0943052D8FDEEA0071E46A /* README_ENGLISH.md */,
-				5A0943482D8FDEEA0071E46A /* Tomator copy-Info.plist */,
 				5A0942F32D8E998E0071E46A /* export_options.plist */,
 				5A0942F42D8E998E0071E46A /* github-release.sh */,
 				5A0942F52D8E998E0071E46A /* LICENSE */,
 				5A0942F62D8E998E0071E46A /* README.md */,
 				5A0942F72D8E998E0071E46A /* release.sh */,
-				8A21B78A27EE31A20009E5DB /* Sources */,
+				5A09434B2D90015B0071E46A /* .gitignore */,
 				8A21B78927EE31A20009E5DB /* Products */,
 				8A9F700D27EE3AED0012A1EC /* Frameworks */,
 			);
@@ -347,8 +344,8 @@
 				9CCCDD6A2D786A8000A76DD7 /* Docs */,
 				9CCCDD592D783F2700A76DD7 /* Info.plist */,
 				8A21B78B27EE31A20009E5DB /* Tomator.swift */,
+				5AD25E3D2D907D6B0079F69B /* Tomator.entitlements */,
 				8A21B78F27EE31A30009E5DB /* Assets.xcassets */,
-				8A21B79427EE31A30009E5DB /* Toma.entitlements */,
 				5A691BC52D84708F00FD8D95 /* Localizable.xcstrings */,
 			);
 			path = Sources;
@@ -432,9 +429,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A8587262D858E9000ED5E9D /* Assets.xcassets in Resources */,
-				5A8587272D858E9000ED5E9D /* Toma.entitlements in Resources */,
-				5A8587282D858E9000ED5E9D /* Localizable.xcstrings in Resources */,
+				5A0943712D907A810071E46A /* Assets.xcassets in Resources */,
+				5A0943722D907A810071E46A /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -619,18 +615,18 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
-				CODE_SIGN_ENTITLEMENTS = Sources/Toma.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Sources/Tomator.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = "1 beta";
+				CURRENT_PROJECT_VERSION = "2 beta";
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 5F44TASM2Z;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Sources/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Toma;
+				INFOPLIST_KEY_CFBundleDisplayName = Tomator;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 NullTar. All rights reserved. \nRepository：https://github.com/NullTar/TomatoBar";
@@ -658,18 +654,18 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
-				CODE_SIGN_ENTITLEMENTS = Sources/Toma.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Sources/Tomator.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = "1 beta";
+				CURRENT_PROJECT_VERSION = "2 beta";
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 5F44TASM2Z;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Sources/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Toma;
+				INFOPLIST_KEY_CFBundleDisplayName = Tomator;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 NullTar. All rights reserved. \nRepository：https://github.com/NullTar/TomatoBar";

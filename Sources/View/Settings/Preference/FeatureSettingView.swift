@@ -33,7 +33,7 @@ struct FeatureSettingView: View {
                                     comment: "开机启动")
                             )
                             .frame(maxWidth: .infinity, alignment: .leading)
-                        }.toggleStyle(.switch).tint(Color(appSetter.colorSet))
+                        }.toggleStyle(.switch).tint(Color(appSetter.appearance.color))
                             .onChange(of: appSetter.launchAtLogin) { newValue in
                                 appSetter.setLaunchAtLogin(newValue)
                             }
@@ -53,7 +53,7 @@ struct FeatureSettingView: View {
                             )
                             .frame(maxWidth: .infinity, alignment: .leading)
                         }
-                        .toggleStyle(.switch).tint(Color(appSetter.colorSet))
+                        .toggleStyle(.switch).tint(Color(appSetter.appearance.color))
                         .onChange(of: appSetter.showTimerInMenuBar) { _ in
                             appTimer.updateTimeLeft()
                         }
@@ -73,9 +73,9 @@ struct FeatureSettingView: View {
                             )
                             .frame(maxWidth: .infinity, alignment: .leading)
                         }.disabled(!appSetter.showTimerInMenuBar)
-                        .toggleStyle(.switch).tint(Color(appSetter.colorSet))
+                            .toggleStyle(.switch).tint(Color(appSetter.appearance.color))
                         .onChange(of: appSetter.showTimerInMenuBarAways) { _ in
-                            appSetter.checkCountdownDiaplay()
+                            appSetter.checkCountdownDiplayMenu()
                         }
                         
                         InfoConponet(
@@ -93,7 +93,7 @@ struct FeatureSettingView: View {
                             )
                             .frame(maxWidth: .infinity, alignment: .leading)
                         }
-                        .toggleStyle(.switch).tint(Color(appSetter.colorSet))
+                        .toggleStyle(.switch).tint(Color(appSetter.appearance.color))
                         InfoConponet(
                             label: NSLocalizedString(
                                 "ShowNotifications.info",
@@ -132,8 +132,19 @@ struct FeatureSettingView: View {
                                 comment: "强制休息警告")
                         )
                         .font(.system(size: 12))
-                        .foregroundColor(Color(appSetter.colorSet))
+                        .foregroundColor(Color(appSetter.appearance.color))
                         .frame(maxWidth: .infinity, alignment: .leading)
+                    }
+                    HStack {
+                        SettingCompont(
+                            toggle: $appSetter.hidenSkipForceRest,
+                            label: NSLocalizedString(
+                                "hidenSkipForceRest.label", comment: "隐藏跳过"),
+                            appSetter: appSetter)
+                        InfoConponet(
+                            label: NSLocalizedString(
+                                "hidenSkipForceRest.info",
+                                comment: "启用此选项以隐藏强制休息窗口的 跳过按钮"))
                     }
                     Divider()
                     TimeComponent(
@@ -159,4 +170,5 @@ struct FeatureSettingView: View {
     AppSettings()
         .environmentObject(AppTimer.shared)
         .environmentObject(AppSetter.shared)
+        .environmentObject(SettingsWindowController.shared.windowProperties)
 }

@@ -21,7 +21,7 @@ struct ColorSetting: View {
                     maxWidth: .infinity, alignment: .leading
                 )
                 .foregroundColor(Color.gray).padding(.leading, 8)
-            Circle().fill(Color(appSetter.colorSet))
+            Circle().fill(Color(appSetter.appearance.color))
                 .frame(width: 16)
                 .overlay(
                     Circle()
@@ -50,7 +50,7 @@ struct ColorSetting: View {
                     }.buttonStyle(BorderlessButtonStyle())
                         .onChange(of: selectedColor) { newValue in
                             if let newValue = newValue {
-                                appSetter.colorSet = newValue
+                                appSetter.appearance.color = newValue
                             }
                         }
                 }

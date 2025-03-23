@@ -34,10 +34,13 @@ struct TimeComponent: View {
                 Array(0 ... 5)
             case .Long:
                 Array(10 ... 20)
+            case .Add:
+                Array(3 ... 15)
             }
             Menu(String.localizedStringWithFormat(minStr, interval)) {
                 ForEach(data, id: \.self) { value in
-                    Button(String.localizedStringWithFormat(minStr, value), action: { selectedValue = value })
+                    Button(String.localizedStringWithFormat(minStr, value), action: {
+                        selectedValue = value })
                 }
                 if timeType == TimeType.Work{
                     Divider()
@@ -45,7 +48,7 @@ struct TimeComponent: View {
                         ForEach(workTimeOther, id: \.self) { value in
                             Button(String.localizedStringWithFormat(minStr, value), action: { selectedValue = value })
                         }
-                    }.foregroundColor(.red).accentColor(Color(appSetter.colorSet)).tint(Color(appSetter.colorSet))
+                    }.foregroundColor(.red).accentColor(Color(appSetter.appearance.color)).tint(Color(appSetter.appearance.color))
                     Menu(NSLocalizedString("More", comment: "更多")) {
                         ForEach(20 ... 80, id: \.self) { value in
                             if !worktimeMain.contains(value) && !workTimeOther.contains(value) {
@@ -53,16 +56,16 @@ struct TimeComponent: View {
                                        action: { selectedValue = value })
                             }
                         }
-                    }.accentColor(Color(appSetter.colorSet)).tint(Color(appSetter.colorSet))
+                    }.accentColor(Color(appSetter.appearance.color)).tint(Color(appSetter.appearance.color))
                 }
-            }.accentColor(Color(appSetter.colorSet)).tint(Color(appSetter.colorSet))
+            }.accentColor(Color(appSetter.appearance.color)).tint(Color(appSetter.appearance.color))
             .frame(width: 80)
             .onChange(of: selectedValue) { newValue in
                 if let newValue = newValue {
                     interval = newValue
                 }
             }
-        }.accentColor(Color(appSetter.colorSet)).tint(Color(appSetter.colorSet))
+        }.accentColor(Color(appSetter.appearance.color)).tint(Color(appSetter.appearance.color))
     }
 }
 

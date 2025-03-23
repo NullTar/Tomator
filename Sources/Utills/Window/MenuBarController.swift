@@ -14,6 +14,7 @@ private let digitFont = NSFont.monospacedDigitSystemFont(
 
 // 状态栏项管理类，实现应用程序代理协议
 class MenuBarController: NSObject, NSApplicationDelegate {
+
     static var shared: MenuBarController!  // 共享实例
     private var popover = NSPopover()  // 弹出窗口
     private var statusBarItem: NSStatusItem?  // 状态栏项
@@ -42,8 +43,7 @@ class MenuBarController: NSObject, NSApplicationDelegate {
             MenuBarController.togglePopover(_:))
         initHeight()
         // 避免死锁，放这里了
-        AppSetter.shared.checkCountdownDiaplay()
-        AppSetter.shared.checkSoundSetting()
+        AppSetter.shared.checkCountdownDiplayMenu()
     }
 
     // 设置状态栏项的标题
@@ -107,7 +107,8 @@ class MenuBarController: NSObject, NSApplicationDelegate {
         if AppSetter.shared.forceRest {
             windowProperties.height += 40
         }
-        if AppSetter.shared.scheduleExpanded , AppSetter.shared.scheduleExpanded {
+        if AppSetter.shared.scheduleExpanded, AppSetter.shared.scheduleExpanded
+        {
             windowProperties.height += 120
         }
         if AppSetter.shared.scheduleMenu {
@@ -128,7 +129,6 @@ class MenuBarController: NSObject, NSApplicationDelegate {
         }
     }
 
-    
 }
 
 #Preview {

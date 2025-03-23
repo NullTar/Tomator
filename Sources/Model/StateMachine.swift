@@ -64,18 +64,23 @@ class StateMachine {
         
         // 根据当前状态和事件确定下一个状态
         switch (currentState, event) {
+            // 空闲 -> 工作
         case (.idle, .startStop):
             currentState = .work
             transitioned = true
+            // 空闲 -> 暂停
         case (.work, .startStop):
             currentState = .idle
             transitioned = true
+            // 休息 -> 空闲
         case (.rest, .startStop):
             currentState = .idle
             transitioned = true
+            // 工作 -> 休息
         case (.work, .timerFired):
             currentState = .rest
             transitioned = true
+            // 休息 -> 销毁
         case (.rest, .timerFired):
             // 根据条件决定是进入空闲状态还是工作状态
             if let condition = condition, condition() {
@@ -84,6 +89,7 @@ class StateMachine {
                 currentState = .work
             }
             transitioned = true
+            // 休息 -> 跳过休息
         case (.rest, .skipRest):
             currentState = .work
             transitioned = true

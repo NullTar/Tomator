@@ -6,8 +6,6 @@ import SwiftUI
 class StatsWindowController: NSWindowController {
     static let shared = StatsWindowController()
     
-    
-
     private override init(window: NSWindow?) {
         // 创建窗口
         let window = NSWindow(
@@ -34,16 +32,14 @@ class StatsWindowController: NSWindowController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     // 显示统计窗口
     func showStatsWindow() {
-        if window?.isVisible == false {
+        if window?.isVisible == false{
             window?.center()
-            showWindow(nil)
         }
-
-        // 确保窗口在前端并获得焦点
-        NSApp.activate(ignoringOtherApps: true)
+        showWindow(nil)
         window?.makeKeyAndOrderFront(nil)
+        NSApp.activate(ignoringOtherApps: true)
     }
 }

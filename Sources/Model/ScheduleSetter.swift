@@ -45,14 +45,14 @@ class ScheduleSetter: ObservableObject {
     ]
 
     private init() {
-        if let decodedMorningTimes = decodeDate(from: moringTime), decodedMorningTimes.count == 2 {
+        if let decodedMorningTimes = decodeDate(), decodedMorningTimes.count == 2 {
             morningStart =
                 decodedMorningTimes.first!
             morningEnd =
                 decodedMorningTimes.last!
         }
 
-        if let decodedAfternoonTimes = decodeDate(from: afternoonTime), decodedAfternoonTimes.count == 2  {
+        if let decodedAfternoonTimes = decodeDate(), decodedAfternoonTimes.count == 2  {
             afternoonStart =
                 decodedAfternoonTimes.first!
             afternoonEnd =
@@ -115,9 +115,10 @@ class ScheduleSetter: ObservableObject {
             afternoonTime = encoded
         }
     }
+    
     // 结构
-    private func decodeDate(from data: Data) -> [Date]? {
-        return try? JSONDecoder().decode([Date].self, from: data)
+    private func decodeDate() -> [Date]? {
+        return try? JSONDecoder().decode([Date].self, from: workDays)
     }
 
     //  创建时间

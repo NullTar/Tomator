@@ -13,7 +13,7 @@ class AppSetter: ObservableObject {
 
     static let shared = AppSetter()
 
-    ////////// App功能
+    ////////// App 功能管理
     // 通知中心
     private let notificationCenter = AppNotificationCenter()
     // 音效播放器
@@ -30,6 +30,8 @@ class AppSetter: ObservableObject {
     ////////// 菜单栏设置
     // 显示小憩时间
     @AppStorage("shortRestMenu") var shortRestMenu = false
+    // 显示强制休息
+    @AppStorage("addTimeMenu") var addTimeMenu = true
     // 显示时间表
     @AppStorage("scheduleMenu") var scheduleMenu = false
     // 显示休息后停止
@@ -40,8 +42,10 @@ class AppSetter: ObservableObject {
     ////////// 功能设置
     // 开机启动
     @AppStorage("launchAtLogin") var launchAtLogin = true
-    // 应用颜色
-    @AppStorage("colorSet") var colorSet = "Aqua"
+    // 样式 颜色、背景、模糊
+    @AppStorage("appAppearance") private var appearanceData: Data = Data()
+    // 设置的背景图
+    @AppStorage("customizePic") var customizePic: Data = Data()
     // 通知设置
     @AppStorage("notification") var notification = true
     // 声音设置
@@ -54,10 +58,22 @@ class AppSetter: ObservableObject {
     @AppStorage("stopAfterBreak") var stopAfterBreak = false
     // 强制休息
     @AppStorage("forceRest") var forceRest = true
-    // 背景模糊
-    @AppStorage("forstWindowBlur") var forstWindowBlur = 0.8
+    // 隐藏 跳过强制休息
+    @AppStorage("hidenSkipForceRest") var hidenSkipForceRest = false
+    // 默认值
+    @Published var appearance = Appearance(
+        color: "Aqua", background: .gradation, blur: 0.8)
+    {
+        didSet {
+            setAppearance()
+        }
+    }
 
     private init() {
+        // init Appearance
+        if let decodeAppearance = getAppearance() {
+            appearance = decodeAppearance
+        }
         // 注册 URL 处理
         let aem: NSAppleEventManager = NSAppleEventManager.shared()
         aem.setEventHandler(
@@ -66,13 +82,73 @@ class AppSetter: ObservableObject {
             forEventClass: AEEventClass(kInternetEventClass),
             andEventID: AEEventID(kAEGetURL))
     }
-
-    public var player: SoundPlayer {
-        return soundPlayer
+    
+    // 返回渐变  TODO 渐变组
+    func returnGradation() -> some View {
+        HStack{
+            LinearGradient(
+                gradient: Gradient(colors: [
+                    Color.blue.opacity(0.4),
+                    Color.purple.opacity(0.7),
+                ]),
+                startPoint: .top,
+                endPoint: .bottom
+            )
+        }
+    }
+    
+    // 返回壁纸 TODO
+    func returnWallpaper() -> some View {
+        HStack{
+            if let wallpaper = getDesktopWallpaper() {
+               Image(nsImage: wallpaper)
+                    .resizable().scaledToFill()
+            }
+        }
+    }
+    
+    // 返回自定义图片
+    func returnCustomize() -> some View {
+        HStack{
+            Image(nsImage: NSImage(data: customizePic) ?? .init())
+                .resizable().scaledToFill()
+        }
+    }
+    
+    // 返回桌面
+    func returnDesktop() -> some View {
+        HStack{
+            Image(.screenshot).resizable().scaledToFill()
+        }
+    }
+    
+    // 返回壁纸
+    func getDesktopWallpaper() -> NSImage? {
+        if let screen = NSScreen.screens.first {
+            let workspace = NSWorkspace.shared
+            if let wallpaperURL = workspace.desktopImageURL(for: screen),
+                let image = NSImage(contentsOf: wallpaperURL)
+            {
+                return image
+            }
+        }
+        return nil
     }
 
-    public var noti: AppNotificationCenter {
-        return notificationCenter
+
+    // 检查菜单栏时间显示
+    func checkCountdownDiplayMenu() {
+        if !showTimerInMenuBar {
+            showTimerInMenuBarAways = false
+        } else if showTimerInMenuBar, showTimerInMenuBarAways {
+            if AppTimer.shared.timeLeftString == nil {
+                AppTimer.shared.timeLeftString = "00:00"
+            }
+            MenuBarController.shared.setTitle(
+                title: AppTimer.shared.timeLeftString)
+            return
+        }
+        MenuBarController.shared.setTitle(title: nil)
     }
 
     // 设置开机启动状态
@@ -104,32 +180,6 @@ class AppSetter: ObservableObject {
             if !success {
                 print("无法更改登录项状态：SMLoginItemSetEnabled 失败")
             }
-        }
-    }
-
-    func checkSoundSetting() {
-        if appSound {
-            soundPlayer.muteSound()
-        }
-    }
-
-    func checkDiplayMenu() {
-        if !showTimerInMenuBar {
-            showTimerInMenuBarAways = false
-        }
-    }
-
-    func checkCountdownDiaplay() {
-        checkDiplayMenu()
-        if !showTimerInMenuBarAways {
-            MenuBarController.shared.setTitle(title: nil)
-        }
-        if showTimerInMenuBar, showTimerInMenuBarAways {
-            if AppTimer.shared.finishTime == nil {
-                AppTimer.shared.timeLeftString = "00:00"
-            }
-            MenuBarController.shared.setTitle(
-                title: AppTimer.shared.timeLeftString)
         }
     }
 
@@ -166,4 +216,32 @@ class AppSetter: ObservableObject {
         }
     }
 
+    // 编码存储
+    private func setAppearance() {
+        if let encoded = try? JSONEncoder().encode(appearance) {
+            appearanceData = encoded
+        }
+    }
+    // 解码获取
+    private func getAppearance() -> Appearance? {
+        return try? JSONDecoder().decode(Appearance.self, from: appearanceData)
+    }
+    
+    // 返回 声音设置类
+    public var player: SoundPlayer {
+        return soundPlayer
+    }
+
+    // 返回 通知处理类
+    public var notifier: AppNotificationCenter {
+        return notificationCenter
+    }
+
+}
+
+#Preview {
+    AppSettings()
+        .environmentObject(AppTimer.shared)
+        .environmentObject(AppSetter.shared)
+        .environmentObject(SettingsWindowController.shared.windowProperties)
 }

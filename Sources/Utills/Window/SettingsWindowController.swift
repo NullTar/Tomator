@@ -5,12 +5,12 @@ import SwiftUI
 @available(macOS 13.0, *)
 class SettingsWindowController: NSWindowController {
     static let shared = SettingsWindowController()
-    @ObservedObject var windowProperties = WindowProperties(width: 600, height: 460)
-    
+    @ObservedObject var windowProperties = WindowProperties(width: 600, height: 520)
+
     private override init(window: NSWindow?) {
         // 创建窗口
         let window = NSWindow(
-            contentRect: NSRect(x: 0, y: 0, width: 600, height: 460),
+            contentRect: NSRect(x: 0, y: 0, width: 600, height: 520),
             styleMask: [.titled, .closable,.miniaturizable],
             backing: .buffered,
             defer: false
@@ -33,15 +33,17 @@ class SettingsWindowController: NSWindowController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    // MARK: There's a weird bug here that sometimes doesn't get focus
     func showSettingWindow() {
-        if window?.isVisible == false {
+        if window?.isVisible == false{
             window?.center()
-            showWindow(nil)
         }
-        NSApp.activate(ignoringOtherApps: true)
+        showWindow(nil)
         window?.makeKeyAndOrderFront(nil)
+        NSApp.activate(ignoringOtherApps: true)
     }
     
+    // 更新视图窗口
     func updateFrame(width:CGFloat,height:CGFloat) {
         windowProperties.setUpFrame(width: width,height: height)
         if let contentView = window?.contentView {

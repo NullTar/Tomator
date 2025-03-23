@@ -9,17 +9,28 @@ import SwiftUI
 // 强制休息视图
 struct ForceRest: View {
     @EnvironmentObject var appSetter: AppSetter
-    @ObservedObject var forceRestWindowController = ForceRestWindowController.shared
-    
+    @ObservedObject var forceRestWindowController = ForceRestWindowController
+        .shared
     @State private var closeForceWindowNum = 0
 
     var body: some View {
         ZStack {
-            // 半透明背景 - 增加不透明度，避免看到下层内容
-            Color.black.opacity(appSetter.forstWindowBlur)
-                .edgesIgnoringSafeArea(.all)
-                // 允许接收点击事件但不传递
-                .allowsHitTesting(true)
+            // 背景
+            switch appSetter.appearance.background {
+            case .desktop:
+                Color.black.opacity(appSetter.appearance.blur)
+                    .edgesIgnoringSafeArea(.all)
+                    .allowsHitTesting(true)
+            case .customize:
+                appSetter.returnCustomize()
+                    .allowsHitTesting(true)
+            case .gradation:
+                appSetter.returnGradation()
+                    .allowsHitTesting(true)
+            case .wallpaper:
+                appSetter.returnWallpaper()
+                    .allowsHitTesting(true)
+            }
             VStack {
                 // 休息图标
                 Image(systemName: "cup.and.heat.waves.fill")
@@ -27,14 +38,16 @@ struct ForceRest: View {
                     .foregroundColor(.white)
                     .padding(.top, 160)
                 // 休息提示文本
-                Text(forceRestWindowController.isLongBreak
+                Text(
+                    forceRestWindowController.isLongBreak
                         ? NSLocalizedString(
                             "ForceRest.longBreak.title", comment: "是时候休息啦")
                         : NSLocalizedString(
                             "ForceRest.shortBreak.title", comment: "是时候小憩啦")
                 )
                 .font(.system(size: 64, weight: .bold))
-                .foregroundColor(Color(appSetter.colorSet).opacity(0.9))
+                .foregroundColor(
+                    Color(appSetter.appearance.color).opacity(0.9))
                 // 详细提示
                 Text(
                     NSLocalizedString(
@@ -45,7 +58,10 @@ struct ForceRest: View {
                 .multilineTextAlignment(.center)
                 // 计时器
                 Text(forceRestWindowController.timeRemaining)
-                    .font(.system(size: 80, weight: .bold, design: .monospaced))
+                    .font(
+                        .system(
+                            size: 80, weight: .bold, design: .monospaced)
+                    )
                     .foregroundColor(.white)
                     .padding(.top)
                 // 底部提示
@@ -56,22 +72,29 @@ struct ForceRest: View {
                 )
                 .font(.headline)
                 .foregroundColor(.white)
-                Button(
-                    action: {
-                        checkQuit()
-                    },
-                    label: {
-                        Text(
-                            closeForceWindowNum == 1
-                                ? NSLocalizedString(
-                                    "ForceRest.quiteSure", comment: "再点一下关闭紧急窗口"
-                                )
-                                : NSLocalizedString(
-                                    "ForceRest.emergency", comment: "点击跳过"))
-                        .foregroundColor(Color(appSetter.colorSet).opacity(0.8))
-                    }
-                ).buttonStyle(BorderlessButtonStyle())
-                    .padding(.bottom, 40)
+                if !appSetter.hidenSkipForceRest {
+                    Button(
+                        action: {
+                            checkQuit()
+                        },
+                        label: {
+                            Text(
+                                closeForceWindowNum == 1
+                                    ? NSLocalizedString(
+                                        "ForceRest.quiteSure",
+                                        comment: "再点一下关闭紧急窗口"
+                                    )
+                                    : NSLocalizedString(
+                                        "ForceRest.emergency",
+                                        comment: "点击跳过")
+                            )
+                            .foregroundColor(
+                                Color(appSetter.appearance.color).opacity(
+                                    0.8))
+                        }
+                    ).buttonStyle(BorderlessButtonStyle())
+                        .padding(.bottom, 40)
+                }
             }.padding()
         }
         .contentShape(Rectangle())
@@ -81,7 +104,8 @@ struct ForceRest: View {
         .onTapGesture {}
         .onExitCommand {}
     }
-    func checkQuit() {
+
+    private func checkQuit() {
         closeForceWindowNum += 1
         if closeForceWindowNum == 2 {
             forceRestWindowController.closeForceRestWindow()
@@ -92,5 +116,4 @@ struct ForceRest: View {
 #Preview {
     ForceRest()
         .environmentObject(AppSetter.shared)
-        .frame(width: 1200,height: 800)
 }

@@ -17,7 +17,7 @@ extension NSImage.Name {
 
 // 时间类型
 enum TimeType {
-    case Work, Short, Long
+    case Work, Short, Long, Add
 }
 
 // Log Protocol
@@ -76,7 +76,7 @@ enum WindowOperation {
 }
 
 // Days
-struct Days:Codable, Identifiable{
+struct Days: Codable, Identifiable {
     var id: Int
     var name: String
     var value: String
@@ -136,3 +136,15 @@ let Colors = [
     ColorPattern(name: "SunsetOrange", color: Color("SunsetOrange")),
     ColorPattern(name: "Tulip", color: Color("Tulip")),
 ]
+
+//  背景
+enum Background: Codable {
+    case gradation, wallpaper, desktop, customize
+}
+
+//  样式
+struct Appearance: Sendable, Codable {
+    var color: String
+    var background: Background
+    var blur: CGFloat
+}

@@ -50,7 +50,7 @@ struct ScheduleSetting: View {
                 .shadow(color: .gray.opacity(0.5), radius: 0.4)
                 .padding(.horizontal, 8)
             Spacer()
-        }.accentColor(Color(appSetter.colorSet))
+        }.accentColor(Color(appSetter.appearance.color))
     }
 }
 

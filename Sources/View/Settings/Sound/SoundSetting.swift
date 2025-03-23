@@ -7,10 +7,10 @@
 import SwiftUI
 
 // 声音设置视图，用于配置应用的声音效果
-// TODO 设置滑块样式
 struct SoundSetting: View {
 
     @EnvironmentObject var appSetter: AppSetter
+    @ObservedObject var soundPlayer = SoundPlayer.shared
 
     private var columns = [
         GridItem(.flexible()),
@@ -33,7 +33,7 @@ struct SoundSetting: View {
                                 comment: "提示音")
                         )
                         .frame(maxWidth: .infinity, alignment: .leading)
-                    }.toggleStyle(.switch).tint(Color(appSetter.colorSet))
+                    }.toggleStyle(.switch).tint(Color(appSetter.appearance.color))
                     InfoConponet(
                         label: NSLocalizedString(
                             "Sound.Feature.info",
@@ -46,19 +46,19 @@ struct SoundSetting: View {
                         NSLocalizedString(
                             "Sounds.isWindupEnabled.label",
                             comment: "喂 Windup"))
-                    VolumeSlider(volume: appSetter.player.$windupVolume)
+                    VolumeSlider(volume: $soundPlayer.windupVolume)
                     // 叮声音设置
                     Text(
                         NSLocalizedString(
                             "Sounds.isDingEnabled.label",
                             comment: "叮 Ding"))
-                    VolumeSlider(volume: appSetter.player.$dingVolume)
+                    VolumeSlider(volume: $soundPlayer.dingVolume)
                     // 滴答声音设置
                     Text(
                         NSLocalizedString(
                             "Sounds.isTickingEnabled.label",
                             comment: "滴答 Ticking"))
-                    VolumeSlider(volume: appSetter.player.$tickingVolume)
+                    VolumeSlider(volume: $soundPlayer.tickingVolume)
                 }.padding(.horizontal, 8).padding(.bottom, 8)
             }.background(Color("CardView")).cornerRadius(8)
                 .shadow(color: .gray.opacity(0.5), radius: 0.4)
@@ -69,16 +69,11 @@ struct SoundSetting: View {
     // 音量滑块组件，用于调整声音音量
     private struct VolumeSlider: View {
         @Binding var volume: Double
-
         var body: some View {
-            Slider(value: $volume, in: 0...2) {
+            Slider(value: $volume, in: 1...4,step: 0.2) {
                 Text(String(format: "%.1f", volume))
             }
-            .tint(Color(AppSetter.shared.colorSet))
-            .gesture(
-                TapGesture(count: 2).onEnded {
-                    volume = 1.0
-                })
+            .tint(Color(AppSetter.shared.appearance.color))
         }
     }
 }

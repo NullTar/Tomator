@@ -28,11 +28,6 @@ class SoundPlayer: ObservableObject {
         }
     }
 
-    // 设置音频播放器音量的辅助方法
-    private func setVolume(_ sound: AVAudioPlayer, _ volume: Double) {
-        sound.setVolume(Float(volume), fadeDuration: 0)
-    }
-
     // 初始化音频播放器
     private init() {
         // 加载音频资源
@@ -68,27 +63,33 @@ class SoundPlayer: ObservableObject {
 
     // 播放上弦声音
     func playWindup() {
-        windupSound.play()
+        if !AppSetter.shared.appSound {
+            windupSound.play()
+        }
     }
 
     // 播放叮声音
     func playDing() {
-        dingSound.play()
+        if !AppSetter.shared.appSound {
+            dingSound.play()
+        }
     }
 
     // 开始播放滴答声
     func startTicking() {
-        tickingSound.play()
+        if !AppSetter.shared.appSound {
+            tickingSound.play()
+        }
     }
 
     // 停止播放滴答声
     func stopTicking() {
         tickingSound.stop()
     }
-
-    func muteSound() {
-        windupVolume = 0
-        dingVolume = 0
-        tickingVolume = 0
+    
+    // 设置音频播放器音量的辅助方法
+    private func setVolume(_ sound: AVAudioPlayer, _ volume: Double) {
+        sound.setVolume(Float(volume), fadeDuration: 0)
     }
+
 }

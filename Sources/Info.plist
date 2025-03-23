@@ -9,6 +9,8 @@
 			<string>Viewer</string>
 			<key>CFBundleURLIconFile</key>
 			<string></string>
+			<key>NSUserNotificationAlertStyle</key>
+			<string>alert</string>
 			<key>CFBundleURLName</key>
 			<string>https://github.com/NullTar/Tomator</string>
 			<key>CFBundleURLSchemes</key>

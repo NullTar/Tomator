@@ -35,12 +35,13 @@ class ForceRestWindowController: ObservableObject {
         // 配置窗口属性
         window.isReleasedWhenClosed = false
         window.center()
-        window.backgroundColor = NSColor.clear
         window.isOpaque = false
         window.hasShadow = false
         window.canHide = false
         window.isMovable = false
         window.setIsZoomed(false)
+        window.backgroundColor = NSColor.clear
+
         // 必须接收鼠标事件才能阻止穿透
         window.ignoresMouseEvents = false
         // 设置最高窗口层级，确保覆盖所有内容 screenSaver 是非常高的窗口级别
@@ -54,15 +55,13 @@ class ForceRestWindowController: ObservableObject {
         window.contentView = NSHostingView(rootView: contentView)
         window.makeKeyAndOrderFront(nil)
         self.window = window
+
         // 安装键盘监听器，拦截组合键
         installKeyboardMonitor()
-
         // 确保窗口始终在最前面
         setupWindowMonitoring()
-
         // 全屏显示
         makeWindowFullScreen()
-
         // 获取所有显示器并在每个显示器上显示窗口
         coverAllScreens()
     }

@@ -5,6 +5,7 @@
 //
 import AppKit
 import SwiftUI
+
 class WindowProperties: ObservableObject {
 
     @Published var width: CGFloat {
@@ -21,7 +22,7 @@ class WindowProperties: ObservableObject {
             }
         }
     }
-    
+
     init(width: CGFloat, height: CGFloat) {
         self.width = width
         self.height = height
@@ -47,10 +48,9 @@ class WindowProperties: ObservableObject {
             }
         }
     }
-    
-    func setUpFrame(width:CGFloat,height:CGFloat){
+
+    func setUpFrame(width: CGFloat, height: CGFloat) {
         self.width = width
         self.height = height
     }
-    
 }

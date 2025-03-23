@@ -26,11 +26,12 @@ struct PopoverTop: View {
             VStack {
                 // 状态指示器
                 statusText
-                    .foregroundColor(Color(appSetter.colorSet))
+                    .foregroundColor(Color(appSetter.appearance.color))
                 let idleLabel =
                     appTimer.workIntervalLength
                     + appTimer.shortRestIntervalLength
                     + appTimer.longRestIntervalLength
+                    + appTimer.addTimeIntervalLength
                 let workLabel = appTimer.consecutiveWorkIntervals + 1
                 if idleLabel != 0 && appTimer.currentState == .idle
                     || workLabel != 0 && appTimer.currentState == .work
@@ -51,12 +52,18 @@ struct PopoverTop: View {
                         .asymmetric(insertion: .scale, removal: .opacity))
                 }
             }
+            // debug
+            Button(action: {
+                ForceRestWindowController.shared.showForceRestWindow(timeRemaining: "01:00", isLongBreak: true)
+            }, label: {
+                Text("打开强制窗口")
+            })
             // 专注/停止按钮
             Rectangle()
-                .fill(Color(appSetter.colorSet))
+                .fill(Color(appSetter.appearance.color))
                 .clipShape(Capsule())
                 .shadow(
-                    color: Color(appSetter.colorSet).opacity(0.8), radius: 1
+                    color: Color(appSetter.appearance.color).opacity(0.8), radius: 1
                 )
                 .frame(height: 40)
                 .overlay {
@@ -65,6 +72,9 @@ struct PopoverTop: View {
                             appTimer.startStop()
                             withAnimation {
                                 isExpanded.toggle()
+                                MenuBarController.shared.updateEdg(
+                                    toggle: isExpanded, edg: .height,
+                                    quantity: 30)
                             }
                         },
                         label: {
@@ -76,7 +86,8 @@ struct PopoverTop: View {
                                     appTimer.timer != nil
                                         ? (buttonHovered
                                             ? stopLabel
-                                            : appTimer.timeLeftString)
+                                            : appTimer.timeLeftString
+                                                ?? "")
                                         : startFocusLabel
                                 )
                                 .font(.system(.body).monospacedDigit())
@@ -89,8 +100,7 @@ struct PopoverTop: View {
                         buttonHovered = over
                     }
                 }
-
-        }.accentColor(Color(appSetter.colorSet))
+        }.accentColor(Color(appSetter.appearance.color))
     }
 
     // 定义状态显示文本

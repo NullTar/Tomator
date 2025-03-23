@@ -40,11 +40,10 @@ struct QuickSettingView: View {
                         comment: "强制休息警告")
                 )
                 .font(.system(size: 12))
-                .foregroundColor(Color(appSetter.colorSet))
+                .foregroundColor(Color(appSetter.appearance.color))
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .fixedSize(horizontal: false, vertical: true)
                 .lineLimit(nil)
-                
             }
         }
     }
@@ -56,8 +55,9 @@ func SettingCompont(toggle: Binding<Bool>, label: String, appSetter: AppSetter)
     Toggle(isOn: toggle) {
         Text(label)
             .frame(maxWidth: .infinity, alignment: .leading)
-    }.toggleStyle(.switch).tint(Color(appSetter.colorSet))
+    }.toggleStyle(.switch).tint(Color(appSetter.appearance.color))
 }
+
 
 #Preview {
     QuickSettingView()

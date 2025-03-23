@@ -2,7 +2,7 @@
   "sourceLanguage" : "en",
   "strings" : {
     "" : {
-
+      "shouldTranslate" : false
     },
     "%lld" : {
       "shouldTranslate" : false
@@ -17,6 +17,23 @@
         }
       },
       "shouldTranslate" : false
+    },
+    "addTimeIntervalLength.label" : {
+      "comment" : "添加时间",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add Time"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "添加时间"
+          }
+        }
+      }
     },
     "AppSound.label" : {
       "comment" : "提示音",
@@ -88,6 +105,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "早上"
+          }
+        }
+      }
+    },
+    "EnableAddTimeMenu.info" : {
+      "comment" : "启用此选项以在弹出窗口中显示 添加时间",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enable this to display the add time when opening window"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "启用此选项以在弹出窗口中显示 添加时间"
+          }
+        }
+      }
+    },
+    "EnableAddTimeMenu.label" : {
+      "comment" : "添加时间",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add time"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "添加时间"
           }
         }
       }
@@ -290,7 +341,7 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "花点时间让你的眼睛和大脑休息一下\n为了健康 远离屏幕\nwinking winking"
           }
         }
@@ -415,6 +466,125 @@
         }
       }
     },
+    "ForceWindow.Customize" : {
+      "comment" : "自定义",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Customize"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "自定义"
+          }
+        }
+      }
+    },
+    "ForceWindow.Desktop" : {
+      "comment" : "桌面",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Desktop"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "桌面"
+          }
+        }
+      }
+    },
+    "ForceWindow.Gradation" : {
+      "comment" : "渐变",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gradation"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "渐变"
+          }
+        }
+      }
+    },
+    "ForceWindow.WallPaper" : {
+      "comment" : "壁纸",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wallpaper"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "壁纸"
+          }
+        }
+      }
+    },
+    "ForceWindowBlue.info" : {
+      "comment" : "模糊不对 渐变 生效",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Blur does not apply to gradient"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "模糊不对 渐变 生效"
+          }
+        }
+      }
+    },
+    "hidenSkipForceRest.info" : {
+      "comment" : "启用此选项以隐藏强制休息窗口的 跳过按钮",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enable this to hiden skip button on forced window"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "启用此选项以隐藏强制休息窗口的 跳过按钮"
+          }
+        }
+      }
+    },
+    "hidenSkipForceRest.label" : {
+      "comment" : "隐藏跳过",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hiden skip"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "隐藏跳过"
+          }
+        }
+      }
+    },
     "IntervalsView.min" : {
       "comment" : "分钟",
       "localizations" : {
@@ -507,6 +677,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ok"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "确定"
           }
         }
       }
@@ -1795,7 +1971,7 @@
     "Xcode" : {
       "shouldTranslate" : false
     },
-    "测试" : {
+    "打开强制窗口" : {
       "shouldTranslate" : false
     }
   },
