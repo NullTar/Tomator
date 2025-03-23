@@ -1,25 +1,31 @@
 <p align="center">
-<img src="https://github.com/NullTar/Tomator/blob/main/Sources/Assets.xcassets/AppIcon.appiconset/icon_512x512%402x.png" width="128" height="128"/>
+<img src="https://github.com/NullTar/Tomator/blob/da5f0f00c80f1715f8e84e4dad9750cff9743d73/Sources/Assets.xcassets/AppIcon.appiconset/icon_512x512%402x.png" width="128" height="128"/>
 <p>
+
 
 <h1 align="center">Tomator</h1>
 <p align="center">
 
 
 ## 概述
-<img
-  src="https://github.com/wersling/TomatoBar/raw/main/Assets/screenshot.png?raw=true"
-  alt="Screenshot"
-  width="35%"
+<img src="https://github.com/NullTar/Tomator/blob/da5f0f00c80f1715f8e84e4dad9750cff9743d73/Assets/popover_default.png"
+  alt="popover_default"
+  width="20%"
   align="right"
 />
+
+<img src="https://github.com/NullTar/Tomator/blob/da5f0f00c80f1715f8e84e4dad9750cff9743d73/Assets/popover_all.png"
+  alt="popover_all"
+  width="20%"
+  align="right"
+/>
+
 你听说过番茄工作法吗？这是一种很棒的技术，可以帮助你在学习或工作期间跟踪时间并保持专注。在<a href="https://en.wikipedia.org/wiki/Pomodoro_Technique">维基百科</a>上了解更多信息。
 
 Tomator 是 macOS 菜单栏上的番茄钟计时器。
 
 #### Language
 English: [ReadMe](https://github.com/NullTar/Tomator/releases)
-
 
 #### 包含所有基本功能
 - 简洁的菜单栏界面，不占用桌面空间
@@ -34,15 +40,22 @@ English: [ReadMe](https://github.com/NullTar/Tomator/releases)
 - 低资源占用，对系统性能影响极小
 
 ## 截图
-<img
-  src="https://github.com/wersling/TomatoBar/raw/main/Assets/screenshot2.png?raw=true"
-  alt="Screenshot2"
+<img src="https://github.com/NullTar/Tomator/blob/da5f0f00c80f1715f8e84e4dad9750cff9743d73/Assets/stats.png"
+  alt="stats"
+/>
+
+<img src=""
+  alt="forceWindow"
+/>
+
+<img src="https://github.com/NullTar/Tomator/blob/da5f0f00c80f1715f8e84e4dad9750cff9743d73/Assets/setting.png"
+  alt="setting"
 />
 
 ## 下载安装
 1. 访问 [GitHub Releases 页面](https://github.com/NullTar/Tomator/releases)
 2. 下载最新版本的 `Tomator.dmg` 文件
-3. 解压后将 TomatoBar.app 拖到应用程序文件夹中
+3. 解压后将 Tomator.app 拖到应用程序文件夹中
 
 
 ## 系统要求
@@ -73,9 +86,9 @@ The application does not collect users' personal information, nor does it share 
    ./release.sh 1.0.1
    ```
    脚本将在`./build`目录中生成以下文件：
-   - TomatoBar.app - 应用程序
-   - TomatoBar.dmg - 磁盘镜像
-   - TomatoBar.zip - 压缩包
+   - Tomator.app - 应用程序
+   - Tomator.dmg - 磁盘镜像
+   - Tomator.zip - 压缩包
    
    版本号从Xcode项目文件中的`MARKETING_VERSION`属性获取，而不是从Info.plist中获取。如果未指定版本号，脚本会自动从project.pbxproj文件中获取当前版本。
    
@@ -93,6 +106,6 @@ The application does not collect users' personal information, nor does it share 
 
 ## 与其他工具集成
 ### 事件日志
-TomatoBar 以 JSON 格式将状态转换记录到 `~/Library/Containers/cn.wersling.tomatobar/Data/Library/Caches/TomatoBar.log`。使用这些数据分析你的生产力并丰富其他数据源。
+Tomator 以 JSON 格式将状态转换记录到 `~/Library/Containers/cn.null.tomator/Data/Library/Caches/Tomator.log`。使用这些数据分析你的生产力并丰富其他数据源。
 ### 启动和停止计时器
-TomatoBar 可以通过 `tomatobar://` URL 控制。要从命令行启动或停止计时器，使用 `open tomatobar://startStop`。
+Tomator 可以通过 `tomator://` URL 控制。要从命令行启动或停止计时器，使用 `open tomator://startStop`。

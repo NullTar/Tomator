@@ -92,5 +92,5 @@ struct ForceRest: View {
 #Preview {
     ForceRest()
         .environmentObject(AppSetter.shared)
-
+        .frame(width: 1200,height: 800)
 }

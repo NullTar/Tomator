@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# TomatoBar应用发布脚本
+# Tomator应用发布脚本
 # 用法: ./release.sh [版本号]
 
 set -e
@@ -13,9 +13,9 @@ BLUE='\033[0;34m'
 NC='\033[0m' # 无颜色
 
 # 项目配置
-APP_NAME="TomatoBar"
-PROJECT_NAME="TomatoBar.xcodeproj"
-SCHEME_NAME="TomatoBar"
+APP_NAME="Tomator"
+PROJECT_NAME="Tomator.xcodeproj"
+SCHEME_NAME="Tomator"
 BUILD_DIR="./build"
 ARCHIVE_PATH="$BUILD_DIR/$APP_NAME.xcarchive"
 EXPORT_DIR="$BUILD_DIR/Export"

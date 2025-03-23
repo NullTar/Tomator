@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# TomatoBar GitHub发布辅助脚本
+# Tomator GitHub发布辅助脚本
 # 用法: ./github-release.sh [版本号]
 # 注意: 构建版本号(CURRENT_PROJECT_VERSION)已在 release.sh 中自动递增，此脚本不会再次递增
 
@@ -14,7 +14,7 @@ BLUE='\033[0;34m'
 NC='\033[0m' # 无颜色
 
 # 项目配置
-PROJECT_NAME="TomatoBar.xcodeproj"
+PROJECT_NAME="Tomator.xcodeproj"
 
 # 从project.pbxproj获取版本号
 get_marketing_version() {
@@ -53,8 +53,8 @@ fi
 echo -e "${BLUE}=== 准备创建GitHub发布 $VERSION ===${NC}"
 
 BUILD_DIR="./build"
-DMG_FILE="$BUILD_DIR/TomatoBar.dmg"
-ZIP_FILE="$BUILD_DIR/TomatoBar.zip"
+DMG_FILE="$BUILD_DIR/Tomator.dmg"
+ZIP_FILE="$BUILD_DIR/Tomator.zip"
 
 # 检查构建文件是否存在
 if [ ! -f "$DMG_FILE" ] || [ ! -f "$ZIP_FILE" ]; then
@@ -66,7 +66,7 @@ fi
 # 创建发布说明模板
 RELEASE_NOTES_FILE="release_notes.md"
 cat > "$RELEASE_NOTES_FILE" << EOF
-# TomatoBar $VERSION 发布说明
+# Tomator $VERSION 发布说明
 
 ## 新特性
 - 
@@ -78,8 +78,8 @@ cat > "$RELEASE_NOTES_FILE" << EOF
 - 
 
 ## 下载
-- [TomatoBar.dmg](https://github.com/wingstone/TomatoBar/releases/download/$VERSION/TomatoBar.dmg)
-- [TomatoBar.zip](https://github.com/wingstone/TomatoBar/releases/download/$VERSION/TomatoBar.zip)
+- [Tomator.dmg](https://github.com/NullTar/Tomator/releases/download/$VERSION/Tomator.dmg)
+- [Tomator.zip](https://github.com/NullTar/Tomator/releases/download/$VERSION/Tomator.zip)
 EOF
 
 echo -e "${GREEN}创建了发布说明模板: $RELEASE_NOTES_FILE${NC}"
@@ -93,21 +93,21 @@ if git rev-parse "$VERSION" >/dev/null 2>&1; then
     echo -e "${YELLOW}标签 $VERSION 已存在${NC}"
 else
     echo -e "${BLUE}创建标签 $VERSION${NC}"
-    git tag -a "$VERSION" -m "TomatoBar $VERSION"
+    git tag -a "$VERSION" -m "Tomator $VERSION"
     git push origin "$VERSION"
     echo -e "${GREEN}标签已推送到远程仓库${NC}"
 fi
 
 # 创建GitHub发布
 echo -e "${BLUE}创建GitHub发布...${NC}"
-gh repo set-default wersling/TomatoBar
+gh repo set-default wersling/Tomator
 gh release create "$VERSION" \
-    --title "TomatoBar $VERSION" \
+    --title "Tomator $VERSION" \
     --notes-file "$RELEASE_NOTES_FILE" \
     "$DMG_FILE" "$ZIP_FILE"
 
 echo -e "${GREEN}=== GitHub发布已完成! ===${NC}"
-echo -e "${GREEN}发布地址: https://github.com/wersling/TomatoBar/releases/tag/$VERSION${NC}"
+echo -e "${GREEN}发布地址: https://github.com/NullTar/Tomator/releases/tag/$VERSION${NC}"
 
 # 清理临时文件
 rm "$RELEASE_NOTES_FILE" 
