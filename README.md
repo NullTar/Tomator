@@ -7,22 +7,13 @@
 
 
 ## 概述
-<div  align="left" width="70%">
+<table>
+<tr>
+<td>
+
 你听说过番茄工作法吗？这是一种很棒的技术，可以帮助你在学习或工作期间跟踪时间并保持专注。在<a href="https://en.wikipedia.org/wiki/Pomodoro_Technique">维基百科</a>上了解更多信息。
 
 Tomator 是 macOS 菜单栏上的番茄钟计时器。
-</div>
-<div align="right" >
-<img src="https://github.com/NullTar/Tomator/blob/da5f0f00c80f1715f8e84e4dad9750cff9743d73/Assets/popover_default.png"
-  alt="popover_default"
-  width="30%"
-/>
-<br>
-<img src="https://github.com/NullTar/Tomator/blob/da5f0f00c80f1715f8e84e4dad9750cff9743d73/Assets/popover_all.png"
-  alt="popover_all"
-  width="30%"
-/>
-</div>
 
 #### Language
 English: [ReadMe](https://github.com/NullTar/Tomator/releases)
@@ -39,7 +30,22 @@ English: [ReadMe](https://github.com/NullTar/Tomator/releases)
 - 设置特定的时间表时间启用
 - 低资源占用，对系统性能影响极小
 
+</td>
+<td>
 
+<img src="https://github.com/NullTar/Tomator/blob/da5f0f00c80f1715f8e84e4dad9750cff9743d73/Assets/popover_default.png"
+  alt="popover_default"
+  width="30%"
+/>
+<br>
+<img src="https://github.com/NullTar/Tomator/blob/da5f0f00c80f1715f8e84e4dad9750cff9743d73/Assets/popover_all.png"
+  alt="popover_all"
+  width="30%"
+/>
+
+</td>
+</tr>
+</table>
 
 ## 截图
 <p align="center">
