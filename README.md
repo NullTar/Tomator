@@ -22,12 +22,6 @@ Tomator 是 macOS 菜单栏上的番茄钟计时器。
 English: [ReadMe](https://github.com/NullTar/Tomator/releases)
 
 #### 包含所有基本功能
-<img src="https://github.com/NullTar/Tomator/blob/da5f0f00c80f1715f8e84e4dad9750cff9743d73/Assets/popover_all.png"
-  alt="popover_all"
-  width="30%"
-  align=right
-/>
-
 - 简洁的菜单栏界面，不占用桌面空间
 - 可配置的工作和休息间隔
 - 支持强制休息、小憩休息
@@ -38,6 +32,12 @@ English: [ReadMe](https://github.com/NullTar/Tomator/releases)
 - 自定义颜色、背景
 - 设置特定的时间表时间启用
 - 低资源占用，对系统性能影响极小
+
+<img src="https://github.com/NullTar/Tomator/blob/da5f0f00c80f1715f8e84e4dad9750cff9743d73/Assets/popover_all.png"
+  alt="popover_all"
+  width="30%"
+  align=right
+/>
 
 ## 截图
 <p align="center">
