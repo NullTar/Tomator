@@ -11,11 +11,13 @@
 <img src="https://github.com/NullTar/Tomator/blob/da5f0f00c80f1715f8e84e4dad9750cff9743d73/Assets/popover_default.png"
   alt="popover_default"
 	width="30%"
+	align=right
 />
 <br>
 <img src="https://github.com/NullTar/Tomator/blob/da5f0f00c80f1715f8e84e4dad9750cff9743d73/Assets/popover_all.png"
   alt="popover_all"
   width="30%"
+  align=right
 />
 </div>
 
