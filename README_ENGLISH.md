@@ -76,7 +76,7 @@ Thanks to developers for their contributions
 
 ## Licence
  - Timer sound from buddhabeats
- - menu bar icon: [美味的食物](https://www.iconfont.cn/collections/detail?spm=a313x.user_detail.i1.dc64b3430.38913a81T5pE7r&cid=2134)[Banada](https://www.iconfont.cn/user/detail?spm=a313x.user_detail.i1.dcc7d6115.2d753a81ofaC89&userViewType=collections&uid=32838&nid=Gk16MkNV0bM0)
+ - menu bar icon: [美味的食物](https://www.iconfont.cn/collections/detail?spm=a313x.user_detail.i1.dc64b3430.38913a81T5pE7r&cid=2134) by [Banada](https://www.iconfont.cn/user/detail?spm=a313x.user_detail.i1.dcc7d6115.2d753a81ofaC89&userViewType=collections&uid=32838&nid=Gk16MkNV0bM0)
 
 ## Authorization
 Please do not use this repository source code for any commercial purposes, this app is never charged, always updated! For details please see [LICENSE](https://creativecommons.org/licenses/by-nc/4.0/)
