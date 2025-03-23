@@ -1,6 +1,6 @@
-<p align="center">
+<div align="center">
 <img src="https://github.com/NullTar/Tomator/blob/da5f0f00c80f1715f8e84e4dad9750cff9743d73/Sources/Assets.xcassets/AppIcon.appiconset/icon_512x512%402x.png" width="128" height="128"/>
-<p>
+</div>
 
 
 <h1 align="center">Tomator</h1>
