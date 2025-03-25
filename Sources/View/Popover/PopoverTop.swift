@@ -26,7 +26,7 @@ struct PopoverTop: View {
             VStack {
                 // 状态指示器
                 statusText
-                    .foregroundColor(Color(appSetter.appearance.color))
+                    .foregroundColor(appSetter.color)
                 let idleLabel =
                     appTimer.workIntervalLength
                     + appTimer.shortRestIntervalLength
@@ -40,7 +40,7 @@ struct PopoverTop: View {
                         String.localizedStringWithFormat(
                             appTimer.currentState == .work
                                 ? NSLocalizedString(
-                                    "Total.WorkIntervals", comment: "共记工作数")
+                                    "Total.WorkIntervals", comment: "现阶段")
                                 : NSLocalizedString(
                                     "Total.Time", comment: "共记时间"),
                             appTimer.currentState == .work
@@ -52,18 +52,12 @@ struct PopoverTop: View {
                         .asymmetric(insertion: .scale, removal: .opacity))
                 }
             }
-            // debug
-            Button(action: {
-                ForceRestWindowController.shared.showForceRestWindow(timeRemaining: "01:00", isLongBreak: true)
-            }, label: {
-                Text("打开强制窗口")
-            })
             // 专注/停止按钮
             Rectangle()
-                .fill(Color(appSetter.appearance.color))
+                .fill(appSetter.color)
                 .clipShape(Capsule())
                 .shadow(
-                    color: Color(appSetter.appearance.color).opacity(0.8), radius: 1
+                    color: appSetter.color.opacity(0.8), radius: 1
                 )
                 .frame(height: 40)
                 .overlay {
@@ -100,7 +94,7 @@ struct PopoverTop: View {
                         buttonHovered = over
                     }
                 }
-        }.accentColor(Color(appSetter.appearance.color))
+        }.accentColor(appSetter.color)
     }
 
     // 定义状态显示文本

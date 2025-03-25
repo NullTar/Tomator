@@ -29,13 +29,13 @@ class AppSetter: ObservableObject {
 
     ////////// 菜单栏设置
     // 显示小憩时间
-    @AppStorage("shortRestMenu") var shortRestMenu = false
+    @AppStorage("shortRestMenu") var shortRestMenu = true
     // 显示强制休息
     @AppStorage("addTimeMenu") var addTimeMenu = true
     // 显示时间表
-    @AppStorage("scheduleMenu") var scheduleMenu = false
+    @AppStorage("scheduleMenu") var scheduleMenu = true
     // 显示休息后停止
-    @AppStorage("stopAfterBrekeMenu") var stopAfterBrekeMenu = false
+    @AppStorage("stopAfterBrekeMenu") var stopAfterBrekeMenu = true
     // 显示强制休息
     @AppStorage("forceRestMenu") var forceRestMenu = true
 
@@ -48,7 +48,7 @@ class AppSetter: ObservableObject {
     @AppStorage("customizePic") var customizePic: Data = Data()
     // 通知设置
     @AppStorage("notification") var notification = true
-    // 声音设置
+    // 声音设置 true 为关闭
     @AppStorage("appSound") var appSound = false
     // 在菜单栏显示计时器
     @AppStorage("showTimerInMenuBar") var showTimerInMenuBar = true
@@ -60,20 +60,24 @@ class AppSetter: ObservableObject {
     @AppStorage("forceRest") var forceRest = true
     // 隐藏 跳过强制休息
     @AppStorage("hidenSkipForceRest") var hidenSkipForceRest = false
-    // 默认值
+    // 默认值 颜色设置
     @Published var appearance = Appearance(
-        color: "Aqua", background: .gradation, blur: 0.8)
+        color: "Aqua", background: .desktop, opacity: 0.8, blur: 8)
     {
         didSet {
             setAppearance()
         }
     }
+    // 取色
+    @Published var color = Color.clear
 
     private init() {
         // init Appearance
         if let decodeAppearance = getAppearance() {
             appearance = decodeAppearance
         }
+        // init Color
+        color = getColor()
         // 注册 URL 处理
         let aem: NSAppleEventManager = NSAppleEventManager.shared()
         aem.setEventHandler(
@@ -82,59 +86,39 @@ class AppSetter: ObservableObject {
             forEventClass: AEEventClass(kInternetEventClass),
             andEventID: AEEventID(kAEGetURL))
     }
-    
+
     // 返回渐变  TODO 渐变组
     func returnGradation() -> some View {
-        HStack{
+        HStack {
             LinearGradient(
                 gradient: Gradient(colors: [
-                    Color.blue.opacity(0.4),
-                    Color.purple.opacity(0.7),
+                    Color(hex: "#F9F871"),
+                    Color(hex: "#FF9671"),
+                    Color(hex: "#FF6F91"),
+                    Color(hex: "#D65DB1"),
+                    Color(hex: "#845EC2"),
                 ]),
                 startPoint: .top,
                 endPoint: .bottom
-            )
+            ).blur(radius: appearance.blur).opacity(appearance.opacity)
         }
     }
-    
-    // 返回壁纸 TODO
-    func returnWallpaper() -> some View {
-        HStack{
-            if let wallpaper = getDesktopWallpaper() {
-               Image(nsImage: wallpaper)
-                    .resizable().scaledToFill()
-            }
-        }
-    }
-    
+
+
     // 返回自定义图片
     func returnCustomize() -> some View {
-        HStack{
+        HStack {
             Image(nsImage: NSImage(data: customizePic) ?? .init())
                 .resizable().scaledToFill()
         }
     }
-    
+
     // 返回桌面
     func returnDesktop() -> some View {
-        HStack{
+        HStack {
             Image(.screenshot).resizable().scaledToFill()
         }
     }
-    
-    // 返回壁纸
-    func getDesktopWallpaper() -> NSImage? {
-        if let screen = NSScreen.screens.first {
-            let workspace = NSWorkspace.shared
-            if let wallpaperURL = workspace.desktopImageURL(for: screen),
-                let image = NSImage(contentsOf: wallpaperURL)
-            {
-                return image
-            }
-        }
-        return nil
-    }
-
 
     // 检查菜单栏时间显示
     func checkCountdownDiplayMenu() {
@@ -216,17 +200,27 @@ class AppSetter: ObservableObject {
         }
     }
 
+    // 获取颜色
+    private func getColor() -> Color {
+        if appearance.color.hasPrefix("#") {
+            return Color(hex: appearance.color)
+        } else {
+            return  Color(appearance.color)
+        }
+    }
+    
     // 编码存储
     private func setAppearance() {
         if let encoded = try? JSONEncoder().encode(appearance) {
             appearanceData = encoded
         }
+        color = getColor()
     }
     // 解码获取
     private func getAppearance() -> Appearance? {
         return try? JSONDecoder().decode(Appearance.self, from: appearanceData)
     }
-    
+
     // 返回 声音设置类
     public var player: SoundPlayer {
         return soundPlayer

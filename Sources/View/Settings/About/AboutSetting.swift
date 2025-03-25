@@ -8,9 +8,19 @@ import SwiftUI
 
 struct AboutSetting: View {
     var body: some View {
-        VStack {
-            Text("Xcode")
-            Spacer()
+        VStack(spacing: 8) {
+            Image("Icon")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 100, height: 100)
+            Text(NSLocalizedString("about.info", comment: "app 介绍"))
+                .lineLimit(nil)
         }
     }
+    
+    
+}
+
+#Preview {
+    AboutSetting()
 }

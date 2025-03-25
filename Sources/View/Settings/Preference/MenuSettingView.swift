@@ -25,7 +25,7 @@ struct MenuSettingView: View {
                                     comment: "小憩时间")
                             )
                             .frame(maxWidth: .infinity, alignment: .leading)
-                        }.toggleStyle(.switch).tint(Color(appSetter.appearance.color))
+                        }.toggleStyle(.switch).tint(appSetter.color)
                         InfoConponet(
                             label: NSLocalizedString(
                                 "EnableShorRestMenu.info",
@@ -40,7 +40,7 @@ struct MenuSettingView: View {
                                     comment: "时间表")
                             )
                             .frame(maxWidth: .infinity, alignment: .leading)
-                        }.toggleStyle(.switch).tint(Color(appSetter.appearance.color))
+                        }.toggleStyle(.switch).tint(appSetter.color)
                         InfoConponet(
                             label: NSLocalizedString(
                                 "EnableScheduleMenu.info",
@@ -55,7 +55,7 @@ struct MenuSettingView: View {
                                     comment: "休息后停止")
                             )
                             .frame(maxWidth: .infinity, alignment: .leading)
-                        }.toggleStyle(.switch).tint(Color(appSetter.appearance.color))
+                        }.toggleStyle(.switch).tint(appSetter.color)
                         InfoConponet(
                             label: NSLocalizedString(
                                 "EnableShopAfterRestMenu.info",
@@ -68,9 +68,9 @@ struct MenuSettingView: View {
                                 NSLocalizedString(
                                     "EnableForceRestMenu.label",
                                     comment: "强制休息")
-                            ).tint(Color(appSetter.appearance.color)).frame(
+                            ).tint(appSetter.color).frame(
                                 maxWidth: .infinity, alignment: .leading)
-                        }.toggleStyle(.switch).tint(Color(appSetter.appearance.color))
+                        }.toggleStyle(.switch).tint(appSetter.color)
                         InfoConponet(
                             label: NSLocalizedString(
                                 "EnableForceRestMenu.info",
@@ -83,9 +83,9 @@ struct MenuSettingView: View {
                                 NSLocalizedString(
                                     "EnableAddTimeMenu.label",
                                     comment: "添加时间")
-                            ).tint(Color(appSetter.appearance.color)).frame(
+                            ).tint(appSetter.color).frame(
                                 maxWidth: .infinity, alignment: .leading)
-                        }.toggleStyle(.switch).tint(Color(appSetter.appearance.color))
+                        }.toggleStyle(.switch).tint(appSetter.color)
                         InfoConponet(
                             label: NSLocalizedString(
                                 "EnableAddTimeMenu.info",

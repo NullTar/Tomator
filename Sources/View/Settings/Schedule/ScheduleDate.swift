@@ -18,7 +18,7 @@ struct ScheduleDate: View {
                 ForEach(week){ day in
                     let isSelected = selectedDays.contains(day.id)
                     RoundedRectangle(cornerRadius: 4)
-                        .fill(isSelected ? Color(appSetter.appearance.color) : Color.gray.opacity(0.8))
+                        .fill(isSelected ? appSetter.color : Color.gray.opacity(0.8))
                         .frame(width: 24, height: 24)
                         .overlay(
                             Text(day.value)

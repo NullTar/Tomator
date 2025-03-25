@@ -33,7 +33,7 @@ struct FeatureSettingView: View {
                                     comment: "开机启动")
                             )
                             .frame(maxWidth: .infinity, alignment: .leading)
-                        }.toggleStyle(.switch).tint(Color(appSetter.appearance.color))
+                        }.toggleStyle(.switch).tint(appSetter.color)
                             .onChange(of: appSetter.launchAtLogin) { newValue in
                                 appSetter.setLaunchAtLogin(newValue)
                             }
@@ -53,7 +53,7 @@ struct FeatureSettingView: View {
                             )
                             .frame(maxWidth: .infinity, alignment: .leading)
                         }
-                        .toggleStyle(.switch).tint(Color(appSetter.appearance.color))
+                        .toggleStyle(.switch).tint(appSetter.color)
                         .onChange(of: appSetter.showTimerInMenuBar) { _ in
                             appTimer.updateTimeLeft()
                         }
@@ -73,7 +73,7 @@ struct FeatureSettingView: View {
                             )
                             .frame(maxWidth: .infinity, alignment: .leading)
                         }.disabled(!appSetter.showTimerInMenuBar)
-                            .toggleStyle(.switch).tint(Color(appSetter.appearance.color))
+                            .toggleStyle(.switch).tint(appSetter.color)
                         .onChange(of: appSetter.showTimerInMenuBarAways) { _ in
                             appSetter.checkCountdownDiplayMenu()
                         }
@@ -93,7 +93,7 @@ struct FeatureSettingView: View {
                             )
                             .frame(maxWidth: .infinity, alignment: .leading)
                         }
-                        .toggleStyle(.switch).tint(Color(appSetter.appearance.color))
+                        .toggleStyle(.switch).tint(appSetter.color)
                         InfoConponet(
                             label: NSLocalizedString(
                                 "ShowNotifications.info",
@@ -132,7 +132,7 @@ struct FeatureSettingView: View {
                                 comment: "强制休息警告")
                         )
                         .font(.system(size: 12))
-                        .foregroundColor(Color(appSetter.appearance.color))
+                        .foregroundColor(appSetter.color)
                         .frame(maxWidth: .infinity, alignment: .leading)
                     }
                     HStack {

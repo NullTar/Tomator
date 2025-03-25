@@ -17,7 +17,7 @@ extension NSImage.Name {
 
 // 时间类型
 enum TimeType {
-    case Work, Short, Long, Add
+    case Work, Short, Long, Number , Add
 }
 
 // Log Protocol
@@ -139,12 +139,13 @@ let Colors = [
 
 //  背景
 enum Background: Codable {
-    case gradation, wallpaper, desktop, customize
+    case gradation, desktop, customize
 }
 
 //  样式
 struct Appearance: Sendable, Codable {
     var color: String
     var background: Background
+    var opacity: CGFloat
     var blur: CGFloat
 }

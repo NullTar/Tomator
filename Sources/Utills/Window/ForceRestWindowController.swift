@@ -40,7 +40,11 @@ class ForceRestWindowController: ObservableObject {
         window.canHide = false
         window.isMovable = false
         window.setIsZoomed(false)
-        window.backgroundColor = NSColor.clear
+
+        // 清理背景
+        if AppSetter.shared.appearance.background != .gradation {
+            window.backgroundColor = NSColor.clear
+        }
 
         // 必须接收鼠标事件才能阻止穿透
         window.ignoresMouseEvents = false

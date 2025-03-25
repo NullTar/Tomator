@@ -36,6 +36,8 @@ struct TimeComponent: View {
                 Array(10 ... 20)
             case .Add:
                 Array(3 ... 15)
+            case .Number:
+                Array(1 ... 8)
             }
             Menu(String.localizedStringWithFormat(minStr, interval)) {
                 ForEach(data, id: \.self) { value in
@@ -48,7 +50,7 @@ struct TimeComponent: View {
                         ForEach(workTimeOther, id: \.self) { value in
                             Button(String.localizedStringWithFormat(minStr, value), action: { selectedValue = value })
                         }
-                    }.foregroundColor(.red).accentColor(Color(appSetter.appearance.color)).tint(Color(appSetter.appearance.color))
+                    }.foregroundColor(.red).accentColor(appSetter.color).tint(appSetter.color)
                     Menu(NSLocalizedString("More", comment: "更多")) {
                         ForEach(20 ... 80, id: \.self) { value in
                             if !worktimeMain.contains(value) && !workTimeOther.contains(value) {
@@ -56,16 +58,16 @@ struct TimeComponent: View {
                                        action: { selectedValue = value })
                             }
                         }
-                    }.accentColor(Color(appSetter.appearance.color)).tint(Color(appSetter.appearance.color))
+                    }.accentColor(appSetter.color).tint(appSetter.color)
                 }
-            }.accentColor(Color(appSetter.appearance.color)).tint(Color(appSetter.appearance.color))
+            }.accentColor(appSetter.color).tint(appSetter.color)
             .frame(width: 80)
             .onChange(of: selectedValue) { newValue in
                 if let newValue = newValue {
                     interval = newValue
                 }
             }
-        }.accentColor(Color(appSetter.appearance.color)).tint(Color(appSetter.appearance.color))
+        }.accentColor(appSetter.color).tint(appSetter.color)
     }
 }
 

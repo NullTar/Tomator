@@ -18,8 +18,7 @@ struct SoundSetting: View {
     ]
 
     var body: some View {
-        VStack(alignment: .leading) {
-
+        VStack{
             Text(NSLocalizedString("Sound.Feature.setting", comment: "声音"))
                 .fontWeight(.bold).font(.caption)
                 .foregroundColor(Color.gray)
@@ -33,7 +32,7 @@ struct SoundSetting: View {
                                 comment: "提示音")
                         )
                         .frame(maxWidth: .infinity, alignment: .leading)
-                    }.toggleStyle(.switch).tint(Color(appSetter.appearance.color))
+                    }.toggleStyle(.switch).tint(appSetter.color)
                     InfoConponet(
                         label: NSLocalizedString(
                             "Sound.Feature.info",
@@ -62,7 +61,6 @@ struct SoundSetting: View {
                 }.padding(.horizontal, 8).padding(.bottom, 8)
             }.background(Color("CardView")).cornerRadius(8)
                 .shadow(color: .gray.opacity(0.5), radius: 0.4)
-            Spacer()
         }
     }
 

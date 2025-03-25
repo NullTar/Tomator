@@ -32,8 +32,6 @@ struct ForceWindowSetting: View {
                         switch activeBackground {
                         case .gradation:
                             appSetter.returnGradation()
-                        case .wallpaper:
-                            appSetter.returnWallpaper()
                         case .desktop:
                             appSetter.returnDesktop()
                         case .customize:
@@ -56,8 +54,8 @@ struct ForceWindowSetting: View {
                     .shadow(color: .gray.opacity(0.6), radius: 1)
                     .overlay {
                         Color.black.opacity(
-                            activeBackground != .gradation
-                                ? appSetter.appearance.blur : 0
+                            activeBackground == .desktop
+                            ? appSetter.appearance.opacity : 0
                         ).cornerRadius(8)
                             .onTapGesture {
                                 if activeBackground == .customize {
@@ -72,10 +70,6 @@ struct ForceWindowSetting: View {
                             "ForceWindow.Gradation", comment: "渐变")
                     ).tag(Background.gradation)
                     Text(
-                        NSLocalizedString(
-                            "ForceWindow.WallPaper", comment: "壁纸")
-                    ).tag(Background.wallpaper)
-                    Text(
                         NSLocalizedString("ForceWindow.Desktop", comment: "桌面")
                     ).tag(Background.desktop)
                     Text(
@@ -88,16 +82,29 @@ struct ForceWindowSetting: View {
                     appSetter.appearance.background = activeBackground
                 }
                 HStack {
-                    Slider(
-                        value: $appSetter.appearance.blur, in: 0...0.96,
-                        step: 0.01)
-                    InfoConponet(
-                        label: NSLocalizedString(
-                            "ForceWindowBlue.info", comment: "模糊不对 渐变 生效"))
+                    if appSetter.appearance.background == .desktop {
+                        Slider(
+                            value: $appSetter.appearance.opacity, in: 0.6...0.96,
+                            step: 0.01)
+                        InfoConponet(
+                            label: NSLocalizedString(
+                                "ForceWindowOpacity.info", comment: "不透明度只对 桌面 生效"))
+                    }
+                }.padding(.top, 4)
+                HStack {
+                    if appSetter.appearance.background == .gradation {
+                        Slider(
+                            value: $appSetter.appearance.blur, in: 0...20,
+                            step: 1)
+                        InfoConponet(
+                            label: NSLocalizedString(
+                                "ForceWindowBlur.info", comment: "模糊只对 渐变 生效"))
+                    }
                 }.padding(.top, 4)
             }
             .padding(8)
-            .background(Color("CardView")).cornerRadius(8)
+            .background(Color("CardView"))
+            .cornerRadius(8)
             .shadow(color: .gray.opacity(0.5), radius: 0.4)
         }
     }

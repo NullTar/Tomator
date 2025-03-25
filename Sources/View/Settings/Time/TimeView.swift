@@ -16,6 +16,9 @@ struct TimeView: View {
     private var longTimeStr = NSLocalizedString(
         "LongRestIntervalLength.label",
         comment: "休息时间")
+    private var numberStr = NSLocalizedString(
+        "WorkIntervalsInSet.label",
+        comment: "每组中的工作间隔数量")
     private var addTimeStr = NSLocalizedString(
         "addTimeIntervalLength.label",
         comment: "添加时间")
@@ -45,6 +48,10 @@ struct TimeView: View {
             TimeComponent(
                 leadingText: longTimeStr,
                 interval: $appTimer.longRestIntervalLength, timeType: .Long)
+            // 每组中的工作间隔数量
+            TimeComponent(
+                leadingText: numberStr,
+                interval: $appTimer.workIntervalsInSet, timeType: .Number)
             // 添加时间
             if appSetter.addTimeMenu, appTimer.currentState != .idle {
                 TimeComponent(

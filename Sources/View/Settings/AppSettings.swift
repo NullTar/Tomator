@@ -69,10 +69,13 @@ struct AppSettings: View {
                 switch selectedTab {
                 case 1:
                     SettingsWindowController.shared.updateFrame(
-                        width: 600, height: 560)
-                case 2, 3, 4, 5:
+                        width: 600, height: 640)
+                case 2, 3, 5:
                     SettingsWindowController.shared.updateFrame(
                         width: 240, height: 160)
+                case 4:
+                    SettingsWindowController.shared.updateFrame(
+                        width: 600, height: 600)
                 default:
                     SettingsWindowController.shared.updateFrame(
                         width: 600, height: 520)

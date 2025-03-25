@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5A0943712D907A810071E46A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A21B78F27EE31A30009E5DB /* Assets.xcassets */; };
 		5A0943722D907A810071E46A /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 5A691BC52D84708F00FD8D95 /* Localizable.xcstrings */; };
+		5A2E3A4F2D92AE4A0063B84D /* Colour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2E3A4E2D92AE3E0063B84D /* Colour.swift */; };
 		5A5A1B6A2D8250090048116A /* ScheduleDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5A1B692D824FFE0048116A /* ScheduleDate.swift */; };
 		5A5A1B6E2D8258A10048116A /* AppSetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5A1B6D2D8258A10048116A /* AppSetter.swift */; };
 		5A691BBE2D846E7700FD8D95 /* PreferenceSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A691BBD2D846E6E00FD8D95 /* PreferenceSettingView.swift */; };
@@ -66,6 +67,7 @@
 		5A0943032D8FDEEA0071E46A /* TomatoBarOld.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TomatoBarOld.png; sourceTree = "<group>"; };
 		5A0943052D8FDEEA0071E46A /* README_ENGLISH.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README_ENGLISH.md; sourceTree = "<group>"; };
 		5A09434B2D90015B0071E46A /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		5A2E3A4E2D92AE3E0063B84D /* Colour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colour.swift; sourceTree = "<group>"; };
 		5A5A1B692D824FFE0048116A /* ScheduleDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleDate.swift; sourceTree = "<group>"; };
 		5A5A1B6D2D8258A10048116A /* AppSetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSetter.swift; sourceTree = "<group>"; };
 		5A691BBD2D846E6E00FD8D95 /* PreferenceSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceSettingView.swift; sourceTree = "<group>"; };
@@ -303,6 +305,7 @@
 		5ABC84CC2D823DEA009A1FFE /* App */ = {
 			isa = PBXGroup;
 			children = (
+				5A2E3A4E2D92AE3E0063B84D /* Colour.swift */,
 				8A9F701E27EE536D0012A1EC /* SoundPlayer.swift */,
 				8AA5B3F12812A74600BE1A6C /* AppNotificationCenter.swift */,
 			);
@@ -476,6 +479,7 @@
 				5A8586EB2D84D3D700ED5E9D /* PopoverButtom.swift in Sources */,
 				5ABC84CB2D823AB7009A1FFE /* MenuBarController.swift in Sources */,
 				5ABC849C2D820A86009A1FFE /* AppSettings.swift in Sources */,
+				5A2E3A4F2D92AE4A0063B84D /* Colour.swift in Sources */,
 				5A5A1B6E2D8258A10048116A /* AppSetter.swift in Sources */,
 				5A8586DE2D84B2AA00ED5E9D /* WindowProperties.swift in Sources */,
 				5A8586F92D84F90B00ED5E9D /* HelpSetting.swift in Sources */,

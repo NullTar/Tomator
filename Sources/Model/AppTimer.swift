@@ -12,6 +12,9 @@ class AppTimer: ObservableObject {
 
     @ObservedObject private var appSetter = AppSetter.shared
 
+    
+    private var currentBreakIsLong = false
+    
     ///////////////////////////////// Config /////////////////////////////////
     // 工作间隔长度（分钟）
     @AppStorage("workIntervalLength") var workIntervalLength = 45
@@ -25,6 +28,8 @@ class AppTimer: ObservableObject {
     }
     // 连续工作计数
     @Published public private(set) var consecutiveWorkIntervals = 0
+    // 每组中的工作间隔数量
+    @AppStorage("workIntervalsInSet") var workIntervalsInSet = 4
     // 超时限制（秒）
     @AppStorage("overrunTimeLimit") var overrunTimeLimit = -60.0
 
@@ -51,7 +56,7 @@ class AppTimer: ObservableObject {
 
     // 公共方法：判断是否是长休息
     public var isLongRest: Bool {
-        return stateMachine.state == .rest
+        return stateMachine.state == .rest && currentBreakIsLong
     }
 
     private init() {
@@ -105,7 +110,8 @@ class AppTimer: ObservableObject {
     func updateTimeLeft() {
         if finishTime == nil {
             // 强制初始化
-            finishTime = Date().addingTimeInterval(TimeInterval(workIntervalLength * 60))
+            finishTime = Date().addingTimeInterval(
+                TimeInterval(workIntervalLength * 60))
         }
         timeLeftString = timerFormatter.string(from: Date(), to: finishTime)!
         // 更新状态栏时间
@@ -231,8 +237,9 @@ class AppTimer: ObservableObject {
         var body: String
         var length: Int
         var imgName: NSImage.Name
-
-        if shortRestIntervalLength > 0 {
+        currentBreakIsLong = false
+        
+        if shortRestIntervalLength < workIntervalsInSet {
             body = NSLocalizedString(
                 "Timer.onRestStart.short.body", comment: "小憩时间到")
             length = shortRestIntervalLength
@@ -243,8 +250,12 @@ class AppTimer: ObservableObject {
                 "Timer.onRestStart.long.body", comment: "休息时间到")
             length = longRestIntervalLength
             imgName = .longRest
+            currentBreakIsLong = true
+            consecutiveWorkIntervals = 0
             appSetter.statsManager.recordBreak(value: .Long)
         }
+
+
         // 设置图标
         MenuBarController.shared.setIcon(name: imgName)
 

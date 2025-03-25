@@ -21,9 +21,11 @@ struct PopoverView: View {
             Button("") {
                 NSApp.activate(ignoringOtherApps: true)
                 NSApp.orderFrontStandardAboutPanel()
-            }.buttonStyle(.borderless).keyboardShortcut(
-                "a", modifiers: .command
-            ).frame(maxHeight: 0).labelsHidden()
+            }
+            .buttonStyle(.borderless)
+            .keyboardShortcut("a", modifiers: .command)
+            .frame(maxHeight: 0)
+            .labelsHidden()
             PopoverTop()
                 .environmentObject(appTimer)
                 .environmentObject(appSetter)
@@ -50,8 +52,8 @@ struct PopoverView: View {
             PopoverButtom().padding(5)
         }
         .padding(16)
-        .accentColor(Color(appSetter.appearance.color))
-        .tint(Color(appSetter.appearance.color))
+        .accentColor(appSetter.color)
+        .tint(appSetter.color)
         .frame(height: windowProperties.height)
         .alert(isPresented: $showAlert) {
             Alert(

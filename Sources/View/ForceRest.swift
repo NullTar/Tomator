@@ -17,18 +17,15 @@ struct ForceRest: View {
         ZStack {
             // 背景
             switch appSetter.appearance.background {
+            case .gradation:
+                appSetter.returnGradation()
+                    .allowsHitTesting(true)
             case .desktop:
-                Color.black.opacity(appSetter.appearance.blur)
+                Color.black.opacity(appSetter.appearance.opacity)
                     .edgesIgnoringSafeArea(.all)
                     .allowsHitTesting(true)
             case .customize:
                 appSetter.returnCustomize()
-                    .allowsHitTesting(true)
-            case .gradation:
-                appSetter.returnGradation()
-                    .allowsHitTesting(true)
-            case .wallpaper:
-                appSetter.returnWallpaper()
                     .allowsHitTesting(true)
             }
             VStack {
@@ -47,7 +44,7 @@ struct ForceRest: View {
                 )
                 .font(.system(size: 64, weight: .bold))
                 .foregroundColor(
-                    Color(appSetter.appearance.color).opacity(0.9))
+                    appSetter.color.opacity(0.9))
                 // 详细提示
                 Text(
                     NSLocalizedString(
@@ -89,7 +86,7 @@ struct ForceRest: View {
                                         comment: "点击跳过")
                             )
                             .foregroundColor(
-                                Color(appSetter.appearance.color).opacity(
+                                appSetter.color.opacity(
                                     0.8))
                         }
                     ).buttonStyle(BorderlessButtonStyle())

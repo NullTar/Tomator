@@ -18,6 +18,23 @@
       },
       "shouldTranslate" : false
     },
+    "about.info" : {
+      "comment" : "app 介绍",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tomator never charges and is modified based on open source.\nMore details ⌘ + A\nSee https://github.com/NullTar/Tomator for details"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tomator永不收费，基于开源库修改。\n更多细节 ⌘ + a\n具体可查看 https://github.com/NullTar/Tomator"
+          }
+        }
+      }
+    },
     "addTimeIntervalLength.label" : {
       "comment" : "添加时间",
       "localizations" : {
@@ -65,6 +82,57 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "颜色"
+          }
+        }
+      }
+    },
+    "Color.pick" : {
+      "comment" : "选择颜色",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Picked colour"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "选择颜色"
+          }
+        }
+      }
+    },
+    "ColorSetting.help" : {
+      "comment" : "颜色帮助",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "How to choose a color?"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "如何选择颜色？"
+          }
+        }
+      }
+    },
+    "ColorSetting.help.info" : {
+      "comment" : "颜色介绍",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You can set the preselected color, or click on the first color to open the color selection panel and choose a color you like"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "可以设置预选颜色，或点击第一个颜色以打开颜色选择面板，选一个你喜欢的颜色。"
           }
         }
       }
@@ -517,36 +585,70 @@
         }
       }
     },
-    "ForceWindow.WallPaper" : {
-      "comment" : "壁纸",
+    "ForceWindowBlur.info" : {
+      "comment" : "模糊只对 渐变 生效",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wallpaper"
+            "value" : "Blur only works for gradients"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "壁纸"
+            "value" : "模糊只对 渐变 生效"
           }
         }
       }
     },
-    "ForceWindowBlue.info" : {
-      "comment" : "模糊不对 渐变 生效",
+    "ForceWindowOpacity.info" : {
+      "comment" : "不透明度只对 桌面 生效",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Blur does not apply to gradient"
+            "value" : "Opacity only works on desktop"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "模糊不对 渐变 生效"
+            "value" : "不透明度只对 桌面 生效"
+          }
+        }
+      }
+    },
+    "ForceWindowSetting.help" : {
+      "comment" : "强制窗口帮助",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Force Window"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "设置强制窗口"
+          }
+        }
+      }
+    },
+    "ForceWindowSetting.help.info" : {
+      "comment" : "强制窗口介绍",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The background of the forced window can be customized as gradients, desktop transparency, and custom images\nOf course, you can hide the skip button"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "强制窗口的背景可以自定义为渐变、桌面的透明度、和自定义图片\n当然，可以隐藏掉跳过按钮"
           }
         }
       }
@@ -653,6 +755,40 @@
         }
       }
     },
+    "MenuSetting.help" : {
+      "comment" : "菜单显示?",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "What are menu bar display Settings?"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "什么是菜单栏显示设置？"
+          }
+        }
+      }
+    },
+    "MenuSetting.help.info" : {
+      "comment" : "菜单显示介绍",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "In order to simplify pop-ups, you can customize the functions you need."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "为了精简弹出窗口，你可以自定义需要的功能。"
+          }
+        }
+      }
+    },
     "More" : {
       "comment" : "更多",
       "localizations" : {
@@ -700,6 +836,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "其他"
+          }
+        }
+      }
+    },
+    "Pomodoro.info" : {
+      "comment" : "番茄时钟介绍",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Pomodoro Technique is a method of time management by dividing work time into short blocks of time, usually 25 minutes (one pomodoro clock), with a 5-minute break after each pomodoro clock. After each of the four pomodoro clocks, the rest time can be extended appropriately (15-30 minutes). This method can help improve focus, reduce procrastination, and increase productivity.\n1. Work for 25 minutes\n2. Take a 5-minute break\n3. Work for 25 minutes\n4. Take a 5-minute break\n5. Work for 25 minutes\n6. Take a 5-minute break\n7. Work for 25 minutes\n8. Take a 5-minute break\n9. Long Break (15-30 minutes)"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "番茄时钟（Pomodoro Technique）是一种时间管理方法，通过将工作时间分割为短期的时间块，通常为25分钟（一个番茄钟），每个番茄钟后休息5分钟。每完成四个番茄钟后，休息时间可以适当延长（15-30分钟）。这种方法能够帮助提高集中力，减少拖延，提升工作效率。\n1. 工作 25 分钟\n2. 休息 5 分钟\n3. 工作 25 分钟\n4. 休息 5 分钟\n5. 工作 25 分钟\n6. 休息 5 分钟\n7. 工作 25 分钟\n8. 休息 5 分钟\n9. 长休息（15-30 分钟）"
           }
         }
       }
@@ -1063,6 +1216,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "开启时间表"
+          }
+        }
+      }
+    },
+    "Scheduletting.help" : {
+      "comment" : "时间表帮助",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "How to set a schedule？"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "如何设置时间表？"
+          }
+        }
+      }
+    },
+    "Scheduletting.help.info" : {
+      "comment" : "时间表介绍",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You can customize the date and time the Tomato clock takes effect."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你可以自定义番茄时钟生效的日期和具体时间。"
           }
         }
       }
@@ -1782,18 +1969,18 @@
       }
     },
     "Total.WorkIntervals" : {
-      "comment" : "共记工作数",
+      "comment" : "现阶段",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Today's total: %d "
+            "value" : "Now’s total: %d "
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "总计工作: %d"
+            "value" : "现阶段: %d"
           }
         }
       }
@@ -1917,6 +2104,23 @@
         }
       }
     },
+    "what.is.Pomodoro.Clock" : {
+      "comment" : "什么是番茄时钟?",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "What is Pomodoro Technique?"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "什么是番茄时钟?"
+          }
+        }
+      }
+    },
     "Window.Feature.setting" : {
       "comment" : "功能",
       "localizations" : {
@@ -1968,11 +2172,22 @@
         }
       }
     },
-    "Xcode" : {
-      "shouldTranslate" : false
-    },
-    "打开强制窗口" : {
-      "shouldTranslate" : false
+    "WorkIntervalsInSet.label" : {
+      "comment" : "每组中的工作间隔数量",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Number of short breaks in each work loop"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "每组中的工作小憩数"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"
