@@ -19,7 +19,7 @@ class MenuBarController: NSObject, NSApplicationDelegate {
     private var popover = NSPopover()  // 弹出窗口
     private var statusBarItem: NSStatusItem?  // 状态栏项
     @Published var windowProperties = WindowProperties(
-        width: 260, height: 280)
+        width: 260, height: 310)
 
     // 应用程序启动完成时调用
     func applicationDidFinishLaunching(_: Notification) {
@@ -32,7 +32,7 @@ class MenuBarController: NSObject, NSApplicationDelegate {
         popover.contentSize = NSSize(
             width: 260,
             height: popover.contentViewController?.view.intrinsicContentSize
-                .height ?? 280)
+                .height ?? 310)
         // 创建并配置状态栏项
         statusBarItem = NSStatusBar.system.statusItem(
             withLength: NSStatusItem.variableLength

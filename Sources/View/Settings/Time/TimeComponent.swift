@@ -39,10 +39,16 @@ struct TimeComponent: View {
             case .Number:
                 Array(1 ... 8)
             }
-            Menu(String.localizedStringWithFormat(minStr, interval)) {
+            Menu(timeType == .Number
+                 ? String(interval)
+                 : String.localizedStringWithFormat(minStr, interval)) {
                 ForEach(data, id: \.self) { value in
-                    Button(String.localizedStringWithFormat(minStr, value), action: {
-                        selectedValue = value })
+                    if timeType != .Number{
+                        Button(String.localizedStringWithFormat(minStr, value), action: {
+                            selectedValue = value })
+                    }else{
+                        Button(String(value)){ selectedValue = value }
+                    }
                 }
                 if timeType == TimeType.Work{
                     Divider()
