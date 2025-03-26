@@ -68,7 +68,7 @@ struct SoundSetting: View {
     private struct VolumeSlider: View {
         @Binding var volume: Double
         var body: some View {
-            Slider(value: $volume, in: 1...4,step: 0.2) {
+            Slider(value: $volume, in: 0...5,step: 0.2) {
                 Text(String(format: "%.1f", volume))
             }
             .tint(Color(AppSetter.shared.appearance.color))

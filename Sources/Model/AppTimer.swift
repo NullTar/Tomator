@@ -12,9 +12,8 @@ class AppTimer: ObservableObject {
 
     @ObservedObject private var appSetter = AppSetter.shared
 
-    
     private var currentBreakIsLong = false
-    
+
     ///////////////////////////////// Config /////////////////////////////////
     // 工作间隔长度（分钟）
     @AppStorage("workIntervalLength") var workIntervalLength = 45
@@ -129,16 +128,10 @@ class AppTimer: ObservableObject {
 
     // 启用计时器
     private func startTimer(seconds: Int) {
-        // 初始化
-        let queue = DispatchQueue(label: "Timer")
-        if timer == nil {
-            timer = DispatchSource.makeTimerSource(flags: .strict, queue: queue)
-        }
-        // 更新数据
         finishTime = Date().addingTimeInterval(TimeInterval(seconds))
-        // 配置
-        timer!.schedule(
-            deadline: .now(), repeating: .seconds(1), leeway: .never)
+        let queue = DispatchQueue(label: "Timer")
+        timer = DispatchSource.makeTimerSource(flags: .strict, queue: queue)
+        timer!.schedule(deadline: .now(), repeating: .seconds(1), leeway: .never)
         timer!.setEventHandler(handler: onTimerTick)
         timer!.setCancelHandler(handler: onTimerCancel)
         timer!.resume()
@@ -174,14 +167,10 @@ class AppTimer: ObservableObject {
     // 添加时间
     private func addTime() {
         DispatchQueue.main.async { [self] in
-            print("addTimeStart \(addTimeIntervalLength)")
-            print("finishTime \(String(describing: finishTime))")
             if addTimeIntervalLength != 0 {
                 finishTime += TimeInterval(addTimeIntervalLength * 60)
                 addTimeIntervalLength = 0
             }
-            print("finishTime \(String(describing: finishTime))")
-            print("addTimeEnd \(addTimeIntervalLength)")
         }
     }
 
@@ -234,27 +223,25 @@ class AppTimer: ObservableObject {
 
     // 休息开始处理
     private func onRestStart() {
-        var body: String
-        var length: Int
-        var imgName: NSImage.Name
+        var body = NSLocalizedString(
+            "Timer.onRestStart.short.body",
+            comment: "小憩时间到")
+        var length = shortRestIntervalLength
+        var imgName = NSImage.Name.shortRest
         currentBreakIsLong = false
-        
-        if shortRestIntervalLength < workIntervalsInSet {
+
+        if consecutiveWorkIntervals >= workIntervalsInSet {
             body = NSLocalizedString(
-                "Timer.onRestStart.short.body", comment: "小憩时间到")
-            length = shortRestIntervalLength
-            imgName = NSImage.Name.shortRest
-            appSetter.statsManager.recordBreak(value: .Short)
-        } else {
-            body = NSLocalizedString(
-                "Timer.onRestStart.long.body", comment: "休息时间到")
+                "Timer.onRestStart.long.body",
+                comment: "休息时间到")
             length = longRestIntervalLength
             imgName = .longRest
             currentBreakIsLong = true
             consecutiveWorkIntervals = 0
             appSetter.statsManager.recordBreak(value: .Long)
+        } else {
+            appSetter.statsManager.recordBreak(value: .Short)
         }
-
 
         // 设置图标
         MenuBarController.shared.setIcon(name: imgName)
@@ -271,7 +258,7 @@ class AppTimer: ObservableObject {
                 let initialTime = timerFormatter.string(
                     from: TimeInterval(length * 60))!
                 appSetter.forceRestWindowController.showForceRestWindow(
-                    timeRemaining: initialTime, isLongBreak: isLongRest)
+                    timeRemaining: initialTime, isLongBreak: currentBreakIsLong)
             }
         } else {
             appSetter.notifier.postNotification(
